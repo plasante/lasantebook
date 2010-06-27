@@ -1,4 +1,4 @@
-# This line will be in first_branch
+# This file is going back to master 
 # SQLite version 3.x
 #   gem install sqlite3-ruby (not necessary on OS X Leopard)
 development:
