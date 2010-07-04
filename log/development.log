@@ -1970,3 +1970,980 @@ Rendered book/_book_not_exists (3.0ms)
 Rendered book/_book_detail (5.0ms)
 Rendered shared/_sidebar (4.0ms)
 Completed in 2005ms (View: 59, DB: 3) | 200 OK [http://localhost/book/search?book_keyword=ruby&page=1]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 12:51:50) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw=", "page"=>"1", "book_keyword"=>"Ruby On Rails"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596518773') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1590597362') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0470374950') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596515774') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2754004092') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0321490452') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0978739205') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1932394699') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0980455200') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356123') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (7.0ms)
+Rendered book/_book_detail (21.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered shared/_sidebar (8.0ms)
+Completed in 2887ms (View: 130, DB: 6) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 12:51:56) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;36;1mBook Create (1.0ms)[0m   [0;1mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 16:51:56', NULL, NULL, '0596518773', '2010-07-04 16:51:56', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 1)[0m
+  [4;35;1mBook Update (1.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 16:51:57', "author" = 'Simon St. Laurent,Edd Dumbill', "title" = 'Learning Rails', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL160_.jpg', "release_date" = '2008-11-18', "amazon_url" = 'http://www.amazon.ca/Learning-Rails-Simon-St-Laurent/dp/0596518773%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596518773', "image_url_large" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL75_.jpg' WHERE "id" = 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 1 ) [0m
+Rendered book/_book_exists (7.0ms)
+Completed in 1013ms (View: 19, DB: 4) | 200 OK [http://localhost/book/add?isbn=0596518773]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 13:04:04) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (78.0ms)[0m   [0mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (1)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 1 ) [0m
+  [4;35;1mBook Delete all (109.0ms)[0m   [0mDELETE FROM "books" WHERE ("id" IN (1)) [0m
+Rendering book/delete
+
+ActionView::TemplateError (undefined local variable or method `book' for #<ActionView::Base:0x7f20c2fc>) on line #2 of app/views/book/delete.rjs:
+1: # display book not exists partial
+2: page['add_control_' + book.isbn].replace_html :partial => 'book_not_exists', :locals => { :book => @book }
+3: # display book deleted message and highlight id
+4: page['shelf_status_' + @book.isbn].replace_html 'Book Deleted'
+5: page['shelf_status_' + @book.isbn].visual_effect :highlight
+
+    app/views/book/delete.rjs:2:in `_run_rjs_app47views47book47delete46rjs'
+    app/views/book/delete.rjs:1:in `_run_rjs_app47views47book47delete46rjs'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (86.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 13:04:15) [POST]
+  Parameters: {"isbn"=>"1590597362", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '1590597362') LIMIT 1[0m
+  [4;35;1mBook Create (1.0ms)[0m   [0mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 17:04:15', NULL, NULL, '1590597362', '2010-07-04 17:04:15', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 2)[0m
+  [4;36;1mBook Update (1.0ms)[0m   [0;1mUPDATE "books" SET "updated_at" = '2010-07-04 17:04:15', "author" = 'Christian Hellsten,Jarkko Laine', "title" = 'Beginning Ruby on Rails E-Commerce: From Novice to Professional', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L._SL160_.jpg', "release_date" = '2006-11-06', "amazon_url" = 'http://www.amazon.ca/Beginning-Ruby-Rails-E-Commerce-Professional/dp/1590597362%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1590597362', "image_url_large" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L._SL75_.jpg' WHERE "id" = 2[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 2 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 916ms (View: 7, DB: 3) | 200 OK [http://localhost/book/add?isbn=1590597362]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 13:04:17) [POST]
+  Parameters: {"isbn"=>"1590597362", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '1590597362') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (2)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 2 ) [0m
+  [4;36;1mBook Delete all (110.0ms)[0m   [0;1mDELETE FROM "books" WHERE ("id" IN (2)) [0m
+Rendering book/delete
+
+ActionView::TemplateError (undefined local variable or method `book' for #<ActionView::Base:0x7f28c09c>) on line #2 of app/views/book/delete.rjs:
+1: # display book not exists partial
+2: page['add_control_' + book.isbn].replace_html :partial => 'book_not_exists', :locals => { :book => @book }
+3: # display book deleted message and highlight id
+4: page['shelf_status_' + @book.isbn].replace_html 'Book Deleted'
+5: page['shelf_status_' + @book.isbn].visual_effect :highlight
+
+    app/views/book/delete.rjs:2:in `_run_rjs_app47views47book47delete46rjs'
+    app/views/book/delete.rjs:1:in `_run_rjs_app47views47book47delete46rjs'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (67.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#logout (for 127.0.0.1 at 2010-07-04 13:04:44) [GET]
+Redirected to http://localhost:3000/
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/user/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-07-04 13:04:44) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Rendered user/_signin (8.0ms)
+Rendered shared/_sidebar (1.0ms)
+Completed in 47ms (View: 45, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserController#login (for 127.0.0.1 at 2010-07-04 13:04:54) [POST]
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw=", "user"=>{"password"=>"321erre1p", "login"=>"plasante"}}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE (login = 'plasante') LIMIT 1[0m
+Redirected to http://localhost:3000/user/home
+Completed in 24ms (DB: 0) | 302 Found [http://localhost/user/login]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-04 13:04:54) [GET]
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_sidebar (3.0ms)
+Completed in 64ms (View: 61, DB: 0) | 200 OK [http://localhost/user/home]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 13:05:02) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw=", "page"=>"1", "book_keyword"=>"Ruby On Rails"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596518773') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1590597362') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0470374950') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596515774') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2754004092') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0321490452') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0978739205') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1932394699') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0980455200') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356123') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered shared/_sidebar (4.0ms)
+Completed in 2081ms (View: 55, DB: 6) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 13:05:10) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;35;1mBook Create (1.0ms)[0m   [0mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 17:05:10', NULL, NULL, '0596518773', '2010-07-04 17:05:10', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 3)[0m
+  [4;36;1mBook Update (1.0ms)[0m   [0;1mUPDATE "books" SET "updated_at" = '2010-07-04 17:05:11', "author" = 'Simon St. Laurent,Edd Dumbill', "title" = 'Learning Rails', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL160_.jpg', "release_date" = '2008-11-18', "amazon_url" = 'http://www.amazon.ca/Learning-Rails-Simon-St-Laurent/dp/0596518773%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596518773', "image_url_large" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL75_.jpg' WHERE "id" = 3[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 3 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 965ms (View: 7, DB: 5) | 200 OK [http://localhost/book/add?isbn=0596518773]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 13:05:13) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (3)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 3 ) [0m
+  [4;36;1mBook Delete all (110.0ms)[0m   [0;1mDELETE FROM "books" WHERE ("id" IN (3)) [0m
+Rendering book/delete
+
+ActionView::TemplateError (undefined local variable or method `book' for #<ActionView::Base:0x7f23c358>) on line #2 of app/views/book/delete.rjs:
+1: # display book not exists partial
+2: page['add_control_' + book.isbn].replace_html :partial => 'book_not_exists', :locals => { :book => @book }
+3: # display book deleted message and highlight id
+4: page['shelf_status_' + @book.isbn].replace_html 'Book Deleted'
+5: page['shelf_status_' + @book.isbn].visual_effect :highlight
+
+    app/views/book/delete.rjs:2:in `_run_rjs_app47views47book47delete46rjs'
+    app/views/book/delete.rjs:1:in `_run_rjs_app47views47book47delete46rjs'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (66.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 17:24:54) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw=", "page"=>"1", "book_keyword"=>"Ruby On Rails"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596518773') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1590597362') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0470374950') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596515774') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2754004092') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0321490452') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0978739205') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1932394699') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0980455200') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356123') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered shared/_sidebar (3.0ms)
+Completed in 2352ms (View: 124, DB: 2) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:25:05) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;35;1mBook Create (1.0ms)[0m   [0mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:25:05', NULL, NULL, '0596518773', '2010-07-04 21:25:05', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 4)[0m
+  [4;36;1mBook Update (2.0ms)[0m   [0;1mUPDATE "books" SET "updated_at" = '2010-07-04 21:25:06', "author" = 'Simon St. Laurent,Edd Dumbill', "title" = 'Learning Rails', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL160_.jpg', "release_date" = '2008-11-18', "amazon_url" = 'http://www.amazon.ca/Learning-Rails-Simon-St-Laurent/dp/0596518773%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596518773', "image_url_large" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL75_.jpg' WHERE "id" = 4[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 4 ) [0m
+Rendered book/_book_exists (6.0ms)
+Completed in 836ms (View: 16, DB: 5) | 200 OK [http://localhost/book/add?isbn=0596518773]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:25:08) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (4)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 4 ) [0m
+  [4;36;1mBook Delete all (110.0ms)[0m   [0;1mDELETE FROM "books" WHERE ("id" IN (4)) [0m
+Rendering book/delete
+
+ActionView::TemplateError (undefined local variable or method `book' for #<ActionView::Base:0x7f198104>) on line #2 of app/views/book/delete.rjs:
+1: # display book not exists partial
+2: page['add_control_' + book.isbn].replace_html :partial => 'book_not_exists', :locals => { :book => @book }
+3: # display book deleted message and highlight id
+4: page['shelf_status_' + @book.isbn].replace_html 'Book Deleted'
+5: page['shelf_status_' + @book.isbn].visual_effect :highlight
+
+    app/views/book/delete.rjs:2:in `_run_rjs_app47views47book47delete46rjs'
+    app/views/book/delete.rjs:1:in `_run_rjs_app47views47book47delete46rjs'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (167.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:27:07) [POST]
+  Parameters: {"isbn"=>"1590597362", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '1590597362') LIMIT 1[0m
+  [4;36;1mBook Create (1.0ms)[0m   [0;1mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:27:07', NULL, NULL, '1590597362', '2010-07-04 21:27:07', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 5)[0m
+  [4;35;1mBook Update (1.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 21:27:07', "author" = 'Christian Hellsten,Jarkko Laine', "title" = 'Beginning Ruby on Rails E-Commerce: From Novice to Professional', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L._SL160_.jpg', "release_date" = '2006-11-06', "amazon_url" = 'http://www.amazon.ca/Beginning-Ruby-Rails-E-Commerce-Professional/dp/1590597362%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1590597362', "image_url_large" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L._SL75_.jpg' WHERE "id" = 5[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 5 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 694ms (View: 9, DB: 4) | 200 OK [http://localhost/book/add?isbn=1590597362]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 17:37:18) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw=", "page"=>"1", "book_keyword"=>"Ruby On Rails"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596518773') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1590597362') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0470374950') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596515774') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2754004092') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0321490452') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0978739205') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1932394699') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0980455200') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356123') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 5 ) [0m
+Rendered book/_book_exists (4.0ms)
+Rendered book/_book_detail (6.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered shared/_sidebar (3.0ms)
+Completed in 2024ms (View: 55, DB: 3) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:37:28) [POST]
+  Parameters: {"isbn"=>"1590597362", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '1590597362') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (5)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 5 ) [0m
+  [4;35;1mBook Delete all (43.0ms)[0m   [0mDELETE FROM "books" WHERE ("id" IN (5)) [0m
+Rendering book/delete
+
+ActionView::TemplateError (undefined local variable or method `book' for #<ActionView::Base:0x7eebe8c0>) on line #2 of app/views/book/delete.rjs:
+1: # display book not exists partial
+2: page['add_control_' + book.isbn].replace_html :partial => 'book_not_exists', :locals => { :book => @book }
+3: # display book deleted message and highlight id
+4: page['shelf_status_' + @book.isbn].replace_html 'Book Deleted'
+5: page['shelf_status_' + @book.isbn].visual_effect :highlight
+
+    app/views/book/delete.rjs:2:in `_run_rjs_app47views47book47delete46rjs'
+    app/views/book/delete.rjs:1:in `_run_rjs_app47views47book47delete46rjs'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (70.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:38:24) [POST]
+  Parameters: {"isbn"=>"1590597362", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '1590597362') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+
+ActiveRecord::AssociationTypeMismatch (Book(#1066440240) expected, got NilClass(#134382350)):
+  app/controllers/book_controller.rb:23:in `delete'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (54.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 17:38:36) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw=", "page"=>"1", "book_keyword"=>"Ruby On Rails"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596518773') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1590597362') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0470374950') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596515774') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2754004092') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0321490452') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0978739205') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1932394699') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0980455200') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356123') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (5.0ms)
+Rendered book/_book_detail (6.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered shared/_sidebar (4.0ms)
+Completed in 2118ms (View: 56, DB: 2) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:38:42) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;36;1mBook Create (2.0ms)[0m   [0;1mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:38:42', NULL, NULL, '0596518773', '2010-07-04 21:38:42', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 6)[0m
+  [4;35;1mBook Update (1.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 21:38:43', "author" = 'Simon St. Laurent,Edd Dumbill', "title" = 'Learning Rails', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL160_.jpg', "release_date" = '2008-11-18', "amazon_url" = 'http://www.amazon.ca/Learning-Rails-Simon-St-Laurent/dp/0596518773%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596518773', "image_url_large" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL75_.jpg' WHERE "id" = 6[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 6 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 788ms (View: 9, DB: 6) | 200 OK [http://localhost/book/add?isbn=0596518773]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:38:45) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (6)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 6 ) [0m
+  [4;35;1mBook Delete all (45.0ms)[0m   [0mDELETE FROM "books" WHERE ("id" IN (6)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (3.0ms)
+Completed in 183ms (View: 15, DB: 48) | 200 OK [http://localhost/book/delete?isbn=0596518773]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:38:53) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;35;1mBook Create (1.0ms)[0m   [0mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:38:53', NULL, NULL, '0596518773', '2010-07-04 21:38:53', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 7)[0m
+  [4;36;1mBook Update (1.0ms)[0m   [0;1mUPDATE "books" SET "updated_at" = '2010-07-04 21:38:53', "author" = 'Simon St. Laurent,Edd Dumbill', "title" = 'Learning Rails', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL160_.jpg', "release_date" = '2008-11-18', "amazon_url" = 'http://www.amazon.ca/Learning-Rails-Simon-St-Laurent/dp/0596518773%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596518773', "image_url_large" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL75_.jpg' WHERE "id" = 7[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 7 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 514ms (View: 8, DB: 5) | 200 OK [http://localhost/book/add?isbn=0596518773]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:39:09) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (7)[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 7 ) [0m
+  [4;36;1mBook Delete all (108.0ms)[0m   [0;1mDELETE FROM "books" WHERE ("id" IN (7)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (3.0ms)
+Completed in 234ms (View: 8, DB: 110) | 200 OK [http://localhost/book/delete?isbn=0596518773]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:39:24) [POST]
+  Parameters: {"isbn"=>"1590597362", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '1590597362') LIMIT 1[0m
+  [4;36;1mBook Create (2.0ms)[0m   [0;1mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:39:24', NULL, NULL, '1590597362', '2010-07-04 21:39:24', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 8)[0m
+  [4;35;1mBook Update (1.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 21:39:25', "author" = 'Christian Hellsten,Jarkko Laine', "title" = 'Beginning Ruby on Rails E-Commerce: From Novice to Professional', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L._SL160_.jpg', "release_date" = '2006-11-06', "amazon_url" = 'http://www.amazon.ca/Beginning-Ruby-Rails-E-Commerce-Professional/dp/1590597362%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1590597362', "image_url_large" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L._SL75_.jpg' WHERE "id" = 8[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 8 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 588ms (View: 7, DB: 6) | 200 OK [http://localhost/book/add?isbn=1590597362]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:40:06) [POST]
+  Parameters: {"isbn"=>"1590597362", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '1590597362') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (8)[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 8 ) [0m
+  [4;35;1mBook Delete all (110.0ms)[0m   [0mDELETE FROM "books" WHERE ("id" IN (8)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (3.0ms)
+Completed in 240ms (View: 7, DB: 113) | 200 OK [http://localhost/book/delete?isbn=1590597362]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:40:08) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;35;1mBook Create (2.0ms)[0m   [0mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:40:08', NULL, NULL, '0596518773', '2010-07-04 21:40:08', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find User with ID=3):
+  app/models/book.rb:38:in `find_or_create_from_amazon'
+  app/controllers/book_controller.rb:12:in `add'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (53.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 17:40:49) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw=", "page"=>"1", "book_keyword"=>"Ruby On Rails"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596518773') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1590597362') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0470374950') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596515774') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2754004092') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0321490452') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0978739205') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1932394699') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0980455200') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356123') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered shared/_sidebar (4.0ms)
+Completed in 2064ms (View: 57, DB: 3) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:40:56) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 9)[0m
+  [4;35;1mBook Update (2.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 21:40:57', "author" = 'Simon St. Laurent,Edd Dumbill', "title" = 'Learning Rails', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL160_.jpg', "release_date" = '2008-11-18', "amazon_url" = 'http://www.amazon.ca/Learning-Rails-Simon-St-Laurent/dp/0596518773%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596518773', "image_url_large" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL75_.jpg' WHERE "id" = 9[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 9 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 661ms (View: 7, DB: 5) | 200 OK [http://localhost/book/add?isbn=0596518773]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:40:59) [POST]
+  Parameters: {"isbn"=>"1590597362", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '1590597362') LIMIT 1[0m
+  [4;36;1mBook Create (2.0ms)[0m   [0;1mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:40:59', NULL, NULL, '1590597362', '2010-07-04 21:40:59', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 10)[0m
+  [4;35;1mBook Update (2.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 21:41:00', "author" = 'Christian Hellsten,Jarkko Laine', "title" = 'Beginning Ruby on Rails E-Commerce: From Novice to Professional', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L._SL160_.jpg', "release_date" = '2006-11-06', "amazon_url" = 'http://www.amazon.ca/Beginning-Ruby-Rails-E-Commerce-Professional/dp/1590597362%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1590597362', "image_url_large" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L._SL75_.jpg' WHERE "id" = 10[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 10 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 732ms (View: 6, DB: 8) | 200 OK [http://localhost/book/add?isbn=1590597362]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:41:01) [POST]
+  Parameters: {"isbn"=>"0470374950", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '0470374950') LIMIT 1[0m
+  [4;36;1mBook Create (2.0ms)[0m   [0;1mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:41:01', NULL, NULL, '0470374950', '2010-07-04 21:41:01', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 11)[0m
+  [4;35;1mBook Update (1.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 21:41:02', "author" = 'Antonio Cangiano', "title" = 'Ruby on Rails for Microsoft Developers', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/41v3l2nhL9L._SL160_.jpg', "release_date" = '2009-03-20', "amazon_url" = 'http://www.amazon.ca/Rails-Microsoft-Developers-Antonio-Cangiano/dp/0470374950%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0470374950', "image_url_large" = 'http://ecx.images-amazon.com/images/I/41v3l2nhL9L.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/41v3l2nhL9L._SL75_.jpg' WHERE "id" = 11[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+Rendered book/_book_exists (5.0ms)
+Completed in 655ms (View: 9, DB: 7) | 200 OK [http://localhost/book/add?isbn=0470374950]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:41:03) [POST]
+  Parameters: {"isbn"=>"0596515774", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '0596515774') LIMIT 1[0m
+  [4;36;1mBook Create (1.0ms)[0m   [0;1mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:41:03', NULL, NULL, '0596515774', '2010-07-04 21:41:03', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 12)[0m
+  [4;35;1mBook Update (1.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 21:41:03', "author" = 'David Griffiths', "title" = 'Head First Rails: A Learner''s Companion to Ruby on Rails', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/511Yt6pxmqL._SL160_.jpg', "release_date" = '2008-12-30', "amazon_url" = 'http://www.amazon.ca/Head-First-Rails-Learners-Companion/dp/0596515774%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596515774', "image_url_large" = 'http://ecx.images-amazon.com/images/I/511Yt6pxmqL.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/511Yt6pxmqL._SL75_.jpg' WHERE "id" = 12[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 12 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 793ms (View: 8, DB: 4) | 200 OK [http://localhost/book/add?isbn=0596515774]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:41:05) [POST]
+  Parameters: {"isbn"=>"2754004092", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '2754004092') LIMIT 1[0m
+  [4;36;1mBook Create (2.0ms)[0m   [0;1mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:41:05', NULL, NULL, '2754004092', '2010-07-04 21:41:05', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 13)[0m
+  [4;35;1mBook Update (2.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 21:41:05', "author" = 'Steven Holzner', "title" = 'DEBUTER AVEC RUBY ON RAILS', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/41H6YaJlX6L._SL160_.jpg', "release_date" = '2007-04-01', "amazon_url" = 'http://www.amazon.ca/DEBUTER-AVEC-RAILS-Steven-Holzner/dp/2754004092%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D2754004092', "image_url_large" = 'http://ecx.images-amazon.com/images/I/41H6YaJlX6L.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/41H6YaJlX6L._SL75_.jpg' WHERE "id" = 13[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 13 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 630ms (View: 8, DB: 5) | 200 OK [http://localhost/book/add?isbn=2754004092]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:49:03) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (9)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 9 ) [0m
+  [4;35;1mBook Delete all (110.0ms)[0m   [0mDELETE FROM "books" WHERE ("id" IN (9)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (3.0ms)
+Completed in 361ms (View: 7, DB: 112) | 200 OK [http://localhost/book/delete?isbn=0596518773]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:49:06) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;35;1mBook Create (2.0ms)[0m   [0mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:49:06', NULL, NULL, '0596518773', '2010-07-04 21:49:06', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 14)[0m
+  [4;36;1mBook Update (1.0ms)[0m   [0;1mUPDATE "books" SET "updated_at" = '2010-07-04 21:49:06', "author" = 'Simon St. Laurent,Edd Dumbill', "title" = 'Learning Rails', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL160_.jpg', "release_date" = '2008-11-18', "amazon_url" = 'http://www.amazon.ca/Learning-Rails-Simon-St-Laurent/dp/0596518773%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596518773', "image_url_large" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL75_.jpg' WHERE "id" = 14[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 14 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 635ms (View: 7, DB: 6) | 200 OK [http://localhost/book/add?isbn=0596518773]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:49:07) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (14)[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 14 ) [0m
+  [4;36;1mBook Delete all (109.0ms)[0m   [0;1mDELETE FROM "books" WHERE ("id" IN (14)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (3.0ms)
+Completed in 233ms (View: 6, DB: 112) | 200 OK [http://localhost/book/delete?isbn=0596518773]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:49:10) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;36;1mBook Create (0.0ms)[0m   [0;1mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:49:10', NULL, NULL, '0596518773', '2010-07-04 21:49:10', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 15)[0m
+  [4;35;1mBook Update (1.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 21:49:20', "author" = 'Simon St. Laurent,Edd Dumbill', "title" = 'Learning Rails', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL160_.jpg', "release_date" = '2008-11-18', "amazon_url" = 'http://www.amazon.ca/Learning-Rails-Simon-St-Laurent/dp/0596518773%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596518773', "image_url_large" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL75_.jpg' WHERE "id" = 15[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 15 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 10000ms (View: 6, DB: 5) | 200 OK [http://localhost/book/add?isbn=0596518773]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:49:20) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 15)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 15 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 136ms (View: 8, DB: 2) | 200 OK [http://localhost/book/add?isbn=0596518773]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:49:20) [POST]
+  Parameters: {"isbn"=>"1590597362", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '1590597362') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (10)[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 10 ) [0m
+  [4;35;1mBook Delete all (110.0ms)[0m   [0mDELETE FROM "books" WHERE ("id" IN (10)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (3.0ms)
+Completed in 388ms (View: 7, DB: 113) | 200 OK [http://localhost/book/delete?isbn=1590597362]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 17:49:22) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw=", "page"=>"1", "book_keyword"=>"Ruby On Rails"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596518773') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1590597362') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0470374950') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596515774') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2754004092') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0321490452') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0978739205') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1932394699') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0980455200') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356123') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 15 ) [0m
+Rendered book/_book_exists (4.0ms)
+Rendered book/_book_detail (11.0ms)
+Rendered book/_book_not_exists (4.0ms)
+Rendered book/_book_detail (6.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+Rendered book/_book_exists (4.0ms)
+Rendered book/_book_detail (5.0ms)
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 12 ) [0m
+Rendered book/_book_exists (4.0ms)
+Rendered book/_book_detail (5.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 13 ) [0m
+Rendered book/_book_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (2.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (5.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered shared/_sidebar (3.0ms)
+Completed in 2149ms (View: 117, DB: 4) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:49:27) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (15)[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 15 ) [0m
+  [4;35;1mBook Delete all (111.0ms)[0m   [0mDELETE FROM "books" WHERE ("id" IN (15)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (3.0ms)
+Completed in 232ms (View: 6, DB: 114) | 200 OK [http://localhost/book/delete?isbn=0596518773]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:49:31) [POST]
+  Parameters: {"isbn"=>"0470374950", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '0470374950') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (11)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;36;1mBook Delete all (109.0ms)[0m   [0;1mDELETE FROM "books" WHERE ("id" IN (11)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (3.0ms)
+Completed in 228ms (View: 6, DB: 110) | 200 OK [http://localhost/book/delete?isbn=0470374950]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:49:32) [POST]
+  Parameters: {"isbn"=>"0596515774", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '0596515774') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (12)[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 12 ) [0m
+  [4;35;1mBook Delete all (110.0ms)[0m   [0mDELETE FROM "books" WHERE ("id" IN (12)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (3.0ms)
+Completed in 227ms (View: 7, DB: 112) | 200 OK [http://localhost/book/delete?isbn=0596515774]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:49:34) [POST]
+  Parameters: {"isbn"=>"2754004092", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '2754004092') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (13)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 13 ) [0m
+  [4;36;1mBook Delete all (65.0ms)[0m   [0;1mDELETE FROM "books" WHERE ("id" IN (13)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (3.0ms)
+Completed in 200ms (View: 7, DB: 66) | 200 OK [http://localhost/book/delete?isbn=2754004092]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:49:43) [POST]
+  Parameters: {"isbn"=>"1590597362", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '1590597362') LIMIT 1[0m
+  [4;36;1mBook Create (2.0ms)[0m   [0;1mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:49:43', NULL, NULL, '1590597362', '2010-07-04 21:49:43', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 16)[0m
+  [4;35;1mBook Update (1.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 21:49:44', "author" = 'Christian Hellsten,Jarkko Laine', "title" = 'Beginning Ruby on Rails E-Commerce: From Novice to Professional', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L._SL160_.jpg', "release_date" = '2006-11-06', "amazon_url" = 'http://www.amazon.ca/Beginning-Ruby-Rails-E-Commerce-Professional/dp/1590597362%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1590597362', "image_url_large" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L._SL75_.jpg' WHERE "id" = 16[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 16 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 573ms (View: 8, DB: 4) | 200 OK [http://localhost/book/add?isbn=1590597362]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:49:46) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;36;1mBook Create (2.0ms)[0m   [0;1mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:49:46', NULL, NULL, '0596518773', '2010-07-04 21:49:46', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 17)[0m
+  [4;35;1mBook Update (2.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 21:49:46', "author" = 'Simon St. Laurent,Edd Dumbill', "title" = 'Learning Rails', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL160_.jpg', "release_date" = '2008-11-18', "amazon_url" = 'http://www.amazon.ca/Learning-Rails-Simon-St-Laurent/dp/0596518773%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596518773', "image_url_large" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL75_.jpg' WHERE "id" = 17[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 17 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 602ms (View: 7, DB: 7) | 200 OK [http://localhost/book/add?isbn=0596518773]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:49:52) [POST]
+  Parameters: {"isbn"=>"1590597362", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '1590597362') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (16)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 16 ) [0m
+  [4;35;1mBook Delete all (112.0ms)[0m   [0mDELETE FROM "books" WHERE ("id" IN (16)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (3.0ms)
+Completed in 237ms (View: 5, DB: 113) | 200 OK [http://localhost/book/delete?isbn=1590597362]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:49:55) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (17)[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 17 ) [0m
+  [4;36;1mBook Delete all (87.0ms)[0m   [0;1mDELETE FROM "books" WHERE ("id" IN (17)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (2.0ms)
+Completed in 207ms (View: 6, DB: 91) | 200 OK [http://localhost/book/delete?isbn=0596518773]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:49:59) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;36;1mBook Create (1.0ms)[0m   [0;1mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:49:59', NULL, NULL, '0596518773', '2010-07-04 21:49:59', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 18)[0m
+  [4;35;1mBook Update (1.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 21:50:00', "author" = 'Simon St. Laurent,Edd Dumbill', "title" = 'Learning Rails', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL160_.jpg', "release_date" = '2008-11-18', "amazon_url" = 'http://www.amazon.ca/Learning-Rails-Simon-St-Laurent/dp/0596518773%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596518773', "image_url_large" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL75_.jpg' WHERE "id" = 18[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 18 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 671ms (View: 9, DB: 4) | 200 OK [http://localhost/book/add?isbn=0596518773]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:50:02) [POST]
+  Parameters: {"isbn"=>"1590597362", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '1590597362') LIMIT 1[0m
+  [4;36;1mBook Create (2.0ms)[0m   [0;1mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:50:02', NULL, NULL, '1590597362', '2010-07-04 21:50:02', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 19)[0m
+  [4;35;1mBook Update (1.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 21:50:02', "author" = 'Christian Hellsten,Jarkko Laine', "title" = 'Beginning Ruby on Rails E-Commerce: From Novice to Professional', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L._SL160_.jpg', "release_date" = '2006-11-06', "amazon_url" = 'http://www.amazon.ca/Beginning-Ruby-Rails-E-Commerce-Professional/dp/1590597362%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1590597362', "image_url_large" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L._SL75_.jpg' WHERE "id" = 19[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 19 ) [0m
+Rendered book/_book_exists (3.0ms)
+Completed in 577ms (View: 8, DB: 6) | 200 OK [http://localhost/book/add?isbn=1590597362]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:50:04) [POST]
+  Parameters: {"isbn"=>"1590597362", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '1590597362') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (19)[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 19 ) [0m
+  [4;35;1mBook Delete all (111.0ms)[0m   [0mDELETE FROM "books" WHERE ("id" IN (19)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (3.0ms)
+Completed in 232ms (View: 7, DB: 112) | 200 OK [http://localhost/book/delete?isbn=1590597362]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:50:05) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (18)[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 18 ) [0m
+  [4;36;1mBook Delete all (44.0ms)[0m   [0;1mDELETE FROM "books" WHERE ("id" IN (18)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (3.0ms)
+Completed in 160ms (View: 7, DB: 45) | 200 OK [http://localhost/book/delete?isbn=0596518773]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:50:21) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;36;1mBook Create (2.0ms)[0m   [0;1mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:50:21', NULL, NULL, '0596518773', '2010-07-04 21:50:21', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 20)[0m
+  [4;35;1mBook Update (1.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 21:50:22', "author" = 'Simon St. Laurent,Edd Dumbill', "title" = 'Learning Rails', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL160_.jpg', "release_date" = '2008-11-18', "amazon_url" = 'http://www.amazon.ca/Learning-Rails-Simon-St-Laurent/dp/0596518773%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0596518773', "image_url_large" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/517nKp3t6hL._SL75_.jpg' WHERE "id" = 20[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 20 ) [0m
+Rendered book/_book_exists (4.0ms)
+Completed in 701ms (View: 8, DB: 5) | 200 OK [http://localhost/book/add?isbn=0596518773]
+
+
+Processing BookController#add (for 127.0.0.1 at 2010-07-04 17:50:31) [POST]
+  Parameters: {"isbn"=>"1590597362", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '1590597362') LIMIT 1[0m
+  [4;36;1mBook Create (1.0ms)[0m   [0;1mINSERT INTO "books" ("image_url_medium", "created_at", "title", "author", "isbn", "updated_at", "user_id", "image_url_large", "release_date", "description", "image_url_small", "amazon_url") VALUES(NULL, '2010-07-04 21:50:31', NULL, NULL, '1590597362', '2010-07-04 21:50:31', NULL, NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "books_users" ("created_at", "updated_at", "user_id", "book_id") VALUES ('2010-07-04 15:38:48', '2010-07-04 15:38:48', 1, 21)[0m
+  [4;35;1mBook Update (1.0ms)[0m   [0mUPDATE "books" SET "updated_at" = '2010-07-04 21:50:31', "author" = 'Christian Hellsten,Jarkko Laine', "title" = 'Beginning Ruby on Rails E-Commerce: From Novice to Professional', "image_url_medium" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L._SL160_.jpg', "release_date" = '2006-11-06', "amazon_url" = 'http://www.amazon.ca/Beginning-Ruby-Rails-E-Commerce-Professional/dp/1590597362%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1590597362', "image_url_large" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L.jpg', "image_url_small" = 'http://ecx.images-amazon.com/images/I/51RscadLb8L._SL75_.jpg' WHERE "id" = 21[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+Rendered book/_book_exists (3.0ms)
+Completed in 582ms (View: 6, DB: 4) | 200 OK [http://localhost/book/add?isbn=1590597362]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:50:39) [POST]
+  Parameters: {"isbn"=>"0596518773", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."isbn" = '0596518773') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (2.0ms)[0m   [0mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (20)[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 20 ) [0m
+  [4;35;1mBook Delete all (44.0ms)[0m   [0mDELETE FROM "books" WHERE ("id" IN (20)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (3.0ms)
+Completed in 153ms (View: 7, DB: 47) | 200 OK [http://localhost/book/delete?isbn=0596518773]
+
+
+Processing BookController#delete (for 127.0.0.1 at 2010-07-04 17:50:46) [POST]
+  Parameters: {"isbn"=>"1590597362", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw="}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."isbn" = '1590597362') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mDELETE FROM "books_users" WHERE user_id = 1 AND book_id IN (21)[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;36;1mBook Delete all (109.0ms)[0m   [0;1mDELETE FROM "books" WHERE ("id" IN (21)) [0m
+Rendering book/delete
+Rendered book/_book_not_exists (3.0ms)
+Completed in 235ms (View: 7, DB: 110) | 200 OK [http://localhost/book/delete?isbn=1590597362]

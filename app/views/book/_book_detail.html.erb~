@@ -1,0 +1,52 @@
+<div class="book_image"><img src="<%= book.image_url_small %>" /></div>
+<div class="book_info">
+    <span class="book_name">
+        <% if book.exists %>
+            <%= link_to book.title, { :controller => "book", 
+                                      :action => "show", 
+                                      :id => book.id } %>
+        <% else %>
+            <%= book.title %>
+        <% end %>
+    </span><br/>
+    Author(s): <%= book.author %><br/>
+    Release Date: <%= book.release_date %><br/>
+    ISBN: <%= book.isbn %>
+</div>
+<% if search %>
+    <div class="add_control" id="add_control_<%= book.isbn %>">
+        <% if !book.exists %>
+            <%= render :partial=>'book_not_exists',
+					   :locals => { :book => book } %>
+        <% else %>
+            <%= render :partial=>'book_exists', 
+                       :locals => { :book => book } %>
+        <% end %>
+    </div>
+<% else %>
+    <div class="add_control">
+        <% if session[:user] %>
+            <%= link_to_remote	"Delete from Shelf",
+                               	:update => 'shelf_status_' + @book.isbn,
+			             		:url => { :controller => 'book', 
+                               	:action => 'delete', 
+                               	:isbn => @book.isbn } %>
+        <% end %>
+        <div id="shelf_status_<%= book.isbn %>">
+            <span class="users_count"><%= book.users.size %> Users</span>
+        </div>
+    </div>
+    <div class="tags">
+        <span class="tags_title">Tags:</span>
+        <% if book.tag_list.length > 0 %>
+            <span class="tag_list" id="tag_list_<%= book.id %>">
+                <%= book.tag_list %>
+            </span>
+        <% else %>
+            <span class="empty_tag_list" id="tag_list_<%= book.id %>">
+                (Click to add tags)
+            </span>
+        <% end %>
+    </div>
+<% end %>
+
