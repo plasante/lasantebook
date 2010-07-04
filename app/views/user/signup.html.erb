@@ -1,0 +1,45 @@
+<%= error_messages_for 'user' %><br/>
+<div id="login_content">
+  <span class="title">Existing users, login...</span>
+  <% form_for :user, @user, :url => { :action => 'login' } do |f| %>
+    <div class="login_field">
+      <label for="user_login">Username:</label>
+      <%= f.text_field :login %><br/>
+    </div>
+    <div class="login_field">
+      <label for="user_password">Password:</label>
+      <%= f.password_field :password %><br/>
+    </div>
+    <%= submit_tag "Login" %>
+  <% end %>
+</div>
+<div id="signup_content">
+  <span class="title">Sign-up for a BookShelf account...</span>
+  <% form_for :user, @user, :url => {:action => "signup" } do |f| %>
+    <div class="signup_field">
+      <label for="user_login">Login:</label>
+      <%= f.text_field :login %><br/>
+    </div>
+    <div class="signup_field">
+      <label for="user_first_name">First Name:</label>
+      <%= f.text_field :first_name %><br/>
+    </div>
+    <div class="signup_field">
+      <label for="user_last_name">Last Name:</label>
+      <%= f.text_field :last_name %><br/>
+    </div>
+    <div class="signup_field">
+      <label for="user_email">Email:</label>
+      <%= f.text_field :email %><br/>
+    </div>
+    <div class="signup_field">
+      <label for="user_password">Password:</label>
+      <%= f.password_field :password %><br/>
+    </div>
+    <div class="signup_field">
+      <label for="user_password_confirmation">Password Confirmation:</label>
+      <%= f.password_field :password_confirmation %><br/>
+    </div>
+    <%= submit_tag "Signup" %>
+  <% end %>
+</div>

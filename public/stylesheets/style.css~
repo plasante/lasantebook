@@ -1,0 +1,400 @@
+body {
+ padding: 0;
+ margin: 0;
+ background-color: white;
+ min-width: 700px;
+ background-position: left top; 
+ background-repeat:repeat-x;
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ font-size: 80%;
+}
+
+#header {
+	height: 150px;
+	background: url(../images/header_bg.png) repeat-x;
+}
+
+#logo_image {
+	float: left; 
+	position: relative;
+}
+
+#logo_image img {
+	border: none;
+}
+
+#notice {
+	color: red;
+	font-weight: bold;
+	margin-left: 30px;
+	margin-bottom: 30px;
+}
+
+#error {
+	color: red;
+	font-weight: bold;
+	margin-left: 30px;
+	margin-bottom: 30px;
+}
+
+#join_now_text {
+	clear: both; 
+	text-align: right;
+}
+
+#Content {
+	margin:75px 0px 50px 220px;
+	padding:5px;
+}
+
+#sidebar {
+	position:absolute;
+	top:230px;
+	left:20px;
+	width:170px;
+}
+
+#Menu {
+	display:block;
+	float:left;
+	padding:10px;
+	background-color:#eee;
+	border:1px dashed #999;
+	line-height:17px;
+	width:170px;
+	margin-bottom: 20px;
+}
+
+#home_menu {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#home_menu li {
+ padding-top: 20px;
+ padding-bottom: 20px;
+ font-size: 1.5em;
+ color: blue;
+}
+
+.home_quote {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	float: left;
+	margin-left: 25px;
+	font-size: 12pt;
+ color: #777777; 
+ border: 3px solid #0066cc; 
+ width: 75%;
+ padding: 15px;
+ background-color: #a6cae1;
+}
+
+.home_quote.quote_title {
+	display: block;
+	font-size:14pt;
+	font-weight:bold;
+	color:gray;	
+	margin-bottom: 15px;
+}
+
+
+#signup_content {
+	float: left;
+	padding-left: 50px;
+	width: 400px;
+	text-align: left;
+}
+
+#signup_content.title, #login_content.title {
+	font-weight: bold;
+}
+
+.signup_field,.login_field {
+	white-space: nowrap; 
+	padding-bottom:.5em; 
+	text-align: left;
+}
+
+.signup_field label,.login_field label {
+	display:block;
+	float:left;
+	margin-right:0.5em;
+	text-align:right;
+	width:12em;
+}
+
+.signup_field input,.login_field input {
+	text-align: left;
+}
+
+
+#user_menu {
+ float:right;
+ font-weight: bold;
+ margin-right: 35px;
+ margin-top: 15px;
+}
+
+#user_menu a, #user_menu a:visited {
+ color: orange;
+}
+
+.signin_box {
+    float: left;
+    background: #cccccc;
+    border: solid 1px #f98919;
+    padding-bottom: 6px;
+    padding-top: 8px;
+    padding-right: 10px;
+    margin-top: 10px;
+	text-align: right;
+	width: 250px;
+	height: 100px;
+}
+
+#signin_form {
+	margin: 0px;
+	padding: 0px;
+}
+
+#signin_button {
+	margin: 0px;
+	padding: 0px;
+}
+
+#sign_in_title {
+    padding-bottom: 5px;
+	text-align:left;
+	margin-left:20px;
+	color: gray;
+	font-weight: bold;
+	font-size: 12pt;
+}
+
+#signin_section {
+ float: right;
+ margin-right: 25px;
+}
+
+.signin_field {
+ margin-bottom: 8px;
+ color:gray;
+}
+
+
+#user_nav_menu {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#user_nav_menu li {
+ padding-top: 20px;
+ padding-bottom: 20px;
+ font-size: 1.5em;
+ color: blue;
+}
+
+#user_nav_menu input {
+	clear: both;
+	float: left;
+	width: 160px;
+}
+
+#user_nav_menu #search_button {
+	width: 100px;	
+}
+
+#book_search_field {
+ width: 230px;
+ float: left;
+ margin-top: 5px;
+ margin-bottom: 5px;
+}
+
+#search_button {
+ float:left;
+}
+
+
+
+.book_data_first {
+ float:left;
+ margin-bottom: 25px;
+ border: 1px solid #cccccc;
+ padding: 15px;
+ width: 80%;
+}
+
+.book_data {
+ float:left; 
+ clear:both;
+ margin-bottom: 25px;
+ border: 1px solid #cccccc;
+ padding: 15px;
+ width: 80%;
+}
+
+.book_image {
+	float:left;
+}
+
+#book_image {
+ float: left;
+	padding: 20px;
+	background-color: lightblue;
+	width: 130px;
+}
+
+#book_view {
+	margin-left: 25px;
+}
+
+.book_info {
+ float: left; 
+ padding-left: 15px;
+ text-align: left;
+ width: 70%;
+}
+
+.book_name {
+ font-weight: bold;
+}
+
+.add_control {
+ color: green;
+ float: right;
+ text-align: right;
+}
+
+#book_keyword {
+	margin-top: 10px;
+	margin-bottom: 10px;	
+}
+
+.on_shelf {
+	display: block;
+	color: green;
+	font-weight: bold;	
+	margin-top: 20px;
+}
+
+.not_on_shelf {
+	display: block;
+	color: red;	
+	margin-top: 20px;
+}
+
+
+#book_view_upper {
+	float: left;
+	border: solid thin #cccccc;
+	padding: 10px;
+	width: 80%;	
+}
+
+#book_summary {
+	float: left;
+	margin-left: 20px;	
+	line-height: 1.5em;
+}
+
+#book_summary .book_title {
+	font-weight: bold;
+	font-size: 12pt;
+	color: #f98919;
+	display: block;
+	margin-bottom: 5px;
+}
+
+
+.tag_cloud_title, .tag_cloud_title_current {
+	float: left;
+	display: block;
+	background-color: #f98919;
+	color: white;
+	line-height: 2em;
+	margin-bottom: 15px;
+	padding-left: 5px;
+	width: 40%;
+	border-right: thin solid black;
+	border-left: thin solid black;
+}
+
+.tag_cloud_title:hover {
+	background-color: black;	
+	font-weight: bold;
+}
+
+.tag_cloud_title_current {
+	background-color: green;	
+	font-weight: bold;
+}
+
+
+#book_reviews {
+	float: left;
+	clear: both;	
+	margin-top: 25px;
+	width: 100%;
+}
+
+.reviews_title {
+	font-weight: bold;
+	font-size: 14pt;
+	color: #f98919;
+}
+
+#review_field {
+	width: 200px;
+}
+
+.review {
+	margin-top: 15px;
+	border: solid thin gray;
+	padding: 10px;
+}
+
+.review_header {
+	display: block;
+	border-bottom: solid thin gray;
+	line-height: 1.5em;
+}
+
+.review_title {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.review_user {
+	display: block;
+}
+
+.review_date {
+	display: block;
+}
+
+.review_body {
+	display: block;
+	margin-top: 20px;
+}
+
+#add_review_form {
+	margin: 10px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+	border: solid thin #cccccc;
+	padding: 10px;
+	background-color: #ffcc99;
+}
+
+#add_review_form label {
+	font-weight: bold;
+}
+
+#review_submit_btn {
+	margin-top: 10px;
+}
+
+

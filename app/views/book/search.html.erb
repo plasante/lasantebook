@@ -1,0 +1,15 @@
+<% if @books && @books.size > 0 %>
+	<% first = true %>
+	<% @books.each do |book| %>
+		<% if (first == true) %>
+			<% first = false %>
+			<div class="book_data_first">
+		<% else %>
+			<div class="book_data">
+		<% end %>
+			<%= render :partial => 'book_detail', :locals => { :book => book, :search => true } %>
+		</div>
+	<% end %>
+<% else %>
+  	<%= "No matching books found." %>
+<% end %>
