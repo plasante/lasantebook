@@ -1491,3 +1491,482 @@ Rendered book/_book_not_exists (3.0ms)
 Rendered book/_book_detail (4.0ms)
 Rendered shared/_sidebar (4.0ms)
 Completed in 1971ms (View: 52, DB: 2) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 12:14:58) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw=", "page"=>"1", "book_keyword"=>"The singularity"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0143037889') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0744011183') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0441011799') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0140375988') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '3540620435') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1156996546') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '076531777X') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1597801518') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1432755706') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0521406935') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (5.0ms)
+Rendered book/_book_detail (17.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered shared/_sidebar (9.0ms)
+Completed in 2765ms (View: 117, DB: 3) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 12:15:04) [GET]
+  Parameters: {"page"=>"2"}
+
+Amazon::AWS::Error::MinimumParameterRequirement (Your request should have atleast 1 of the following parameters: Keywords, Title, Power, BrowseNode, Artist, Author, Actor, Director, AudienceRating, Manufacturer, MusicLabel, Composer, Publisher, Brand, Conductor, Orchestra, TextStream, Cuisine, City, Neighborhood.):
+  lib/amazon/aws/search.rb:198:in `error_check'
+  lib/amazon/aws/search.rb:367:in `search'
+  lib/amazon_interface.rb:29:in `find_by_keyword'
+  app/models/book.rb:8:in `search_amazon'
+  app/controllers/book_controller.rb:5:in `search'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (57.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 12:15:56) [GET]
+  Parameters: {"page"=>"2"}
+
+Amazon::AWS::Error::MinimumParameterRequirement (Your request should have atleast 1 of the following parameters: Keywords, Title, Power, BrowseNode, Artist, Author, Actor, Director, AudienceRating, Manufacturer, MusicLabel, Composer, Publisher, Brand, Conductor, Orchestra, TextStream, Cuisine, City, Neighborhood.):
+  lib/amazon/aws/search.rb:198:in `error_check'
+  lib/amazon/aws/search.rb:367:in `search'
+  lib/amazon_interface.rb:29:in `find_by_keyword'
+  app/models/book.rb:8:in `search_amazon'
+  app/controllers/book_controller.rb:5:in `search'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (53.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#logout (for 127.0.0.1 at 2010-07-04 12:17:43) [GET]
+Redirected to http://localhost:3000/
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/user/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-07-04 12:17:43) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Rendered user/_signin (6.0ms)
+Rendered shared/_sidebar (0.0ms)
+Completed in 42ms (View: 41, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserController#login (for 127.0.0.1 at 2010-07-04 12:17:52) [POST]
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw=", "user"=>{"password"=>"321erre1p", "login"=>"plasante"}}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE (login = 'plasante') LIMIT 1[0m
+Redirected to http://localhost:3000/user/home
+Completed in 24ms (DB: 1) | 302 Found [http://localhost/user/login]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-04 12:17:52) [GET]
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_sidebar (4.0ms)
+Completed in 59ms (View: 56, DB: 1) | 200 OK [http://localhost/user/home]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 12:17:56) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw=", "page"=>"1", "book_keyword"=>"ruby"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596529260') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1556437854') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0805013148') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596514271') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596516177') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356476') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356166') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0345500938') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0135485126') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0758232187') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (5.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered shared/_sidebar (3.0ms)
+Completed in 1995ms (View: 54, DB: 4) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 12:18:05) [GET]
+  Parameters: {"page"=>"2"}
+
+Amazon::AWS::Error::MinimumParameterRequirement (Your request should have atleast 1 of the following parameters: Keywords, Title, Power, BrowseNode, Artist, Author, Actor, Director, AudienceRating, Manufacturer, MusicLabel, Composer, Publisher, Brand, Conductor, Orchestra, TextStream, Cuisine, City, Neighborhood.):
+  lib/amazon/aws/search.rb:198:in `error_check'
+  lib/amazon/aws/search.rb:367:in `search'
+  lib/amazon_interface.rb:29:in `find_by_keyword'
+  app/models/book.rb:8:in `search_amazon'
+  app/controllers/book_controller.rb:5:in `search'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (180.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 12:34:05) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw=", "page"=>"1", "book_keyword"=>"ruby"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596529260') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1556437854') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0805013148') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596514271') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596516177') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356476') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356166') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0345500938') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0135485126') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0758232187') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered shared/_sidebar (3.0ms)
+Completed in 2011ms (View: 53, DB: 0) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 12:34:12) [GET]
+  Parameters: {"page"=>"2"}
+
+Amazon::AWS::Error::MinimumParameterRequirement (Your request should have atleast 1 of the following parameters: Keywords, Title, Power, BrowseNode, Artist, Author, Actor, Director, AudienceRating, Manufacturer, MusicLabel, Composer, Publisher, Brand, Conductor, Orchestra, TextStream, Cuisine, City, Neighborhood.):
+  lib/amazon/aws/search.rb:198:in `error_check'
+  lib/amazon/aws/search.rb:367:in `search'
+  lib/amazon_interface.rb:29:in `find_by_keyword'
+  app/models/book.rb:8:in `search_amazon'
+  app/controllers/book_controller.rb:5:in `search'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (51.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 12:34:18) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw=", "page"=>"1", "book_keyword"=>"ruby"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596529260') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1556437854') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0805013148') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596514271') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596516177') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356476') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356166') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0345500938') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0135485126') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0758232187') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (5.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (5.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (2.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered shared/_sidebar (4.0ms)
+Completed in 2063ms (View: 58, DB: 1) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 12:35:54) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"YSsynAieFbN/cVw4vMAAklzLg3nMvEm0HGFqIN3B1Tw=", "page"=>"1", "book_keyword"=>"ruby"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596529260') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1556437854') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0805013148') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596514271') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596516177') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356476') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356166') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0345500938') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0135485126') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0758232187') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered shared/_sidebar (4.0ms)
+Completed in 2049ms (View: 54, DB: 2) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 12:36:01) [GET]
+  Parameters: {"page"=>"2", "book_keyword"=>"ruby"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0142301337') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1430223634') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0439598443') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0448435675') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1595825762') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0590189239') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0380789892') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0448428547') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1929229488') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1571744347') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered shared/_sidebar (4.0ms)
+Completed in 1907ms (View: 55, DB: 0) | 200 OK [http://localhost/book/search?book_keyword=ruby&page=2]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 12:36:14) [GET]
+  Parameters: {"page"=>"3", "book_keyword"=>"ruby"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1552639630') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0321545044') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0448431823') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1554701287') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0889202486') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596523696') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0439957400') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (1.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356093') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1419957740') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0590474235') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (1.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (4.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered shared/_sidebar (4.0ms)
+Completed in 1835ms (View: 54, DB: 4) | 200 OK [http://localhost/book/search?book_keyword=ruby&page=3]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 12:36:19) [GET]
+  Parameters: {"page"=>"2", "book_keyword"=>"ruby"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0142301337') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1430223634') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0439598443') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0448435675') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1595825762') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0590189239') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0380789892') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0448428547') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1929229488') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1571744347') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (4.0ms)
+Rendered book/_book_detail (5.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered shared/_sidebar (2.0ms)
+Completed in 1852ms (View: 54, DB: 1) | 200 OK [http://localhost/book/search?book_keyword=ruby&page=2]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-04 12:36:23) [GET]
+  Parameters: {"page"=>"1", "book_keyword"=>"ruby"}
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596529260') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1556437854') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0805013148') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596514271') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0596516177') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356476') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (1.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1934356166') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0345500938') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0135485126') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0758232187') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (5.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (2.0ms)
+Rendered book/_book_detail (3.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (4.0ms)
+Rendered book/_book_not_exists (3.0ms)
+Rendered book/_book_detail (5.0ms)
+Rendered shared/_sidebar (4.0ms)
+Completed in 2005ms (View: 59, DB: 3) | 200 OK [http://localhost/book/search?book_keyword=ruby&page=1]
