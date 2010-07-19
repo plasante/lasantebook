@@ -17,6 +17,8 @@ class UserController < ApplicationController
   end
   
   def home
+    current_user = User.find( session[:user] )
+    @books = current_user.books
     @title = "BookShelf - User Home"
   end
 

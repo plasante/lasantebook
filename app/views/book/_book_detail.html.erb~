@@ -27,26 +27,14 @@
     <div class="add_control">
         <% if session[:user] %>
             <%= link_to_remote	"Delete from Shelf",
-                               	:update => 'shelf_status_' + @book.isbn,
+                               	:update => 'shelf_status_' + book.isbn,
 			             		:url => { :controller => 'book', 
                                	:action => 'delete', 
-                               	:isbn => @book.isbn } %>
+                               	:isbn => book.isbn } %>
         <% end %>
         <div id="shelf_status_<%= book.isbn %>">
             <span class="users_count"><%= book.users.size %> Users</span>
         </div>
-    </div>
-    <div class="tags">
-        <span class="tags_title">Tags:</span>
-        <% if book.tag_list.length > 0 %>
-            <span class="tag_list" id="tag_list_<%= book.id %>">
-                <%= book.tag_list %>
-            </span>
-        <% else %>
-            <span class="empty_tag_list" id="tag_list_<%= book.id %>">
-                (Click to add tags)
-            </span>
-        <% end %>
     </div>
 <% end %>
 

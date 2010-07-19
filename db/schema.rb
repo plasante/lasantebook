@@ -12,7 +12,6 @@
 ActiveRecord::Schema.define(:version => 3) do
 
   create_table "books", :force => true do |t|
-    t.integer  "user_id"
     t.string   "title"
     t.string   "author"
     t.date     "release_date"
