@@ -25,4 +25,9 @@ class BookController < ApplicationController
       Book.delete( @book.id )
     end
   end
+
+  def show
+    @book = Book.find(params[:id])
+    @title = "Book Detail"
+  end
 end

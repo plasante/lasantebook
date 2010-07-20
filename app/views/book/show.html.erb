@@ -1,0 +1,19 @@
+<div id="book_view">
+    <div id="book_view_upper">
+        <div id="book_image">
+            <%= image_tag @book.image_url_medium %>  
+        </div>
+        <div id="book_summary">
+            <span class="book_title"><%= @book.title %></span>
+            Author: <%= @book.author %><br/>
+            <div id="book_details">
+                Release Date: <%= @book.release_date %><br/>
+                ISBN: <%= @book.isbn %><br/><br/>
+            </div>
+            Users: <%= @book.users.size %><br/>
+            Added to BookShelf on: <%= @book.created_at %><br/><br/>
+            <%= link_to "Buy from Amazon", @book.amazon_url, :class => "action_button" %><br/><br/>
+        </div>
+    </div>
+    <div style="clear:both;">&nbsp;</div>
+</div>
