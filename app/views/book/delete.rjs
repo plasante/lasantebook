@@ -1,0 +1,6 @@
+# display book not exists partial
+page['add_control_' + @book.isbn].replace_html :partial=>'book_not_exists', :locals => { :book => @book }
+
+# flash book deleted message and fade it away
+page['shelf_status_' + @book.isbn].replace_html 'Book Deleted'
+page['shelf_status_' + @book.isbn].visual_effect :highlight
