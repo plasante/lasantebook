@@ -1,9 +1,12 @@
 class User < ActiveRecord::Base
+  has_and_belongs_to_many :books
+
   attr_accessor :password, :password_confirmation
   attr_protected :password_salt
 
-  has_and_belongs_to_many :books
 
+  acts_as_tagger
+  
   validates_length_of :login, :within => 3..40
   validates_length_of :password, :within => 5..40
   validates_presence_of :login, :email

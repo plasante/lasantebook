@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
   has_and_belongs_to_many :users
-
+  acts_as_taggable
+  
   attr_accessor :exists
 
   def Book.search_amazon(keyword, page, user_id)

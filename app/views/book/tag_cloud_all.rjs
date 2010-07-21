@@ -1,0 +1,7 @@
+page[:cloud_view].replace_html tag_cloud_revised(@tags)
+
+page[:my_tags_link].remove_class_name :tag_cloud_title_current
+page[:my_tags_link].add_class_name :tag_cloud_title
+
+page[:all_tags_link].remove_class_name :tag_cloud_title
+page[:all_tags_link].add_class_name :tag_cloud_title_current

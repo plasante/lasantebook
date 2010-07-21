@@ -1,30 +1,5 @@
 <div id="sidebar">
-  <div id="Menu">
-    <ul id="user_nav_menu">
-      <% if logged_in %>
-        <li>
-          <%= link_to 'My Books', :controller => 'user', :action => 'home', :user_id => session[:user].id %>
-        </li>
-        <li>
-          <%= link_to 'All Books', :controller => 'book', :action => 'list' %>
-        </li>
-        <li>
-          <% form_tag ({:controller => 'book', :action => 'search'}) do %>
-            <input type="hidden" name="page" value="1" />
-            <span id="add_book_title">Add Book</span>
-            <%= text_field_tag "book_keyword" %>
-            <%= submit_tag "Search", :id => 'search_button' %>
-          <% end %>
-        </li>
-      <% else %>
-        <ul id="home_menu">
-          <% if !session[:user] %>
-            <li><%= link_to 'Join Now', :controller => 'user', :action => 'signup' %></li>
-          <% end %>  
-            <li><%= link_to 'View the Books', :controller => 'book', :action => 'list' %>
-        </ul>
-      <% end %>
-    </ul>
-  </div>
-  <div style="clear:both;">&nbsp;</div>
+    <%= render :partial=>"shared/nav_menu" %>
+    <%= render :partial=>"shared/tag_cloud" %>
+    <div style="clear:both;">&nbsp;</div>
 </div>

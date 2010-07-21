@@ -1,4 +1,9 @@
 class BookController < ApplicationController
+  def list
+    @books = Book.find(:all)
+    @title = "BookShelf All Books"
+  end
+  
   def search
     @prev_page = params[:page].to_i - 1
     @next_page = params[:page].to_i + 1
@@ -29,5 +34,28 @@ class BookController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @title = "Book Detail"
+  end
+
+  def tag_cloud_user
+    @tags = session[:user].tags
+  end
+
+  def tag_cloud_all
+    @tags = Tag.find(:all, :limit => 100, :order => 'taggings_count DESC').sort_by(&:name)
+  end
+
+  def show_for_tag
+    @tag = params[:id]
+    @books = Book.find_tagged_with(@tag)
+  end
+
+  def update_tags
+    editor_id = params[:editorId]
+    book_id = editor_id.split('_')[-1]
+    tags = params[:value]
+    book = Book.find(book_id)
+    #book.user_id = session[:user]
+    book.tag_list = tags
+    book.save
   end
 end

@@ -3,7 +3,7 @@ body {
  margin: 0;
  background-color: white;
  min-width: 700px;
- background-position: left top; 
+ background-position: left top;
  background-repeat:repeat-x;
  font-family: Verdana, Arial, Helvetica, sans-serif;
  font-size: 80%;
@@ -15,7 +15,7 @@ body {
 }
 
 #logo_image {
-	float: left; 
+	float: left;
 	position: relative;
 }
 
@@ -38,7 +38,7 @@ body {
 }
 
 #join_now_text {
-	clear: both; 
+	clear: both;
 	text-align: right;
 }
 
@@ -83,8 +83,8 @@ body {
 	float: left;
 	margin-left: 25px;
 	font-size: 12pt;
- color: #777777; 
- border: 3px solid #0066cc; 
+ color: #777777;
+ border: 3px solid #0066cc;
  width: 75%;
  padding: 15px;
  background-color: #a6cae1;
@@ -94,7 +94,7 @@ body {
 	display: block;
 	font-size:14pt;
 	font-weight:bold;
-	color:gray;	
+	color:gray;
 	margin-bottom: 15px;
 }
 
@@ -103,16 +103,16 @@ body {
 	float: left;
 	padding-left: 50px;
 	width: 400px;
-	text-align: left;
-        font-weight: bold;
+	text-align: right;
 }
 
 #signup_content.title, #login_content.title {
+	font-weight:bold;
 }
 
 .signup_field,.login_field {
-	white-space: nowrap; 
-	padding-bottom:.5em; 
+	white-space: nowrap;
+	padding-bottom:.5em;
 	text-align: left;
 }
 
@@ -203,7 +203,7 @@ body {
 }
 
 #user_nav_menu #search_button {
-	width: 100px;	
+	width: 100px;
 }
 
 #book_search_field {
@@ -228,7 +228,7 @@ body {
 }
 
 .book_data {
- float:left; 
+ float:left;
  clear:both;
  margin-bottom: 25px;
  border: 1px solid #cccccc;
@@ -252,7 +252,7 @@ body {
 }
 
 .book_info {
- float: left; 
+ float: left;
  padding-left: 15px;
  text-align: left;
  width: 70%;
@@ -270,19 +270,19 @@ body {
 
 #book_keyword {
 	margin-top: 10px;
-	margin-bottom: 10px;	
+	margin-bottom: 10px;
 }
 
 .on_shelf {
 	display: block;
 	color: green;
-	font-weight: bold;	
+	font-weight: bold;
 	margin-top: 20px;
 }
 
 .not_on_shelf {
 	display: block;
-	color: red;	
+	color: red;
 	margin-top: 20px;
 }
 
@@ -291,12 +291,12 @@ body {
 	float: left;
 	border: solid thin #cccccc;
 	padding: 10px;
-	width: 80%;	
+	width: 80%;
 }
 
 #book_summary {
 	float: left;
-	margin-left: 20px;	
+	margin-left: 20px;
 	line-height: 1.5em;
 }
 
@@ -323,19 +323,19 @@ body {
 }
 
 .tag_cloud_title:hover {
-	background-color: black;	
+	background-color: black;
 	font-weight: bold;
 }
 
 .tag_cloud_title_current {
-	background-color: green;	
+	background-color: green;
 	font-weight: bold;
 }
 
 
 #book_reviews {
 	float: left;
-	clear: both;	
+	clear: both;
 	margin-top: 25px;
 	width: 100%;
 }
@@ -396,5 +396,4 @@ body {
 #review_submit_btn {
 	margin-top: 10px;
 }
-
 
