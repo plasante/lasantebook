@@ -20708,3 +20708,19 @@ Rendered review/_add_review_form (0.0ms)
   [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
 Rendered book/_book_reviews (47.0ms)
 Completed in 141ms (View: 47, DB: 0) | 200 OK [http://localhost/review/create]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2010-07-22 18:42:23) [GET]
+Redirected to http://localhost:3000/
+Completed in 15ms (DB: 0) | 302 Found [http://localhost/user/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-07-22 18:42:23) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Rendered user/_signin (0.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (47.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (47.0ms)
+Rendered shared/_sidebar (47.0ms)
+Completed in 78ms (View: 15, DB: 47) | 200 OK [http://localhost/]
