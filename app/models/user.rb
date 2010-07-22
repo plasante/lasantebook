@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :books
+  has_many :reviews
 
   attr_accessor :password, :password_confirmation
   attr_protected :password_salt

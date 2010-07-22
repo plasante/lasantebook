@@ -15,5 +15,8 @@
             <%= link_to "Buy from Amazon", @book.amazon_url, :class => "action_button" %><br/><br/>
         </div>
     </div>
+    <div id="reviews_content">
+      <%= render :partial => 'book_reviews', :locals => { :book => @book } %>  
+    </div>
     <div style="clear:both;">&nbsp;</div>
 </div>

@@ -1,5 +1,6 @@
 class Book < ActiveRecord::Base
   has_and_belongs_to_many :users
+  has_many :reviews
   acts_as_taggable
   
   attr_accessor :exists
