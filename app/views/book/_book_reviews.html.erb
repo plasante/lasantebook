@@ -2,6 +2,9 @@
   <span class="reviews_title">User Reviews (<%= book.reviews.size %>)</span>
   <hr/>
   <% if logged_in %>
+    <div id="rating">
+      <%= render :partial => "rate", :locals => { :asset => book} %>  
+    </div>
     <div id="add_review">
       <% if book.reviews.size == 0 %>
         <% add_review_text = "Be the first to review this book" %>

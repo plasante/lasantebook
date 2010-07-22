@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 5) do
+ActiveRecord::Schema.define(:version => 6) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(:version => 5) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "rating",                      :default => 0
+    t.datetime "created_at",                                  :null => false
+    t.string   "rateable_type", :limit => 15, :default => "", :null => false
+    t.integer  "rateable_id",                 :default => 0,  :null => false
+    t.integer  "user_id",                     :default => 0,  :null => false
+  end
+
+  add_index "ratings", ["user_id"], :name => "fk_ratings_user"
 
   create_table "reviews", :force => true do |t|
     t.integer  "user_id"
