@@ -3,7 +3,7 @@
   <hr/>
   <% if logged_in %>
     <div id="rating">
-      <%= render :partial => "rate", :locals => { :asset => book} %>  
+      <%= render :partial => "book/rate", :locals => { :asset => book} %>  
     </div>
     <div id="add_review">
       <% if book.reviews.size == 0 %>
