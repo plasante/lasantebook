@@ -1,7 +1,10 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-# one:
-#   column: value
-#
-# two:
-#   column: value
+one:
+  id: 1
+  login: plasante
+  email: plasante@email.com
+valid_user:
+  login: plasante
+  email: plasante@email.com
+  password_salt: fTliIb0EwB
+  password_hash: e419b427acb9097f4b48fd190b47303188d9d093
+  

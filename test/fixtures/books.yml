@@ -1,7 +1,20 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-# one:
-#   column: value
-#
-# two:
-#   column: value
+one:
+  id: 1
+  title: Ruby on Rails Bible
+  author: Timothy Fisher
+  description: A book about the Rails framework.
+  release_date: May 12, 2008
+  image_url_small: http://www.rubyonrailsbible.com/small.jpg
+  image_url_medium: http://www.rubyonrailsbible.com/medium.jpg
+  image_url_large: http://www.rubyonrailsbible.com/large.jpg
+  amazon_url: http://www.rubyonrailsbible.com
+two:
+  id: 2
+  title: A Test Book
+  author: John Tester
+  description: A book about testing.
+  release_date: January 1, 2007
+  image_url_small: http://www.testing.com/small.jpg
+  image_url_medium: http://www.testing.com/medium.jpg
+  image_url_large: http://www.testing.com/large.jpg
+  amazon_url: http://www.testing.com  

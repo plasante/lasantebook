@@ -1,6 +1,6 @@
 <div id="signin_section">
   <div class="signin_box">
-    <% form_tag ({:controller=> "user", :action=> "login"}, {:id=>'signin_form'}) do %>
+    <% form_tag({:controller=> "user", :action=> "login"}, {:id=>'signin_form'}) do %>
       <div class="signin_field">
         <label for="user_login">Username:</label>
         <%= text_field "user", "login", :size => 20 %>

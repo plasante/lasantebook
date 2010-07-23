@@ -1,7 +1,7 @@
 class BookController < ApplicationController
   def list
     @books = Book.find(:all)
-    @title = "BookShelf All Books"
+    @title = "Book Shelf All Books"
   end
   
   def search

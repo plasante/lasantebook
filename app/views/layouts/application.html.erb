@@ -15,7 +15,7 @@
         <%= render :partial => "user/signin" %>
       <% else %>
         <div id="user_menu">
-          <%= link_to 'Logout', :controller => 'user', :action => 'logout' %>
+          Welcome <%= User.find(session[:user]).first_name %> <%= link_to 'Logout', :controller => 'user', :action => 'logout' %>
         </div>
       <% end %>
       <div style="clear: both; height: 0px;"></div>
