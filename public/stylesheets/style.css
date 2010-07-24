@@ -43,15 +43,15 @@ body {
 }
 
 #Content {
-	margin:75px 0px 50px 220px;
+	margin: 5px 0 50px 190px;
 	padding:5px;
 }
 
 #sidebar {
-	position:absolute;
-	top:230px;
-	left:20px;
-	width:170px;
+	position: absolute;
+	top:   160px;
+	left:   10px;
+	width: 170px;
 }
 
 #Menu {
@@ -59,7 +59,7 @@ body {
 	float:left;
 	padding:10px;
 	background-color:#eee;
-	border:1px dashed #999;
+	border:1px solid;
 	line-height:17px;
 	width:170px;
 	margin-bottom: 20px;
@@ -217,11 +217,14 @@ body {
  float:left;
 }
 
-
+.info_title {
+	margin: 10px 10px 10px 20px;
+	clear: both;
+}
 
 .book_data_first {
  float:left;
- margin-bottom: 25px;
+ margin: 0 10px 0 20px;
  border: 1px solid #cccccc;
  padding: 15px;
  width: 80%;
@@ -230,7 +233,7 @@ body {
 .book_data {
  float:left;
  clear:both;
- margin-bottom: 25px;
+ margin: 10px 10px 0px 20px;
  border: 1px solid #cccccc;
  padding: 15px;
  width: 80%;
