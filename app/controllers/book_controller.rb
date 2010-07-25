@@ -55,12 +55,13 @@ class BookController < ApplicationController
   end
 
   def update_tags
-    editor_id = params[:editorId]
-    book_id = editor_id.split('_')[-1]
+    @editor_id = params[:editorId]
+    book_id = @editor_id.split('_')[-1]
     tags = params[:value]
-    book = Book.find(book_id)
-    book.user_id = session[:user]
-    book.tag_list = tags
-    book.save
+    @book = Book.find(book_id)
+    @book.user_id = session[:user]
+    @book.tag_list = tags
+    @book.save
+    render :text => @book.tag_list
   end
 end
