@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
   end
   
   def self.number_of_users_exceeded?
-    num = User.find_by_sql("select count(*) number from users")[0].number.to_i
+    num = User.find_by_sql("select count(*) as number from users")[0].number.to_i
     if num > 99
       true
     else

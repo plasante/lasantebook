@@ -7,7 +7,7 @@ class Review < ActiveRecord::Base
   protected
   
   def self.number_of_reviews_exceeded?
-    num = Review.find_by_sql("select count(*) number from reviews")[0].number.to_i
+    num = Review.find_by_sql("select count(*) as number from reviews")[0].number.to_i
     if num > 500
       true
     else

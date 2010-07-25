@@ -70,7 +70,7 @@ class Book < ActiveRecord::Base
   protected
   
   def self.number_of_books_exceeded?
-    num = Book.find_by_sql("select count(*) number from books")[0].number.to_i
+    num = Book.find_by_sql("select count(*) as number from books")[0].number.to_i
     if num > 100
       true
     else
