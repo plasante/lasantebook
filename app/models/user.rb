@@ -41,4 +41,13 @@ class User < ActiveRecord::Base
     1.upto(len) { |i| newpass << chars[rand(chars.size-1)] }
     return newpass
   end
+  
+  def self.number_of_users_exceeded?
+    num = User.find_by_sql("select count(*) number from users")[0].number.to_i
+    if num > 99
+      true
+    else
+      false
+    end
+  end
 end

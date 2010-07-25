@@ -4,14 +4,17 @@ class UserController < ApplicationController
   def signup
     @title = "Signup"
     if request.post? and params[:user]
-      @user = User.new(params[:user]) 
-      if @user.save
-        session[:user] = @user
-        flash[:notice] = "User #{@user.login} created!"
-        redirect_to :action => "home"
+      @user = User.new(params[:user])
+      if User.number_of_users_exceeded?
+        flash[:error] = "Number of users is exceeded"
       else
-        flash[:error] = "Signup unsuccessful"
-        #@user.clear_password!
+        if @user.save
+          session[:user] = @user
+          flash[:notice] = "User #{@user.login} created!"
+          redirect_to :action => "home"
+        else
+          flash[:error] = "Signup unsuccessful"
+        end
       end
     end
   end
