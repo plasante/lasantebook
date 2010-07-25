@@ -1,2 +1,0 @@
-Welcome <%= User.find(session[:user]).first_name %>
-<%= render :partial => 'book/list_books', :locals => {:books => @books} %>

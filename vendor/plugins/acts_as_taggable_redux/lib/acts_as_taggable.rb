@@ -98,7 +98,7 @@ AND #{Tagging.table_name}.tag_id = #{Tag.table_name}.id",
 
         def user_id=(new_user_id)
           @new_user_id = new_user_id
-          super(new_user_id)
+          #super(new_user_id)
         end
 
         def tag_list(user = nil)

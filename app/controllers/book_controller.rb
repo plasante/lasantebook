@@ -41,7 +41,8 @@ class BookController < ApplicationController
   end
 
   def tag_cloud_user
-    @tags = session[:user].tags
+    #@tags = session[:user].tags
+    @tags = User.find(session[:user]).tags
   end
 
   def tag_cloud_all
@@ -58,7 +59,7 @@ class BookController < ApplicationController
     book_id = editor_id.split('_')[-1]
     tags = params[:value]
     book = Book.find(book_id)
-    #book.user_id = session[:user]
+    book.user_id = session[:user]
     book.tag_list = tags
     book.save
   end
