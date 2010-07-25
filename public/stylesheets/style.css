@@ -27,7 +27,7 @@ body {
 	color: red;
 	font-weight: bold;
 	margin-left: 30px;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 
 #error {
@@ -43,7 +43,7 @@ body {
 }
 
 #Content {
-	margin: 5px 0 50px 190px;
+	margin: 5px 0 50px 210px;
 	padding:5px;
 }
 
@@ -81,13 +81,13 @@ body {
 .home_quote {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	float: left;
-	margin-left: 25px;
+	margin-left: 20px;
 	font-size: 12pt;
- color: #777777;
- border: 3px solid #0066cc;
- width: 75%;
- padding: 15px;
- background-color: #a6cae1;
+ 	color: #777777;
+ 	border: 3px solid #0066cc;
+ 	width: 75%;
+ 	padding: 15px;
+ 	background-color: #a6cae1;
 }
 
 .home_quote.quote_title {
@@ -100,14 +100,25 @@ body {
 
 
 #signup_content {
+    border: 1px solid black;
+    float: left;
+    margin: 0 5px 5px 10px;
+    padding: 5px;
+    text-align: left;
+    width: 400px;
+}
+
+#login_content {
 	float: left;
-	padding-left: 50px;
+	padding: 5px;
+	margin: 0px 0px 0px 0px;
 	width: 400px;
-	text-align: right;
+	text-align: left;
+	border: solid 1px black;	
 }
 
 #signup_content.title, #login_content.title {
-	font-weight:bold;
+	font-weight: bold;
 }
 
 .signup_field,.login_field {
@@ -126,6 +137,7 @@ body {
 
 .signup_field input,.login_field input {
 	text-align: left;
+	background-color: #FFFF00;
 }
 
 
@@ -141,17 +153,18 @@ body {
 }
 
 .signin_box {
+    background: none repeat scroll 0 0 #CCCCCC;
+    border: 1px solid #F98919;
     float: left;
-    background: #cccccc;
-    border: solid 1px #f98919;
+    height: 100px;
+    margin-top: 15px;
     padding-bottom: 6px;
-    padding-top: 8px;
     padding-right: 10px;
-    margin-top: 10px;
-	text-align: right;
-	width: 250px;
-	height: 100px;
+    padding-top: 8px;
+    text-align: right;
+    width: 250px;
 }
+
 
 #signin_form {
 	margin: 0px;

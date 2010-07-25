@@ -1,6 +1,6 @@
 <%= error_messages_for 'user' %><br/>
 <div id="login_content">
-  <span class="title">Existing users, login...</span>
+  <span class="title" style="font-weight: bold;">Existing users, login...</span><br/><br/>
   <% form_for :user, @user, :url => { :action => 'login' } do |f| %>
     <div class="login_field">
       <label for="user_login">Username:</label>
@@ -14,7 +14,7 @@
   <% end %>
 </div>
 <div id="signup_content">
-  <span class="title">Sign-up for a BookShelf account...</span>
+  <span class="title" style="font-weight: bold;">Sign-up for a BookShelf account...</span><br/><br/>
   <% form_for :user, @user, :url => {:action => "signup" } do |f| %>
     <div class="signup_field">
       <label for="user_login">Login:</label>

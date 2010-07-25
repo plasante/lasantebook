@@ -4,7 +4,7 @@ class UserController < ApplicationController
   def signup
     @title = "Signup"
     if request.post? and params[:user]
-      @user = User.new(params[:user])
+      @user = User.new(params[:user]) 
       if @user.save
         session[:user] = @user
         flash[:notice] = "User #{@user.login} created!"
