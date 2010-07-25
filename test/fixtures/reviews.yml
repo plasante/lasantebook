@@ -1,0 +1,10 @@
+one:
+  user_id: 1
+  book_id: 1
+  body: This is a test review.
+  title: Test Review 1
+two:
+  user_id: 1
+  book_id: 1
+  body: Another test review.
+  title: Test Review 2
