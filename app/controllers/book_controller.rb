@@ -15,10 +15,14 @@ class BookController < ApplicationController
   def add
     isbn = params[:isbn]
     book = Book.find_or_create_from_amazon( isbn , session[:user] )
-    if book.save
-      render :partial => 'book_exists', :locals => { :book => book }
+    if Book.number_of_books_exceeded?
+      render :text => 'Number of books is exceeded'
     else
-      render :text => 'Failed to add book'
+      if book.save
+        render :partial => 'book_exists', :locals => { :book => book }
+      else
+        render :text => 'Failed to add book'
+      end
     end
   end
 

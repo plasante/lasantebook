@@ -66,4 +66,15 @@ class Book < ActiveRecord::Base
   def after_find
     self.exists = true
   end
+  
+  protected
+  
+  def self.number_of_books_exceeded?
+    num = Book.find_by_sql("select count(*) number from books")[0].number.to_i
+    if num > 100
+      true
+    else
+      false
+    end
+  end
 end
