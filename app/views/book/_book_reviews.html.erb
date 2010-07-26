@@ -21,18 +21,18 @@
     <div id="add_review_form" style="display:none;">
       <%= render :partial=>"review/add_review_form", :locals => { :book => book } %>  
     </div>
-    <div id="reviews">
-      <% book.reviews.each do |review| %>
-        <div class="review">
-          <div class="review_header">
-            <span class="review_title"><%= review.title %></span>
-            <span class="review_user">Submitted by: <%= review.user.login %></span>
-            <span class="review_date">Submitted at: <%= review.created_at %></span>
-          </div>
-          <span class="review_body"><%= review.body %></span>
-        </div>
-      <% end %>
-    </div>
-    <div style="clear:both;">&nbsp;</div>
   <% end %>
+	<div id="reviews">
+	  <% book.reviews.each do |review| %>
+	    <div class="review">
+	      <div class="review_header">
+	        <span class="review_title"><%= review.title %></span>
+	        <span class="review_user">Submitted by: <%= review.user.login %></span>
+	        <span class="review_date">Submitted at: <%= review.created_at %></span>
+	      </div>
+	      <span class="review_body"><%= review.body %></span>
+	    </div>
+	  <% end %>
+	</div>
+	<div style="clear:both;">&nbsp;</div>
 </div>
