@@ -238,7 +238,7 @@ body {
 	clear: both;
 }
 
-.book_data_first {
+.asset_data_first {
  float:left;
  margin: 0 10px 0 20px;
  border: 1px solid #cccccc;
@@ -246,7 +246,7 @@ body {
  width: 80%;
 }
 
-.book_data {
+.asset_data {
  float:left;
  clear:both;
  margin: 10px 10px 0px 20px;

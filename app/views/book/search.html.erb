@@ -15,9 +15,9 @@
 	<% @books.each do |book| %>
 		<% if (first == true) %>
 			<% first = false %>
-			<div class="book_data_first">
+			<div class="asset_data_first">
 		<% else %>
-			<div class="book_data">
+			<div class="asset_data">
 		<% end %>
 			<%= render :partial => 'book_detail', :locals => { :book => book, :search => true } %>
 		</div>

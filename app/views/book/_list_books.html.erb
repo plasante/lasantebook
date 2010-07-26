@@ -2,9 +2,9 @@
 <% books.each do |book| %>
   <% if (count == 0) %>
     <% count = 1 %>
-    <div class="book_data_first">
+    <div class="asset_data_first">
   <% else %>
-    <div class="book_data">
+    <div class="asset_data">
   <% end %>
   <%= render :partial => 'book/book_detail', :locals => { :book => book, :search => false } %>
   </div>
