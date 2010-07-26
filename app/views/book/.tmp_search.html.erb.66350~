@@ -1,0 +1,28 @@
+<% if @prev_page > 0 %>
+  <%= link_to "Prev page", :controller => 'book',
+                           :action => 'search',
+                           :book_keyword => @keyword,
+                           :page => @prev_page %>
+<% end %>
+<% if @books && @books.size == 10 %>
+  <%= link_to "Next page", :controller => 'book',
+                           :action => 'search',
+                           :book_keyword => @keyword,
+                           :page => @next_page %>
+<% end %>
+<% if @books && @books.size > 0 %>
+	<% first = true %>
+	<% @books.each do |book| %>
+		<% if (first == true) %>
+			<% first = false %>
+			<div class="book_data_first">
+		<% else %>
+			<div class="book_data">
+		<% end %>
+			<%= render :partial => 'book_detail', :locals => { :book => book, :search => true } %>
+		</div>
+	<% end %>
+<% else %>
+  <%= "No matching books found." unless @prev_page > 0 %>
+  <%= "No additional matching books found." unless @prev_page == 0 %>
+<% end %>

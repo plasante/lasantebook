@@ -1,0 +1,22 @@
+<% count = 0 %>
+<% books.each do |book| %>
+  <% if (count == 0) %>
+    <% count = 1 %>
+    <div class="book_data_first">
+  <% else %>
+    <div class="book_data">
+  <% end %>
+  <%= render :partial => 'book/book_detail', :locals => { :book => book, :search => false } %>
+  </div>
+<% end %>
+<div style="clear:both">&nbsp;</div>
+
+<% if logged_in %>
+    <script>
+        document.observe('dom:loaded', function() {
+           <% books.each do |book| %>
+			  new Ajax.InPlaceEditor('tag_list_<%= book.id %>', '/book/update_tags?authenticity_token=<%= form_authenticity_token() %>');
+           <% end %>
+        });
+    </script>
+<% end %>
