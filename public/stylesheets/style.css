@@ -212,7 +212,6 @@ body {
 #user_nav_menu input {
 	clear: both;
 	float: left;
-	width: 160px;
 }
 
 #user_nav_menu #search_button {
@@ -227,7 +226,11 @@ body {
 }
 
 #search_button {
- float:left;
+ 	-moz-border-radius: 16px 16px 16px 16px; 
+	border-width: 1px; 
+	border-color: olive; 
+	font-size: 100%; 
+	padding: 0px 6px;
 }
 
 .info_title {
