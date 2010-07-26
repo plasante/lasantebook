@@ -1,0 +1,38 @@
+<div id="book_reviews">
+  <span class="reviews_title">User Reviews (<%= book.reviews.size %>)</span>
+  <hr/>
+  <% if logged_in %>
+    <div id="rating">
+      <%= render :partial => "book/rate", :locals => { :asset => book} %>  
+    </div>
+    <div id="add_review">
+      <% if book.reviews.size == 0 %>
+        <% add_review_text = "Be the first to review this book" %>
+      <% else %>
+        <% add_review_text = "Add a review" %>
+      <% end %>
+      <span class="reviews_add">
+        <%= link_to_function add_review_text, "show_add_review_form()" %>
+      </span>
+    </div>
+    <div id="cancel_add_review" style="display:none;">
+      <%= link_to_function "Cancel Review", "show_add_review_form()" %>  
+    </div>
+    <div id="add_review_form" style="display:none;">
+      <%= render :partial=>"review/add_review_form", :locals => { :book => book } %>  
+    </div>
+  <% end %>
+	<div id="reviews">
+	  <% book.reviews.each do |review| %>
+	    <div class="review">
+	      <div class="review_header">
+	        <span class="review_title"><%= review.title %></span>
+	        <span class="review_user">Submitted by: <%= review.user.login %></span>
+	        <span class="review_date">Submitted at: <%= review.created_at %></span>
+	      </div>
+	      <span class="review_body"><%= review.body %></span>
+	    </div>
+	  <% end %>
+	</div>
+	<div style="clear:both;">&nbsp;</div>
+</div>

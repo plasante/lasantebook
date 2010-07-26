@@ -1,6 +1,6 @@
 <div id="book_view">
     <div id="book_view_upper">
-        <div id="asset_image">
+        <div id="book_image">
             <%= image_tag @book.image_url_medium %>  
         </div>
         <div id="book_summary">

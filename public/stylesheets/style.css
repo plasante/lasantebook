@@ -255,11 +255,11 @@ body {
  width: 80%;
 }
 
-.book_image {
+.asset_image {
 	float:left;
 }
 
-#book_image {
+#asset_image {
  float: left;
 	padding: 20px;
 	background-color: lightblue;
@@ -290,6 +290,11 @@ body {
 #book_keyword {
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+#dvd_keyword {
+	margin-top: 10px;
+	margin-bottom: 10px;	
 }
 
 .on_shelf {

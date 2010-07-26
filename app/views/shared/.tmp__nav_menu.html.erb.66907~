@@ -3,15 +3,8 @@
         <% if logged_in %>
             <li><%= link_to 'My Books', :controller=>'user',
                                         :action=>'home',
-                                        :user_id=>session[:user],
-										:items=>'books'%></li>
-			<li><%= link_to 'My DVDs ', :controller=>'user',
-                                        :action=>'home',
-                                        :user_id=>session[:user],
-                                        :items=>'dvds' %></li>
+                                        :user_id=>session[:user] %></li>
             <li><%= link_to 'All Books', :controller=>'book',
-                                         :action=>'list' %></li>
-			<li><%= link_to 'All DVDs',  :controller=>'dvd',
                                          :action=>'list' %></li>
             <li>
                 <% form_tag ({:controller=> "book", :action=> "search"}) do %>

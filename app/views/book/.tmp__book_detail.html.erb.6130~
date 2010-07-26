@@ -1,4 +1,4 @@
-<div class="asset_image"><img src="<%= book.image_url_small %>" /></div>
+<div class="book_image"><img src="<%= book.image_url_small %>" /></div>
 <div class="book_info">
     <span class="book_name">
         <% if book.exists %>

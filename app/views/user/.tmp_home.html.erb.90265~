@@ -1,0 +1,1 @@
+<%= render :partial => 'book/list_books', :locals => {:books => @books} %>

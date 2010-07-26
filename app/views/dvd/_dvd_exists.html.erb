@@ -1,0 +1,8 @@
+<%= link_to_remote "Delete from Shelf",
+                  :url => { :controller => 'dvd',
+                  :action => 'delete', 
+                  :isbn => dvd.isbn } %><br/>
+<div id="shelf_status_<%= dvd.isbn %>">
+    <span class="on_shelf">On Shelf</span>
+    <span class="users_count"><%= dvd.users.size %> Users</span>
+</div>

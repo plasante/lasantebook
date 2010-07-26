@@ -1,0 +1,6 @@
+<%= link_to_remote	"Add to Shelf", 
+                   	:update => 'add_control_' + dvd.isbn,
+             		:url => { :controller => 'dvd', 
+                   	:action => 'add', 
+                   	:isbn => dvd.isbn } %><br/>
+<div id="shelf_status_<%= dvd.isbn %>"></div>

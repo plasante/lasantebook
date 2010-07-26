@@ -33,6 +33,22 @@ ActiveRecord::Schema.define(:version => 7) do
   end
 
   create_table "dvds", :force => true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.date     "release_date"
+    t.text     "description"
+    t.string   "image_url_small"
+    t.string   "image_url_medium"
+    t.string   "image_url_large"
+    t.string   "amazon_url"
+    t.string   "isbn"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "dvds_users", :id => false, :force => true do |t|
+    t.integer  "dvd_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,6 +66,7 @@ ActiveRecord::Schema.define(:version => 7) do
   create_table "reviews", :force => true do |t|
     t.integer  "user_id"
     t.integer  "book_id"
+    t.integer  "dvd_id"
     t.text     "body"
     t.string   "title"
     t.datetime "created_at"

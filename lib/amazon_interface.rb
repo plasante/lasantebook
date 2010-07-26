@@ -23,8 +23,8 @@ class AmazonInterface
   end
   
   
-  def find_by_keyword(keyword, page)
-    is = ItemSearch.new('Books', {'Keywords' => keyword, 'ItemPage' => page })
+  def find_by_keyword(keyword, page, item = 'Books')
+    is = ItemSearch.new(item, {'Keywords' => keyword, 'ItemPage' => page })
     rg = ResponseGroup.new('Medium')
     resp = @request.search(is)
     products = resp.item_search_response.items.item

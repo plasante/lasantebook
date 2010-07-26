@@ -1,1 +1,5 @@
-<%= render :partial => 'book/list_books', :locals => {:books => @books} %>
+<% if @items == 'books' %>
+	<%= render :partial => 'book/list_books', :locals => {:books => @books} %>
+<% else %>
+    <%= render :partial => 'dvd/list_dvds', :locals => {:dvds => @dvds} %>
+<% end %>

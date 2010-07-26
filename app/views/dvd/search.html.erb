@@ -1,0 +1,28 @@
+<% if @prev_page > 0 %>
+  <%= link_to "Prev page", :controller => 'dvd',
+                           :action => 'search',
+                           :dvd_keyword => @keyword,
+                           :page => @prev_page %>
+<% end %>
+<% if @dvds && @dvds.size == 10 %>
+  <%= link_to "Next page", :controller => 'dvd',
+                           :action => 'search',
+                           :dvd_keyword => @keyword,
+                           :page => @next_page %>
+<% end %>
+<% if @dvds && @dvds.size > 0 %>
+	<% first = true %>
+	<% @dvds.each do |dvd| %>
+		<% if (first == true) %>
+			<% first = false %>
+			<div class="asset_data_first">
+		<% else %>
+			<div class="asset_data">
+		<% end %>
+			<%= render :partial => 'dvd_detail', :locals => { :dvd => dvd, :search => true } %>
+		</div>
+	<% end %>
+<% else %>
+  <%= "No matching dvds found." unless @prev_page > 0 %>
+  <%= "No additional matching dvds found." unless @prev_page == 0 %>
+<% end %>

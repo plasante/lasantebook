@@ -1,0 +1,6 @@
+# display dvd not exists partial
+page['add_control_' + @dvd.isbn].replace_html :partial=>'dvd_not_exists', :locals => { :dvd => @dvd }
+
+# flash dvd deleted message and fade it away
+page['shelf_status_' + @dvd.isbn].replace_html 'DVD Deleted'
+page['shelf_status_' + @dvd.isbn].visual_effect :highlight

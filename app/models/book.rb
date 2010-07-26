@@ -8,7 +8,7 @@ class Book < ActiveRecord::Base
 
   def Book.search_amazon(keyword, page, user_id)
       search = AmazonInterface.new
-      results = search.find_by_keyword(keyword, page)
+      results = search.find_by_keyword(keyword, page, 'Books')
       return Book.convert_amazon_results(results, user_id)
   end
   

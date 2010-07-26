@@ -1,1 +1,51 @@
-dvd detail
+<div class="asset_image"><img src="<%= dvd.image_url_small %>" /></div>
+<div class="book_info">
+    <span class="book_name">
+        <% if dvd.exists %>
+            <%= link_to dvd.title, { :controller => "dvd",
+                                      :action => "show",
+                                      :id => dvd.id } %>
+        <% else %>
+            <%= dvd.title %>
+        <% end %>
+    </span><br/>
+    Author(s): <%= dvd.author %><br/>
+    Release Date: <%= dvd.release_date %><br/>
+    ISBN: <%= dvd.isbn %>
+</div>
+<% if search %>
+    <div class="add_control" id="add_control_<%= dvd.isbn %>">
+        <% if !dvd.exists %>
+            <%= render :partial=>'dvd_not_exists',
+					   :locals => { :dvd => dvd } %>
+        <% else %>
+            <%= render :partial=>'dvd_exists',
+                       :locals => { :dvd => dvd } %>
+        <% end %>
+    </div>
+<% else %>
+    <div class="add_control" id="add_control_<%= dvd.isbn %>">
+        <% if session[:user] %>
+            <%= link_to_remote	"Delete from Shelf",
+			             		:url => { :controller => 'dvd',
+                               	:action => 'delete',
+                               	:isbn => dvd.isbn } %>
+        <% end %>
+        <div id="shelf_status_<%= dvd.isbn %>">
+            <span class="users_count"><%= dvd.users.size %> Users</span>
+        </div>
+    </div>
+    <div class="tags" style="clear: both;">
+		<div id="pierre_div"></div>
+        <span class="tags_title">Tags:</span>
+        <% if dvd.tag_list.length > 0 %>
+            <span class="tag_list" id="tag_list_<%= dvd.id %>">
+                <%= dvd.tag_list %>
+            </span>
+        <% else %>
+            <span class="empty_tag_list" id="tag_list_<%= dvd.id %>">
+                (Click to add tags)
+            </span>
+        <% end %>
+    </div>
+<% end %>

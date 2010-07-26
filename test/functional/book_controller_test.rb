@@ -24,7 +24,7 @@ class BookControllerTest < ActionController::TestCase
     assert_response :success
     assert_template "show"
     # To verify that the page rendered contains a div tag with id attribute equals to book_image
-    assert_select "div#book_image"
+    assert_select "div#asset_image"
     assert_select "div#book_summary"
     assert_select "div#book_reviews"
     assert_select "div#reviews" do          # to verify that a div with id reviews has two children with class review
