@@ -30762,3 +30762,942 @@ Rendered shared/_nav_menu (0.0ms)
 Rendered shared/_tag_cloud (16.0ms)
 Rendered shared/_sidebar (16.0ms)
 Completed in 78ms (View: 63, DB: 0) | 200 OK [http://localhost/book/show_for_tag/pdf]
+
+
+Processing BookController#show (for 127.0.0.1 at 2010-07-26 10:55:20) [GET]
+  Parameters: {"id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering book/show
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (156.0ms)
+Rendered review/_add_review_form (0.0ms)
+Rendered book/_book_reviews (156.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (15.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 266ms (View: 234, DB: 0) | 200 OK [http://localhost/book/show/11]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 10:55:24) [POST]
+  Parameters: {"rating"=>"3", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRating Delete all (0.0ms)[0m   [0;1mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 1) [0m
+  [4;35;1mRating Create (0.0ms)[0m   [0mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(3, 'Book', 11, 1, '2010-07-26 14:55:24')[0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (16.0ms)
+Completed in 156ms (View: 16, DB: 0) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=3]
+
+
+Processing BookController#show (for 127.0.0.1 at 2010-07-26 10:55:26) [GET]
+  Parameters: {"id"=>"11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering book/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Rendered review/_add_review_form (0.0ms)
+Rendered book/_book_reviews (47.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (156.0ms)
+Rendered shared/_sidebar (156.0ms)
+Completed in 266ms (View: 250, DB: 0) | 200 OK [http://localhost/book/show/11]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 10:55:30) [POST]
+  Parameters: {"rating"=>"4", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;35;1mBook Load (15.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRating Delete all (109.0ms)[0m   [0mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 1) [0m
+  [4;36;1mRating Create (0.0ms)[0m   [0;1mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(4, 'Book', 11, 1, '2010-07-26 14:55:30')[0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Completed in 281ms (View: 31, DB: 124) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=4]
+
+
+Processing BookController#show (for 127.0.0.1 at 2010-07-26 10:55:32) [GET]
+  Parameters: {"id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering book/show
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Rendered review/_add_review_form (16.0ms)
+Rendered book/_book_reviews (62.0ms)
+  [4;36;1mUser Load (16.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 140ms (View: 109, DB: 16) | 200 OK [http://localhost/book/show/11]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2010-07-26 10:55:35) [GET]
+Redirected to http://localhost:3008/
+Completed in 15ms (DB: 0) | 302 Found [http://localhost/user/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-07-26 10:55:35) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Rendered user/_signin (0.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserController#login (for 127.0.0.1 at 2010-07-26 10:55:39) [POST]
+  Parameters: {"user"=>{"password"=>"jujube", "login"=>"cspenard"}, "commit"=>"Login", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE (login = 'cspenard') LIMIT 1[0m
+Redirected to http://localhost:3008/user/home
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/user/login]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-26 10:55:39) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 2 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (0.0ms)
+Rendered book/_list_books (16.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 94ms (View: 63, DB: 0) | 200 OK [http://localhost/user/home]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-26 10:55:42) [GET]
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 11)) [0m
+Rendered book/_book_detail (31.0ms)
+  [4;35;1mUser Load (16.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 12 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 12)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 13 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 13)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 16 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 16)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mUser Load (16.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 19 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 19)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 20 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 20)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;36;1mTag Load (15.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (15.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 23 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 23)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 187ms (View: 125, DB: 47) | 200 OK [http://localhost/book/list]
+
+
+Processing BookController#show (for 127.0.0.1 at 2010-07-26 10:55:46) [GET]
+  Parameters: {"id"=>"23"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 23) [0m
+Rendering template within layouts/application
+Rendering book/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 23 ) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 23) [0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 23 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Rendered review/_add_review_form (0.0ms)
+Rendered book/_book_reviews (47.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 125ms (View: 94, DB: 0) | 200 OK [http://localhost/book/show/23]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-26 10:55:53) [GET]
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 11)) [0m
+Rendered book/_book_detail (46.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 12 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 12)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 13 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 13)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 16 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 16)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 19 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 19)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 20 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 20)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (15.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 23 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 23)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 156ms (View: 140, DB: 0) | 200 OK [http://localhost/book/list]
+
+
+Processing BookController#show (for 127.0.0.1 at 2010-07-26 10:55:56) [GET]
+  Parameters: {"id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering book/show
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Rendered review/_add_review_form (0.0ms)
+Rendered book/_book_reviews (46.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_nav_menu (16.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 140ms (View: 125, DB: 0) | 200 OK [http://localhost/book/show/11]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 10:56:01) [POST]
+  Parameters: {"rating"=>"5", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mRating Delete all (0.0ms)[0m   [0;1mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 2) [0m
+  [4;35;1mRating Create (15.0ms)[0m   [0mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(5, 'Book', 11, 1, '2010-07-26 14:56:01')[0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (16.0ms)
+Completed in 125ms (View: 16, DB: 15) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=5]
+
+
+Processing BookController#show (for 127.0.0.1 at 2010-07-26 10:56:03) [GET]
+  Parameters: {"id"=>"11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering book/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Rendered review/_add_review_form (0.0ms)
+Rendered book/_book_reviews (47.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 156ms (View: 125, DB: 0) | 200 OK [http://localhost/book/show/11]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 10:56:05) [POST]
+  Parameters: {"rating"=>"3", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mRating Delete all (15.0ms)[0m   [0mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 2) [0m
+  [4;36;1mRating Create (0.0ms)[0m   [0;1mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(3, 'Book', 11, 1, '2010-07-26 14:56:05')[0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Completed in 359ms (View: 31, DB: 15) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=3]
+
+
+Processing BookController#show (for 127.0.0.1 at 2010-07-26 10:56:07) [GET]
+  Parameters: {"id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering book/show
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Rendered review/_add_review_form (0.0ms)
+Rendered book/_book_reviews (63.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 141ms (View: 125, DB: 0) | 200 OK [http://localhost/book/show/11]
+
+
+Processing ReviewController#create (for 127.0.0.1 at 2010-07-26 10:56:53) [POST]
+  Parameters: {"commit"=>"Create", "review"=>{"body"=>"That's what I'm saying!", "title"=>"Awesome!", "book_id"=>"11"}, "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mReview Load (0.0ms)[0m   [0mselect count(*) as number from reviews[0m
+  [4;36;1mReview Create (0.0ms)[0m   [0;1mINSERT INTO "reviews" ("updated_at", "body", "title", "user_id", "book_id", "created_at") VALUES('2010-07-26 14:56:53', 'That''s what I''m saying!', 'Awesome!', 2, 11, '2010-07-26 14:56:53')[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+Rendering review/create
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (156.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+Rendered review/_add_review_form (15.0ms)
+  [4;35;1mReview Load (0.0ms)[0m   [0mSELECT * FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered book/_book_reviews (171.0ms)
+Completed in 312ms (View: 187, DB: 0) | 200 OK [http://localhost/review/create]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-26 10:57:01) [GET]
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 11)) [0m
+Rendered book/_book_detail (31.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 12 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 12)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 13 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 13)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 16 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 16)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 19 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 19)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 20 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 20)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (15.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 23 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 23)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;36;1mUser Load (15.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (16.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 156ms (View: 110, DB: 31) | 200 OK [http://localhost/book/list]
+
+
+Processing BookController#show_for_tag (for 127.0.0.1 at 2010-07-26 10:57:05) [GET]
+  Parameters: {"id"=>"java"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT DISTINCT books.* FROM "books" LEFT OUTER JOIN taggings books_taggings ON books_taggings.taggable_id = books.id AND books_taggings.taggable_type = 'Book' LEFT OUTER JOIN tags books_tags ON books_tags.id = books_taggings.tag_id WHERE (books_tags.name IN ('java')) [0m
+Rendering template within layouts/application
+Rendering book/show_for_tag
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 11)) [0m
+Rendered book/_book_detail (31.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_nav_menu (16.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 94ms (View: 63, DB: 0) | 200 OK [http://localhost/book/show_for_tag/java]
+
+
+Processing BookController#show (for 127.0.0.1 at 2010-07-26 10:57:08) [GET]
+  Parameters: {"id"=>"11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering book/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (16.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+Rendered review/_add_review_form (0.0ms)
+  [4;36;1mReview Load (0.0ms)[0m   [0;1mSELECT * FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered book/_book_reviews (62.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_nav_menu (16.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 125ms (View: 110, DB: 0) | 200 OK [http://localhost/book/show/11]
+
+
+Processing BookController#tag_cloud_user (for 127.0.0.1 at 2010-07-26 10:57:14) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering book/tag_cloud_user
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".user_id = 2)) ORDER BY LOWER(name) asc[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/book/tag_cloud_user]
+
+
+Processing BookController#tag_cloud_all (for 127.0.0.1 at 2010-07-26 10:57:15) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendering book/tag_cloud_all
+Completed in 15ms (View: 15, DB: 0) | 200 OK [http://localhost/book/tag_cloud_all]
+
+
+Processing BookController#tag_cloud_user (for 127.0.0.1 at 2010-07-26 10:57:17) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering book/tag_cloud_user
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".user_id = 2)) ORDER BY LOWER(name) asc[0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/book/tag_cloud_user]
+
+
+Processing BookController#tag_cloud_all (for 127.0.0.1 at 2010-07-26 10:57:18) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendering book/tag_cloud_all
+Completed in 15ms (View: 15, DB: 0) | 200 OK [http://localhost/book/tag_cloud_all]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 10:57:40) [POST]
+  Parameters: {"rating"=>"5", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mRating Delete all (0.0ms)[0m   [0;1mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 2) [0m
+  [4;35;1mRating Create (0.0ms)[0m   [0mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(5, 'Book', 11, 1, '2010-07-26 14:57:40')[0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (15.0ms)
+Completed in 140ms (View: 31, DB: 0) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=5]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 10:57:44) [POST]
+  Parameters: {"rating"=>"5", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mRating Delete all (15.0ms)[0m   [0mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 2) [0m
+  [4;36;1mRating Create (0.0ms)[0m   [0;1mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(5, 'Book', 11, 1, '2010-07-26 14:57:44')[0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Completed in 156ms (View: 31, DB: 15) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=5]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 10:57:47) [POST]
+  Parameters: {"rating"=>"5", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mRating Delete all (16.0ms)[0m   [0;1mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 2) [0m
+  [4;35;1mRating Create (0.0ms)[0m   [0mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(5, 'Book', 11, 1, '2010-07-26 14:57:47')[0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (15.0ms)
+Completed in 140ms (View: 31, DB: 16) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=5]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 10:57:48) [POST]
+  Parameters: {"rating"=>"5", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mRating Delete all (0.0ms)[0m   [0mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 2) [0m
+  [4;36;1mRating Create (0.0ms)[0m   [0;1mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(5, 'Book', 11, 1, '2010-07-26 14:57:48')[0m
+  [4;35;1mRating Load (16.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (234.0ms)
+Completed in 390ms (View: 234, DB: 16) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=5]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 10:57:51) [POST]
+  Parameters: {"rating"=>"5", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mRating Delete all (0.0ms)[0m   [0;1mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 2) [0m
+  [4;35;1mRating Create (0.0ms)[0m   [0mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(5, 'Book', 11, 1, '2010-07-26 14:57:51')[0m
+  [4;36;1mRating Load (15.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Completed in 156ms (View: 16, DB: 15) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=5]
+
+
+Processing BookController#show (for 127.0.0.1 at 2010-07-26 10:57:59) [GET]
+  Parameters: {"id"=>"11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering book/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+Rendered review/_add_review_form (16.0ms)
+  [4;36;1mReview Load (0.0ms)[0m   [0;1mSELECT * FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;35;1mUser Load (15.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered book/_book_reviews (78.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_nav_menu (16.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (32.0ms)
+Completed in 172ms (View: 126, DB: 15) | 200 OK [http://localhost/book/show/11]
+
+
+Processing BookController#show (for 127.0.0.1 at 2010-07-26 11:03:30) [GET]
+  Parameters: {"id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering book/show
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (32.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+Rendered review/_add_review_form (0.0ms)
+  [4;35;1mReview Load (15.0ms)[0m   [0mSELECT * FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered book/_book_reviews (250.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered shared/_nav_menu (47.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (47.0ms)
+Rendered shared/_sidebar (187.0ms)
+Completed in 1719ms (View: 1532, DB: 15) | 200 OK [http://localhost/book/show/11]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 11:03:36) [POST]
+  Parameters: {"rating"=>"4", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mRating Delete all (0.0ms)[0m   [0;1mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 2) [0m
+  [4;35;1mRating Create (0.0ms)[0m   [0mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(4, 'Book', 11, 1, '2010-07-26 15:08:07')[0m
+  [4;36;1mRating Create (0.0ms)[0m   [0;1mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(5, 'Book', 11, 3, '2010-07-26 15:10:02')[0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+  [4;36;1mRating Create (0.0ms)[0m   [0;1mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(6, 'Book', 11, 4, '2010-07-26 15:10:36')[0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (15.0ms)
+Completed in 471234ms (View: 31, DB: 0) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=4]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 11:12:03) [POST]
+  Parameters: {"rating"=>"1", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" LIMIT 1[0m
+  [4;36;1mRating Delete all (63.0ms)[0m   [0;1mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 1) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mRating Create (0.0ms)[0m   [0;1mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(1, 'Book', 11, 1, '2010-07-26 15:14:37')[0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (32.0ms)
+Completed in 433344ms (View: 32, DB: 63) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=1]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 11:21:36) [POST]
+  Parameters: {"rating"=>"1", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mRating Delete all (0.0ms)[0m   [0;1mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 2) [0m
+  [4;35;1mRating Create (0.0ms)[0m   [0mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(1, 'Book', 11, 1, '2010-07-26 15:22:44')[0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Completed in 78656ms (View: 31, DB: 0) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=1]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 11:24:42) [POST]
+  Parameters: {"rating"=>"5", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mRating Delete all (0.0ms)[0m   [0mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 2) [0m
+  [4;36;1mRating Create (0.0ms)[0m   [0;1mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(5, 'Book', 11, 2, '2010-07-26 15:24:48')[0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (16.0ms)
+Completed in 6844ms (View: 16, DB: 0) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=5]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 11:25:18) [POST]
+  Parameters: {"rating"=>"2", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mRating Delete all (125.0ms)[0m   [0;1mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 2) [0m
+  [4;35;1mRating Create (0.0ms)[0m   [0mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(2, 'Book', 11, 2, '2010-07-26 15:25:43')[0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Completed in 36125ms (View: 31, DB: 125) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=2]
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRating Create (2.0ms)[0m   [0;1mINSERT INTO "ratings" ("rating", "rateable_type", "created_at", "rateable_id", "user_id") VALUES(2, 'Book', '2010-07-26 15:31:25', 11, 1)[0m
+  [4;35;1mRating Load (1.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mRating Create (1.0ms)[0m   [0mINSERT INTO "ratings" ("rating", "rateable_type", "created_at", "rateable_id", "user_id") VALUES(3, 'Book', '2010-07-26 15:32:00', 11, 1)[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" ORDER BY users.id DESC LIMIT 1[0m
+  [4;35;1mRating Create (1.0ms)[0m   [0mINSERT INTO "ratings" ("rating", "rateable_type", "created_at", "rateable_id", "user_id") VALUES(8, 'Book', '2010-07-26 15:32:57', 11, 1)[0m
+  [4;36;1mRating Create (1.0ms)[0m   [0;1mINSERT INTO "ratings" ("rating", "rateable_type", "created_at", "rateable_id", "user_id") VALUES(8, 'Book', '2010-07-26 15:33:40', 11, 10)[0m
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 11:34:38) [POST]
+  Parameters: {"rating"=>"5", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mRating Delete all (63.0ms)[0m   [0mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 2) [0m
+  [4;36;1mRating Create (0.0ms)[0m   [0;1mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(5, 'Book', 11, 2, '2010-07-26 15:34:38')[0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (63.0ms)
+Completed in 250ms (View: 63, DB: 63) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=5]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 11:34:54) [POST]
+  Parameters: {"rating"=>"1", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mRating Delete all (344.0ms)[0m   [0;1mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 2) [0m
+  [4;35;1mRating Create (0.0ms)[0m   [0mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(1, 'Book', 11, 2, '2010-07-26 15:34:54')[0m
+  [4;36;1mRating Load (16.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Completed in 468ms (View: 15, DB: 360) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=1]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 11:36:04) [POST]
+  Parameters: {"rating"=>"1", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mRating Delete all (0.0ms)[0m   [0mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 2) [0m
+  [4;36;1mRating Create (0.0ms)[0m   [0;1mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(1, 'Book', 11, 2, '2010-07-26 15:36:04')[0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Completed in 156ms (View: 31, DB: 0) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=1]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 11:36:19) [POST]
+  Parameters: {"rating"=>"5", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;35;1mUser Load (16.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mRating Delete all (47.0ms)[0m   [0;1mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 2) [0m
+  [4;35;1mRating Create (0.0ms)[0m   [0mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(5, 'Book', 11, 2, '2010-07-26 15:36:19')[0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (15.0ms)
+Completed in 172ms (View: 31, DB: 63) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=5]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2010-07-26 11:36:57) [GET]
+Redirected to http://localhost:3000/
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-07-26 11:36:57) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Rendered user/_signin (63.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (16.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 329ms (View: 297, DB: 16) | 200 OK [http://localhost/]
+
+
+Processing UserController#login (for 127.0.0.1 at 2010-07-26 11:37:07) [POST]
+  Parameters: {"user"=>{"password"=>"321erre1p", "login"=>"plasante"}, "commit"=>"Login", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (login = 'plasante') LIMIT 1[0m
+Redirected to http://localhost:3000/user/home
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/user/login]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-26 11:37:07) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 11)) [0m
+Rendered book/_book_detail (47.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 12 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 12)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 13 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 13)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 16 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 16)) [0m
+Rendered book/_book_detail (15.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 19 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 19)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 20 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 20)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 23 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 23)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 23 ) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 23)) [0m
+Rendered book/_book_detail (0.0ms)
+Rendered book/_list_books (329.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 437ms (View: 390, DB: 0) | 200 OK [http://localhost/user/home]
+
+
+Processing BookController#show (for 127.0.0.1 at 2010-07-26 11:37:11) [GET]
+  Parameters: {"id"=>"11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering book/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+Rendered review/_add_review_form (0.0ms)
+  [4;36;1mReview Load (0.0ms)[0m   [0;1mSELECT * FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered book/_book_reviews (63.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 156ms (View: 125, DB: 0) | 200 OK [http://localhost/book/show/11]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 11:37:17) [POST]
+  Parameters: {"rating"=>"3", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRating Delete all (16.0ms)[0m   [0;1mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 1) [0m
+  [4;35;1mRating Create (0.0ms)[0m   [0mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(3, 'Book', 11, 1, '2010-07-26 15:37:17')[0m
+  [4;36;1mRating Load (16.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Completed in 171ms (View: 15, DB: 32) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=3]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 11:37:37) [POST]
+  Parameters: {"rating"=>"4", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRating Delete all (62.0ms)[0m   [0mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 1) [0m
+  [4;36;1mRating Create (0.0ms)[0m   [0;1mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(4, 'Book', 11, 1, '2010-07-26 15:37:37')[0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (16.0ms)
+Completed in 250ms (View: 32, DB: 62) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=4]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2010-07-26 11:37:46) [GET]
+Redirected to http://localhost:3000/
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-07-26 11:37:46) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Rendered user/_signin (0.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 32ms (View: 32, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserController#login (for 127.0.0.1 at 2010-07-26 11:37:58) [POST]
+  Parameters: {"user"=>{"password"=>"jujube", "login"=>"jspenard"}, "commit"=>"Login", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;35;1mUser Load (15.0ms)[0m   [0mSELECT * FROM "users" WHERE (login = 'jspenard') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 31ms (DB: 15) | 302 Found [http://localhost/user/login]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-07-26 11:37:58) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Rendered user/_signin (0.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 31ms (View: 31, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserController#login (for 127.0.0.1 at 2010-07-26 11:38:06) [POST]
+  Parameters: {"user"=>{"password"=>"12345", "login"=>"jspenard"}, "commit"=>"Login", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE (login = 'jspenard') LIMIT 1[0m
+Redirected to http://localhost:3000/user/home
+Completed in 32ms (DB: 0) | 302 Found [http://localhost/user/login]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-26 11:38:06) [GET]
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 10 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (15.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 204ms (View: 63, DB: 0) | 200 OK [http://localhost/user/home]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-26 11:38:10) [GET]
+  [4;36;1mBook Load (16.0ms)[0m   [0;1mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 11)) [0m
+Rendered book/_book_detail (31.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 12 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 12)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 13 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 13)) [0m
+Rendered book/_book_detail (15.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 16 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 16)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 19 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 19)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 20 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 20)) [0m
+Rendered book/_book_detail (15.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 23 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 23)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mUser Load (15.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 203ms (View: 157, DB: 31) | 200 OK [http://localhost/book/list]
+
+
+Processing BookController#show (for 127.0.0.1 at 2010-07-26 11:38:13) [GET]
+  Parameters: {"id"=>"11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+Rendering template within layouts/application
+Rendering book/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+Rendered review/_add_review_form (0.0ms)
+  [4;36;1mReview Load (0.0ms)[0m   [0;1mSELECT * FROM "reviews" WHERE ("reviews".book_id = 11) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendered book/_book_reviews (62.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 157ms (View: 125, DB: 0) | 200 OK [http://localhost/book/show/11]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-26 11:38:17) [POST]
+  Parameters: {"rating"=>"3", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"11"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 10) [0m
+  [4;36;1mRating Delete all (16.0ms)[0m   [0;1mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '11' AND user_id = 10) [0m
+  [4;35;1mRating Create (0.0ms)[0m   [0mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(3, 'Book', 11, 10, '2010-07-26 15:38:17')[0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 11 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Completed in 172ms (View: 31, DB: 16) | 200 OK [http://localhost/ratings/rate/11?rateable_type=Book&rating=3]

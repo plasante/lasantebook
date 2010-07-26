@@ -6,7 +6,7 @@ class RatingsController < ApplicationController
     # Delete the old ratings for current user
     @current_user = User.find( session[:user] )
     Rating.delete_all(["rateable_type = ? AND rateable_id = ? AND user_id = ?", @rateable_class.base_class.to_s, params[:id], @current_user])
-    rateable.add_rating Rating.new(:rating => params[:rating], :user_id => @current_user)
+    rateable.add_rating Rating.new(:rating => params[:rating], :user_id => @current_user.id)
 
     render :update do |page|
           page.replace_html "star-ratings-block-#{rateable.id}", :partial => "book/rate", :locals => { :asset => rateable}
