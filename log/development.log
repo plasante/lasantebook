@@ -29825,3 +29825,327 @@ Processing BookController#tag_cloud_user (for 127.0.0.1 at 2010-07-25 19:19:38) 
 Rendering book/tag_cloud_user
   [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".user_id = 1)) ORDER BY LOWER(name) asc[0m
 Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/book/tag_cloud_user]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-25 20:29:34) [GET]
+  Parameters: {"user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (15.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 11)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 12 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 12)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 13 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 13)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 16 ) [0m
+  [4;36;1mTag Load (15.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 16)) [0m
+Rendered book/_book_detail (15.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 19 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 19)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 20 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 20)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 23 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 23)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 23 ) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 23)) [0m
+Rendered book/_book_detail (0.0ms)
+Rendered book/_list_books (78.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 203ms (View: 79, DB: 30) | 200 OK [http://localhost/user/home?user_id=1]
+
+
+Processing BookController#update_tags (for 127.0.0.1 at 2010-07-25 20:29:46) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "value"=>"\n                jsp java struts html\n            ", "editorId"=>"tag_list_11"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 11) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 11)) [0m
+  [4;35;1mTagging Load (0.0ms)[0m   [0mSELECT * FROM "taggings" WHERE ("taggings".taggable_id = 11 AND "taggings".taggable_type = 'Book' AND (user_id = 1)) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" IN (55,48,49)) [0m
+  [4;35;1mTag Update (0.0ms)[0m   [0mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) - 1 WHERE ("id" = 48) [0m
+  [4;36;1mTagging Destroy (0.0ms)[0m   [0;1mDELETE FROM "taggings" WHERE "id" = 140[0m
+  [4;35;1mTag Update (0.0ms)[0m   [0mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) - 1 WHERE ("id" = 49) [0m
+  [4;36;1mTagging Destroy (0.0ms)[0m   [0;1mDELETE FROM "taggings" WHERE "id" = 141[0m
+  [4;35;1mTag Update (0.0ms)[0m   [0mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) - 1 WHERE ("id" = 55) [0m
+  [4;36;1mTagging Destroy (0.0ms)[0m   [0;1mDELETE FROM "taggings" WHERE "id" = 142[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = 'jsp') LIMIT 1[0m
+  [4;36;1mTagging Create (0.0ms)[0m   [0;1mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "user_id") VALUES(48, 'Book', 11, 1)[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 48) [0m
+  [4;36;1mTag Update (0.0ms)[0m   [0;1mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 48) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = 'java') LIMIT 1[0m
+  [4;36;1mTagging Create (0.0ms)[0m   [0;1mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "user_id") VALUES(49, 'Book', 11, 1)[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 49) [0m
+  [4;36;1mTag Update (0.0ms)[0m   [0;1mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 49) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = 'struts') LIMIT 1[0m
+  [4;36;1mTagging Create (0.0ms)[0m   [0;1mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "user_id") VALUES(55, 'Book', 11, 1)[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 55) [0m
+  [4;36;1mTag Update (0.0ms)[0m   [0;1mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 55) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = 'html') LIMIT 1[0m
+  [4;36;1mTag Create (0.0ms)[0m   [0;1mINSERT INTO "tags" ("name", "taggings_count") VALUES('html', 0)[0m
+  [4;35;1mTagging Create (0.0ms)[0m   [0mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "user_id") VALUES(56, 'Book', 11, 1)[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 56) [0m
+  [4;35;1mTag Update (0.0ms)[0m   [0mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 56) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 11)) [0m
+Completed in 172ms (View: 16, DB: 0) | 200 OK [http://localhost/book/update_tags?authenticity_token=Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=]
+
+
+Processing BookController#update_tags (for 127.0.0.1 at 2010-07-25 20:29:58) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "value"=>"singularity", "editorId"=>"tag_list_12"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 12) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 12)) [0m
+  [4;35;1mTagging Load (0.0ms)[0m   [0mSELECT * FROM "taggings" WHERE ("taggings".taggable_id = 12 AND "taggings".taggable_type = 'Book' AND (user_id = 1)) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" IN (47,52,53)) [0m
+  [4;35;1mTag Update (0.0ms)[0m   [0mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) - 1 WHERE ("id" = 47) [0m
+  [4;36;1mTagging Destroy (0.0ms)[0m   [0;1mDELETE FROM "taggings" WHERE "id" = 143[0m
+  [4;35;1mTag Update (0.0ms)[0m   [0mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) - 1 WHERE ("id" = 52) [0m
+  [4;36;1mTagging Destroy (0.0ms)[0m   [0;1mDELETE FROM "taggings" WHERE "id" = 144[0m
+  [4;35;1mTag Update (16.0ms)[0m   [0mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) - 1 WHERE ("id" = 53) [0m
+  [4;36;1mTagging Destroy (0.0ms)[0m   [0;1mDELETE FROM "taggings" WHERE "id" = 145[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = 'singularity') LIMIT 1[0m
+  [4;36;1mTagging Create (0.0ms)[0m   [0;1mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "user_id") VALUES(50, 'Book', 12, 1)[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 50) [0m
+  [4;36;1mTag Update (0.0ms)[0m   [0;1mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 50) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 12)) [0m
+Completed in 266ms (View: 16, DB: 16) | 200 OK [http://localhost/book/update_tags?authenticity_token=Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-25 20:30:00) [GET]
+  Parameters: {"user_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mBook Load (16.0ms)[0m   [0mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 11)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 12 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 12)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 13 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 13)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 16 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 16)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 19 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 19)) [0m
+Rendered book/_book_detail (15.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 20 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 20)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 23 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 23)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 23 ) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 23)) [0m
+Rendered book/_book_detail (15.0ms)
+Rendered book/_list_books (109.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (16.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (32.0ms)
+Completed in 188ms (View: 125, DB: 16) | 200 OK [http://localhost/user/home?user_id=1]
+
+
+Processing BookController#show_for_tag (for 127.0.0.1 at 2010-07-25 20:30:03) [GET]
+  Parameters: {"id"=>"singularity"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT DISTINCT books.* FROM "books" LEFT OUTER JOIN taggings books_taggings ON books_taggings.taggable_id = books.id AND books_taggings.taggable_type = 'Book' LEFT OUTER JOIN tags books_tags ON books_tags.id = books_taggings.tag_id WHERE (books_tags.name IN ('singularity')) [0m
+Rendering template within layouts/application
+Rendering book/show_for_tag
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 12 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 12)) [0m
+Rendered book/_book_detail (32.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 13 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 13)) [0m
+Rendered book/_book_detail (15.0ms)
+Rendered book/_list_books (47.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 94ms (View: 79, DB: 0) | 200 OK [http://localhost/book/show_for_tag/singularity]
+
+
+Processing BookController#show_for_tag (for 127.0.0.1 at 2010-07-25 20:30:06) [GET]
+  Parameters: {"id"=>"asp"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT DISTINCT books.* FROM "books" LEFT OUTER JOIN taggings books_taggings ON books_taggings.taggable_id = books.id AND books_taggings.taggable_type = 'Book' LEFT OUTER JOIN tags books_tags ON books_tags.id = books_taggings.tag_id WHERE (books_tags.name IN ('asp')) [0m
+Rendering template within layouts/application
+Rendering book/show_for_tag
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 16 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 16)) [0m
+Rendered book/_book_detail (32.0ms)
+Rendered book/_list_books (32.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (16.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 78ms (View: 63, DB: 0) | 200 OK [http://localhost/book/show_for_tag/asp]
+
+
+Processing BookController#show_for_tag (for 127.0.0.1 at 2010-07-25 20:30:09) [GET]
+  Parameters: {"id"=>"java"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT DISTINCT books.* FROM "books" LEFT OUTER JOIN taggings books_taggings ON books_taggings.taggable_id = books.id AND books_taggings.taggable_type = 'Book' LEFT OUTER JOIN tags books_tags ON books_tags.id = books_taggings.tag_id WHERE (books_tags.name IN ('java')) [0m
+Rendering template within layouts/application
+Rendering book/show_for_tag
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 11 ) [0m
+  [4;36;1mTag Load (15.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 11)) [0m
+Rendered book/_book_detail (31.0ms)
+Rendered book/_list_books (46.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 94ms (View: 63, DB: 15) | 200 OK [http://localhost/book/show_for_tag/java]
+
+
+Processing BookController#show_for_tag (for 127.0.0.1 at 2010-07-25 20:30:11) [GET]
+  Parameters: {"id"=>"singularity"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT DISTINCT books.* FROM "books" LEFT OUTER JOIN taggings books_taggings ON books_taggings.taggable_id = books.id AND books_taggings.taggable_type = 'Book' LEFT OUTER JOIN tags books_tags ON books_tags.id = books_taggings.tag_id WHERE (books_tags.name IN ('singularity')) [0m
+Rendering template within layouts/application
+Rendering book/show_for_tag
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 12 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 12)) [0m
+Rendered book/_book_detail (31.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 13 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 13)) [0m
+Rendered book/_book_detail (16.0ms)
+Rendered book/_list_books (47.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (15.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 93ms (View: 63, DB: 15) | 200 OK [http://localhost/book/show_for_tag/singularity]
+
+
+Processing BookController#tag_cloud_all (for 127.0.0.1 at 2010-07-25 20:30:15) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendering book/tag_cloud_all
+Completed in 15ms (View: 15, DB: 0) | 200 OK [http://localhost/book/tag_cloud_all]
+
+
+Processing BookController#tag_cloud_user (for 127.0.0.1 at 2010-07-25 20:30:16) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering book/tag_cloud_user
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".user_id = 1)) ORDER BY LOWER(name) asc[0m
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/book/tag_cloud_user]
+
+
+Processing BookController#tag_cloud_all (for 127.0.0.1 at 2010-07-25 20:30:18) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendering book/tag_cloud_all
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/book/tag_cloud_all]
+
+
+Processing BookController#tag_cloud_user (for 127.0.0.1 at 2010-07-25 20:30:19) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering book/tag_cloud_user
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".user_id = 1)) ORDER BY LOWER(name) asc[0m
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/book/tag_cloud_user]
+
+
+Processing BookController#show (for 127.0.0.1 at 2010-07-25 20:30:28) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 12) [0m
+Rendering template within layouts/application
+Rendering book/show
+  [4;35;1mUser Load (15.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 12 ) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 12) [0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 12 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (125.0ms)
+Rendered review/_add_review_form (0.0ms)
+Rendered book/_book_reviews (141.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 234ms (View: 188, DB: 15) | 200 OK [http://localhost/book/show/12]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-25 20:30:31) [POST]
+  Parameters: {"rating"=>"3", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"12"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 12) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mRating Delete all (0.0ms)[0m   [0;1mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '12' AND user_id = 1) [0m
+  [4;35;1mRating Create (0.0ms)[0m   [0mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(3, 'Book', 12, 1, '2010-07-26 00:30:31')[0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 12 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (15.0ms)
+Completed in 140ms (View: 31, DB: 0) | 200 OK [http://localhost/ratings/rate/12?rateable_type=Book&rating=3]
+
+
+Processing BookController#show (for 127.0.0.1 at 2010-07-25 20:30:34) [GET]
+  Parameters: {"id"=>"12"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 12) [0m
+Rendering template within layouts/application
+Rendering book/show
+  [4;36;1mUser Load (15.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 12 ) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 12) [0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 12 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (47.0ms)
+Rendered review/_add_review_form (0.0ms)
+Rendered book/_book_reviews (79.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (16.0ms)
+  [4;36;1mTag Load (140.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (140.0ms)
+Rendered shared/_sidebar (156.0ms)
+Completed in 312ms (View: 141, DB: 155) | 200 OK [http://localhost/book/show/12]
+
+
+Processing RatingsController#rate (for 127.0.0.1 at 2010-07-25 20:30:42) [POST]
+  Parameters: {"rating"=>"5", "rateable_type"=>"Book", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "id"=>"12"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 12) [0m
+  [4;36;1mUser Load (16.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mRating Delete all (78.0ms)[0m   [0mDELETE FROM "ratings" WHERE (rateable_type = 'Book' AND rateable_id = '12' AND user_id = 1) [0m
+  [4;36;1mRating Create (0.0ms)[0m   [0;1mINSERT INTO "ratings" ("rating", "rateable_type", "rateable_id", "user_id", "created_at") VALUES(5, 'Book', 12, 1, '2010-07-26 00:30:42')[0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 12 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (15.0ms)
+Completed in 234ms (View: 15, DB: 94) | 200 OK [http://localhost/ratings/rate/12?rateable_type=Book&rating=5]
+
+
+Processing BookController#show (for 127.0.0.1 at 2010-07-25 20:30:45) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 12) [0m
+Rendering template within layouts/application
+Rendering book/show
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 12 ) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".book_id = 12) [0m
+  [4;35;1mRating Load (0.0ms)[0m   [0mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 12 AND "ratings".rateable_type = 'Book') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (32.0ms)
+Rendered review/_add_review_form (0.0ms)
+Rendered book/_book_reviews (47.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 140ms (View: 125, DB: 0) | 200 OK [http://localhost/book/show/12]

@@ -41,7 +41,6 @@ class BookController < ApplicationController
   end
 
   def tag_cloud_user
-    #@tags = session[:user].tags
     @tags = User.find(session[:user]).tags
   end
 
