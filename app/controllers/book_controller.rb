@@ -53,6 +53,7 @@ class BookController < ApplicationController
     @books = Book.find_tagged_with(@tag)
   end
 
+  # dummy comment
   def update_tags
     @editor_id = params[:editorId]
     book_id = @editor_id.split('_')[-1]
