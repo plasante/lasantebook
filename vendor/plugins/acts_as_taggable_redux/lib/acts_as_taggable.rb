@@ -91,12 +91,16 @@ AND #{Tagging.table_name}.tag_id = #{Tag.table_name}.id",
 
       module InstanceMethods
         def tag_list=(new_tag_list)
+          puts "******************* in tag_list"
+          puts new_tag_list
           unless tag_list == new_tag_list
             @new_tag_list = new_tag_list
           end
         end
 
         def user_id=(new_user_id)
+          puts "********************* in user_id"
+          puts new_user_id
           @new_user_id = new_user_id
           #super(new_user_id)
         end
