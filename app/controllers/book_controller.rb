@@ -59,7 +59,7 @@ class BookController < ApplicationController
     book_id = @editor_id.split('_')[-1]
     tags = params[:value]
     @book = Book.find(book_id)
-    @book.user_id = session[:user]
+    @book.user_id = session[:user].id
     @book.tag_list = tags
     @book.save
     render :text => @book.tag_list

@@ -40047,3 +40047,21 @@ Processing BookController#update_tags (for 127.0.0.1 at 2010-07-27 11:41:45) [PO
   [4;35;1mTag Update (0.0ms)[0m   [0mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 72) [0m
   [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
 Completed in 125ms (View: 0, DB: 15) | 200 OK [http://localhost/book/update_tags?authenticity_token=Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=]
+
+
+Processing BookController#update_tags (for 127.0.0.1 at 2010-07-27 11:46:28) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "value"=>"securo hautec", "editorId"=>"tag_list_22"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 22) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+  [4;35;1mTagging Load (0.0ms)[0m   [0mSELECT * FROM "taggings" WHERE ("taggings".taggable_id = 22 AND "taggings".taggable_type = 'Book' AND (user_id = 5)) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = 'securo') LIMIT 1[0m
+  [4;35;1mTagging Create (0.0ms)[0m   [0mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "user_id") VALUES(72, 'Book', 22, 5)[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 72) [0m
+  [4;35;1mTag Update (0.0ms)[0m   [0mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 72) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = 'hautec') LIMIT 1[0m
+  [4;35;1mTag Create (0.0ms)[0m   [0mINSERT INTO "tags" ("name", "taggings_count") VALUES('hautec', 0)[0m
+  [4;36;1mTagging Create (0.0ms)[0m   [0;1mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "user_id") VALUES(73, 'Book', 22, 5)[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 73) [0m
+  [4;36;1mTag Update (0.0ms)[0m   [0;1mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 73) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Completed in 171ms (View: 15, DB: 0) | 200 OK [http://localhost/book/update_tags?authenticity_token=Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=]
