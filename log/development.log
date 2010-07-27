@@ -37327,3 +37327,2351 @@ Rendered shared/_nav_menu (16.0ms)
 Rendered shared/_tag_cloud (0.0ms)
 Rendered shared/_sidebar (16.0ms)
 Completed in 110ms (View: 78, DB: 16) | 200 OK [http://localhost/book/show_for_tag/milou]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-26 18:13:11) [GET]
+  Parameters: {"items"=>"dvds", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+Rendered dvd/_list_dvds (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 109ms (View: 62, DB: 0) | 200 OK [http://localhost/user/home?items=dvds&user_id=1]
+
+
+Processing DvdController#search (for 127.0.0.1 at 2010-07-26 18:13:21) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "dvd_keyword"=>"capitaine no", "page"=>"1"}
+
+Amazon::AWS::Error::NoExactMatches (We did not find any matches for your request.):
+  lib/amazon/aws/search.rb:198:in `error_check'
+  lib/amazon/aws/search.rb:367:in `search'
+  lib/amazon_interface.rb:29:in `find_by_keyword'
+  app/models/dvd.rb:12:in `search_amazon'
+  app/controllers/dvd_controller.rb:10:in `search'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DvdController#search (for 127.0.0.1 at 2010-07-26 18:13:59) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "dvd_keyword"=>"felix leclerc", "page"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT "dvds".* FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds"."isbn" = 'B0007YXRE0') AND ("dvds_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mDvd Load (0.0ms)[0m   [0mSELECT "dvds".* FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds"."isbn" = 'B001WAGW7C') AND ("dvds_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT "dvds".* FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds"."isbn" = 'B001AAZ1WG') AND ("dvds_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering dvd/search
+Rendered dvd/_dvd_not_exists (0.0ms)
+Rendered dvd/_dvd_detail (16.0ms)
+Rendered dvd/_dvd_not_exists (0.0ms)
+Rendered dvd/_dvd_detail (0.0ms)
+Rendered dvd/_dvd_not_exists (0.0ms)
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (16.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 437ms (View: 31, DB: 16) | 200 OK [http://localhost/dvd/search]
+
+
+Processing DvdController#add (for 127.0.0.1 at 2010-07-26 18:14:05) [POST]
+  Parameters: {"isbn"=>"B0007YXRE0", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;35;1mDvd Load (0.0ms)[0m   [0mSELECT * FROM "dvds" WHERE ("dvds"."isbn" = 'B0007YXRE0') LIMIT 1[0m
+  [4;36;1mDvd Create (0.0ms)[0m   [0;1mINSERT INTO "dvds" ("isbn", "updated_at", "title", "author", "description", "image_url_large", "image_url_small", "image_url_medium", "amazon_url", "release_date", "created_at") VALUES('B0007YXRE0', '2010-07-26 22:14:05', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2010-07-26 22:14:05')[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "dvds_users" ("updated_at", "user_id", "dvd_id", "created_at") VALUES ('2010-07-21 19:01:33', 1, 7, '2010-07-21 19:01:33')[0m
+  [4;35;1mDvd Load (0.0ms)[0m   [0mselect count(*) as number from dvds[0m
+  [4;36;1mDvd Update (0.0ms)[0m   [0;1mUPDATE "dvds" SET "amazon_url" = 'http://www.amazon.ca/F%C3%A9lix-Leclerc-Coffret-2-DVD/dp/B0007YXRE0%3FSubscriptionId%3DAKIAJN3CY7PUTCYGV7PQ%26tag%3Dlasbooshe-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0007YXRE0', "title" = 'Félix Leclerc - Coffret 2 DVD', "updated_at" = '2010-07-26 22:14:05' WHERE "id" = 7[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+Rendered dvd/_dvd_exists (0.0ms)
+Completed in 609ms (View: 0, DB: 0) | 200 OK [http://localhost/dvd/add?isbn=B0007YXRE0]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-26 18:14:07) [GET]
+  Parameters: {"items"=>"dvds", "user_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mDvd Load (0.0ms)[0m   [0mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;35;1mTag Load (15.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (15.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (16.0ms)
+Rendered dvd/_list_dvds (47.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (15.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 109ms (View: 47, DB: 15) | 200 OK [http://localhost/user/home?items=dvds&user_id=1]
+
+
+Processing DvdController#show (for 127.0.0.1 at 2010-07-26 18:14:10) [GET]
+  Parameters: {"id"=>"7"}
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" WHERE ("dvds"."id" = 7) [0m
+Rendering template within layouts/application
+Rendering dvd/show
+
+ActionView::TemplateError (can't convert nil into String) on line #4 of app/views/dvd/show.html.erb:
+1: <div id="book_view">
+2:     <div id="book_view_upper">
+3:         <div id="asset_image">
+4:             <%= image_tag @dvd.image_url_medium %>  
+5:         </div>
+6:         <div id="book_summary">
+7:             <span class="book_title"><%= @dvd.title %></span>
+
+    app/views/dvd/show.html.erb:4
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (109.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-26 18:14:27) [GET]
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (32.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (15.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (15.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 93ms (View: 78, DB: 0) | 200 OK [http://localhost/book/list]
+
+
+Processing DvdController#list (for 127.0.0.1 at 2010-07-26 18:14:29) [GET]
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" [0m
+Rendering template within layouts/application
+Rendering dvd/list
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (32.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (15.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 110ms (View: 94, DB: 0) | 200 OK [http://localhost/dvd/list]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-26 18:14:32) [GET]
+  Parameters: {"items"=>"dvds", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;35;1mUser Load (16.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (16.0ms)
+Rendered dvd/_list_dvds (47.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 125ms (View: 62, DB: 16) | 200 OK [http://localhost/user/home?items=dvds&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-26 18:14:35) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (15.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (16.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 94ms (View: 47, DB: 0) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-26 18:14:38) [GET]
+  Parameters: {"items"=>"dvds", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mDvd Load (16.0ms)[0m   [0;1mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (15.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (16.0ms)
+Rendered dvd/_list_dvds (47.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 125ms (View: 62, DB: 16) | 200 OK [http://localhost/user/home?items=dvds&user_id=1]
+
+
+Processing DvdController#update_tags (for 127.0.0.1 at 2010-07-26 18:14:46) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "value"=>"boulet", "editorId"=>"tag_list_5"}
+
+ActionController::UnknownAction (No action responded to update_tags. Actions: add, delete, list, login_required, search, and show):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 00:16:36) [GET]
+  Parameters: {"items"=>"dvds", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (15.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+Rendered dvd/_list_dvds (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 203ms (View: 94, DB: 0) | 200 OK [http://localhost/user/home?items=dvds&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 09:37:27) [GET]
+  Parameters: {"items"=>"dvds", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;36;1mTag Load (15.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (15.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+Rendered dvd/_list_dvds (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 5390ms (View: 3922, DB: 15) | 200 OK [http://localhost/user/home?items=dvds&user_id=1]
+
+
+Processing UserController#images to jpeg (for 127.0.0.1 at 2010-07-27 09:37:33) [GET]
+  Parameters: {"id"=>"after_before"}
+
+ActionController::UnknownAction (No action responded to images. Actions: home, login, login_required, logout, and signup):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserController#images to jpeg (for 127.0.0.1 at 2010-07-27 09:37:58) [GET]
+  Parameters: {"id"=>"after_before"}
+
+ActionController::UnknownAction (No action responded to images. Actions: home, login, login_required, logout, and signup):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserController#images to jpeg (for 127.0.0.1 at 2010-07-27 09:38:04) [GET]
+  Parameters: {"id"=>"after_before"}
+
+ActionController::UnknownAction (No action responded to images. Actions: home, login, login_required, logout, and signup):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 09:38:15) [GET]
+
+ActionController::RoutingError (No route matches "/images/after_before.jpeg" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 09:38:18) [GET]
+
+ActionController::RoutingError (No route matches "/images/after_before.jpeg" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 09:38:22) [GET]
+
+ActionController::RoutingError (No route matches "/images/after_before.jpeg" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 09:38:44) [GET]
+
+ActionController::RoutingError (No route matches "/images/after_before.jpeg" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-07-27 09:38:44) [GET]
+
+ActionController::RoutingError (No route matches "/images/after_before.jpeg" with {:method=>:get}):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 09:39:41) [GET]
+  Parameters: {"items"=>"dvds", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;35;1mUser Load (16.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;36;1mTag Load (16.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (32.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (15.0ms)
+Rendered dvd/_list_dvds (62.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 1203ms (View: 328, DB: 32) | 200 OK [http://localhost/user/home?items=dvds&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 09:41:53) [GET]
+  Parameters: {"items"=>"dvds", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;36;1mTag Load (16.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+Rendered dvd/_list_dvds (47.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (15.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 125ms (View: 77, DB: 16) | 200 OK [http://localhost/user/home?items=dvds&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 09:44:09) [GET]
+  Parameters: {"items"=>"dvds", "user_id"=>"1"}
+  [4;35;1mUser Load (15.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;36;1mTag Load (16.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (15.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+Rendered dvd/_list_dvds (47.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (16.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 172ms (View: 77, DB: 47) | 200 OK [http://localhost/user/home?items=dvds&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 09:44:17) [GET]
+  Parameters: {"items"=>"dvds", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (16.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (15.0ms)
+Rendered dvd/_list_dvds (47.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 234ms (View: 62, DB: 16) | 200 OK [http://localhost/user/home?items=dvds&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 09:44:21) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (47.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (47.0ms)
+Rendered book/_list_books (62.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (15.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 265ms (View: 141, DB: 62) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 09:44:23) [GET]
+  Parameters: {"items"=>"dvds", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+Rendered dvd/_list_dvds (157.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 234ms (View: 188, DB: 0) | 200 OK [http://localhost/user/home?items=dvds&user_id=1]
+
+
+Processing DvdController#show (for 127.0.0.1 at 2010-07-27 09:44:25) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mDvd Load (0.0ms)[0m   [0mSELECT * FROM "dvds" WHERE ("dvds"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering dvd/show
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "reviews" WHERE ("reviews".dvd_id = 6) [0m
+  [4;36;1mRating Load (0.0ms)[0m   [0;1mSELECT * FROM "ratings" WHERE ("ratings".rateable_id = 6 AND "ratings".rateable_type = 'Dvd') [0m
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:3)
+DEPRECATION WARNING: number_with_precision takes an option hash instead of a separate precision argument.. (called from _run_erb_app47views47book47_rate46html46erb_locals_asset_object_rate at C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/book/_rate.html.erb:6)
+Rendered book/_rate (31.0ms)
+Rendered review/_add_review_form (0.0ms)
+Rendered dvd/_dvd_reviews (47.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (15.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 125ms (View: 93, DB: 0) | 200 OK [http://localhost/dvd/show/6]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 09:45:12) [GET]
+  Parameters: {"items"=>"dvds", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+Rendered dvd/_list_dvds (32.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (16.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 281ms (View: 63, DB: 0) | 200 OK [http://localhost/user/home?items=dvds&user_id=1]
+
+
+Processing DvdController#update_tags (for 127.0.0.1 at 2010-07-27 09:45:21) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "value"=>"boulet", "editorId"=>"tag_list_5"}
+
+ActionController::UnknownAction (No action responded to update_tags. Actions: add, delete, list, login_required, search, and show):
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing DvdController#update_tags (for 127.0.0.1 at 2010-07-27 09:48:46) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "value"=>"boulet...", "editorId"=>"tag_list_5"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" WHERE ("books"."id" = 5) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Book with ID=5):
+  app/controllers/dvd_controller.rb:47:in `update_tags'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (94.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing DvdController#update_tags (for 127.0.0.1 at 2010-07-27 09:49:53) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "value"=>"gerry boulet", "editorId"=>"tag_list_5"}
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" WHERE ("dvds"."id" = 5) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+  [4;36;1mTagging Load (0.0ms)[0m   [0;1mSELECT * FROM "taggings" WHERE ("taggings".taggable_id = 5 AND "taggings".taggable_type = 'Dvd' AND (user_id = 1)) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = 'gerry') LIMIT 1[0m
+  [4;36;1mTag Create (47.0ms)[0m   [0;1mINSERT INTO "tags" ("name", "taggings_count") VALUES('gerry', 0)[0m
+  [4;35;1mTagging Create (0.0ms)[0m   [0mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "user_id") VALUES(61, 'Dvd', 5, 1)[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 61) [0m
+  [4;35;1mTag Update (31.0ms)[0m   [0mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 61) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = 'boulet') LIMIT 1[0m
+  [4;35;1mTag Create (0.0ms)[0m   [0mINSERT INTO "tags" ("name", "taggings_count") VALUES('boulet', 0)[0m
+  [4;36;1mTagging Create (0.0ms)[0m   [0;1mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "user_id") VALUES(62, 'Dvd', 5, 1)[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 62) [0m
+  [4;36;1mTag Update (0.0ms)[0m   [0;1mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 62) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Completed in 234ms (View: 0, DB: 78) | 200 OK [http://localhost/dvd/update_tags?authenticity_token=Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 09:50:02) [GET]
+  Parameters: {"items"=>"dvds", "user_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mDvd Load (0.0ms)[0m   [0mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (15.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+Rendered dvd/_list_dvds (47.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (16.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 125ms (View: 79, DB: 0) | 200 OK [http://localhost/user/home?items=dvds&user_id=1]
+
+
+Processing BookController#show_for_tag (for 127.0.0.1 at 2010-07-27 09:50:05) [GET]
+  Parameters: {"id"=>"gerry"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT DISTINCT books.* FROM "books" LEFT OUTER JOIN taggings books_taggings ON books_taggings.taggable_id = books.id AND books_taggings.taggable_type = 'Book' LEFT OUTER JOIN tags books_tags ON books_tags.id = books_taggings.tag_id WHERE (books_tags.name IN ('gerry')) [0m
+Rendering template within layouts/application
+Rendering book/show_for_tag
+Rendered book/_list_books (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 78ms (View: 63, DB: 0) | 200 OK [http://localhost/book/show_for_tag/gerry]
+
+
+Processing BookController#show_for_tag (for 127.0.0.1 at 2010-07-27 09:50:09) [GET]
+  Parameters: {"id"=>"boulet"}
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT DISTINCT books.* FROM "books" LEFT OUTER JOIN taggings books_taggings ON books_taggings.taggable_id = books.id AND books_taggings.taggable_type = 'Book' LEFT OUTER JOIN tags books_tags ON books_tags.id = books_taggings.tag_id WHERE (books_tags.name IN ('boulet')) [0m
+Rendering template within layouts/application
+Rendering book/show_for_tag
+Rendered book/_list_books (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (16.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 63ms (View: 47, DB: 0) | 200 OK [http://localhost/book/show_for_tag/boulet]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 09:50:46) [GET]
+  Parameters: {"items"=>"dvds", "user_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mDvd Load (0.0ms)[0m   [0mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (15.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;36;1mUser Load (16.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (16.0ms)
+Rendered dvd/_list_dvds (47.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (16.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 125ms (View: 62, DB: 16) | 200 OK [http://localhost/user/home?items=dvds&user_id=1]
+
+
+Processing DvdController#update_tags (for 127.0.0.1 at 2010-07-27 09:50:58) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "value"=>"john mellencamp", "editorId"=>"tag_list_6"}
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" WHERE ("dvds"."id" = 6) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+  [4;36;1mTagging Load (0.0ms)[0m   [0;1mSELECT * FROM "taggings" WHERE ("taggings".taggable_id = 6 AND "taggings".taggable_type = 'Dvd' AND (user_id = 1)) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = 'john') LIMIT 1[0m
+  [4;36;1mTag Create (0.0ms)[0m   [0;1mINSERT INTO "tags" ("name", "taggings_count") VALUES('john', 0)[0m
+  [4;35;1mTagging Create (0.0ms)[0m   [0mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "user_id") VALUES(63, 'Dvd', 6, 1)[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 63) [0m
+  [4;35;1mTag Update (15.0ms)[0m   [0mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 63) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = 'mellencamp') LIMIT 1[0m
+  [4;35;1mTag Create (0.0ms)[0m   [0mINSERT INTO "tags" ("name", "taggings_count") VALUES('mellencamp', 0)[0m
+  [4;36;1mTagging Create (0.0ms)[0m   [0;1mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "user_id") VALUES(64, 'Dvd', 6, 1)[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 64) [0m
+  [4;36;1mTag Update (0.0ms)[0m   [0;1mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 64) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Completed in 141ms (View: 16, DB: 15) | 200 OK [http://localhost/dvd/update_tags?authenticity_token=Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=]
+
+
+Processing DvdController#update_tags (for 127.0.0.1 at 2010-07-27 09:51:10) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "value"=>"félix leclerc", "editorId"=>"tag_list_7"}
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" WHERE ("dvds"."id" = 7) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+  [4;36;1mTagging Load (0.0ms)[0m   [0;1mSELECT * FROM "taggings" WHERE ("taggings".taggable_id = 7 AND "taggings".taggable_type = 'Dvd' AND (user_id = 1)) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = 'félix') LIMIT 1[0m
+  [4;36;1mTag Create (0.0ms)[0m   [0;1mINSERT INTO "tags" ("name", "taggings_count") VALUES('félix', 0)[0m
+  [4;35;1mTagging Create (0.0ms)[0m   [0mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "user_id") VALUES(65, 'Dvd', 7, 1)[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 65) [0m
+  [4;35;1mTag Update (0.0ms)[0m   [0mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 65) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = 'leclerc') LIMIT 1[0m
+  [4;35;1mTag Create (0.0ms)[0m   [0mINSERT INTO "tags" ("name", "taggings_count") VALUES('leclerc', 0)[0m
+  [4;36;1mTagging Create (0.0ms)[0m   [0;1mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "user_id") VALUES(66, 'Dvd', 7, 1)[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 66) [0m
+  [4;36;1mTag Update (0.0ms)[0m   [0;1mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 66) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Completed in 109ms (View: 0, DB: 0) | 200 OK [http://localhost/dvd/update_tags?authenticity_token=Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 09:51:15) [GET]
+  Parameters: {"items"=>"dvds", "user_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mDvd Load (0.0ms)[0m   [0mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (15.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (16.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+Rendered dvd/_list_dvds (47.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (15.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 156ms (View: 94, DB: 0) | 200 OK [http://localhost/user/home?items=dvds&user_id=1]
+
+
+Processing BookController#show_for_tag (for 127.0.0.1 at 2010-07-27 09:51:18) [GET]
+  Parameters: {"id"=>"tintin"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT DISTINCT books.* FROM "books" LEFT OUTER JOIN taggings books_taggings ON books_taggings.taggable_id = books.id AND books_taggings.taggable_type = 'Book' LEFT OUTER JOIN tags books_tags ON books_tags.id = books_taggings.tag_id WHERE (books_tags.name IN ('tintin')) [0m
+Rendering template within layouts/application
+Rendering book/show_for_tag
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (31.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 94ms (View: 78, DB: 0) | 200 OK [http://localhost/book/show_for_tag/tintin]
+
+
+Processing BookController#show_for_tag (for 127.0.0.1 at 2010-07-27 09:51:22) [GET]
+  Parameters: {"id"=>"boulet"}
+  [4;35;1mBook Load (15.0ms)[0m   [0mSELECT DISTINCT books.* FROM "books" LEFT OUTER JOIN taggings books_taggings ON books_taggings.taggable_id = books.id AND books_taggings.taggable_type = 'Book' LEFT OUTER JOIN tags books_tags ON books_tags.id = books_taggings.tag_id WHERE (books_tags.name IN ('boulet')) [0m
+Rendering template within layouts/application
+Rendering book/show_for_tag
+Rendered book/_list_books (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 156ms (View: 125, DB: 15) | 200 OK [http://localhost/book/show_for_tag/boulet]
+
+
+Processing BookController#show_for_tag (for 127.0.0.1 at 2010-07-27 09:51:37) [GET]
+  Parameters: {"id"=>"félix"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT DISTINCT books.* FROM "books" LEFT OUTER JOIN taggings books_taggings ON books_taggings.taggable_id = books.id AND books_taggings.taggable_type = 'Book' LEFT OUTER JOIN tags books_tags ON books_tags.id = books_taggings.tag_id WHERE (books_tags.name IN ('félix')) [0m
+Rendering template within layouts/application
+Rendering book/show_for_tag
+Rendered book/_list_books (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 78ms (View: 63, DB: 0) | 200 OK [http://localhost/book/show_for_tag/f%C3%A9lix]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 09:59:51) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+Rendered book/_list_books (16.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 94ms (View: 47, DB: 0) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 10:01:35) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (16.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+Rendered book/_list_books (32.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+ERROR: compiling _run_erb_app47views47shared47_nav_menu46html46erb_locals_nav_menu_object RAISED compile error
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_nav_menu.html.erb:40: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47shared47_nav_menu46html46erb_locals_nav_menu_object(local_assigns)
+            old_output_buffer = output_buffer;nav_menu = local_assigns[:nav_menu];object = local_assigns[:object];;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<div id=\"Menu\">\n"
+@output_buffer.concat "    <ul id=\"user_nav_menu\">\n"
+@output_buffer.concat "        ";  if logged_in ; @output_buffer.concat "\n"
+@output_buffer.concat "            <li>"; @output_buffer.concat(( link_to 'My Books', :controller=>'user',
+                                        :action=>'home',
+                                        :user_id=>session[:user],
+										:items=>'books').to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "\t\t\t<li>"; @output_buffer.concat "</li>\n"
+@output_buffer.concat "            <li>"; @output_buffer.concat(( link_to 'All Books', :controller=>'book',
+                                         :action=>'list' ).to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "\t\t\t<li>"; @output_buffer.concat "</li>\n"
+@output_buffer.concat "            <li>\n"
+@output_buffer.concat "                ";  form_tag ({:controller=> "book", :action=> "search"}) do ; @output_buffer.concat "\n"
+@output_buffer.concat "                    <input type=\"hidden\" name=\"page\" value=\"1\" />\n"
+@output_buffer.concat "                    <span id=\"add_book_title\">Add Book</span>\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( text_field_tag "book_keyword" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( submit_tag "Search", :id=>'search_button' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "                ";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "            </li>\n"
+@output_buffer.concat "\t\t\t<br/><br/>\n"
+@output_buffer.concat "\t\t\t<li>\n"
+@output_buffer.concat "\t\t\t\t"; @output_buffer.concat "\n"
+@output_buffer.concat "                    <input type=\"hidden\" name=\"page\" value=\"1\" />\n"
+@output_buffer.concat "                    <span id=\"add_dvd_title\">Add DVD</span>\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( text_field_tag "dvd_keyword" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( submit_tag "Search", :id=>'search_button' ).to_s); @output_buffer.concat "\t\t\t\t\t\n"
+@output_buffer.concat "\t\t\t\t";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "\t\t\t</li>\n"
+@output_buffer.concat "        ";  else ; @output_buffer.concat "\n"
+@output_buffer.concat "            <ul id=\"home_menu\">\n"
+@output_buffer.concat "                <li>"; @output_buffer.concat(( link_to 'Join Now', :controller=>'user',
+                                            :action=>'signup' ).to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "                <li>"; @output_buffer.concat(( link_to 'View the Books', :controller=>'book',
+                                                  :action=>'list' ).to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "\t\t\t\t<li>"; @output_buffer.concat "</li>\n"
+@output_buffer.concat "            </ul>\n"
+@output_buffer.concat "        ";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "    </ul>\n"
+@output_buffer.concat "</div>"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_nav_menu.html.erb:40:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_sidebar.html.erb:2:in `_run_erb_app47views47shared47_sidebar46html46erb_locals_object_sidebar'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/layouts/application.html.erb:23:in `_run_erb_app47views47layouts47application46html46erb'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:352:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:945:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1326:in `default_render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:14:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_nav_menu.html.erb:40: syntax error, unexpected kENSURE, expecting $end) on line #40 of app/views/shared/_nav_menu.html.erb:
+37:                 <li><%= link_to 'View the Books', :controller=>'book',
+38:                                                   :action=>'list' %></li>
+39: 				<li><%#= link_to 'View the DVDs',  :controller=>'dvd',
+40:                                                   :action=>'list'%></li>
+41:             </ul>
+42:         <% end %>
+43:     </ul>
+
+    app/views/shared/_nav_menu.html.erb:40:in `compile!'
+    app/views/shared/_sidebar.html.erb:2
+    app/views/layouts/application.html.erb:23
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (516.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 10:02:49) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+ERROR: compiling _run_erb_app47views47shared47_nav_menu46html46erb_locals_nav_menu_object RAISED compile error
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_nav_menu.html.erb:40: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47shared47_nav_menu46html46erb_locals_nav_menu_object(local_assigns)
+            old_output_buffer = output_buffer;nav_menu = local_assigns[:nav_menu];object = local_assigns[:object];;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<div id=\"Menu\">\n"
+@output_buffer.concat "    <ul id=\"user_nav_menu\">\n"
+@output_buffer.concat "        ";  if logged_in ; @output_buffer.concat "\n"
+@output_buffer.concat "            <li>"; @output_buffer.concat(( link_to 'My Books', :controller=>'user',
+                                        :action=>'home',
+                                        :user_id=>session[:user],
+										:items=>'books').to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "\t\t\t<li>"; @output_buffer.concat "</li>\n"
+@output_buffer.concat "            <li>"; @output_buffer.concat(( link_to 'All Books', :controller=>'book',
+                                         :action=>'list' ).to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "\t\t\t<li>"; @output_buffer.concat "</li>\n"
+@output_buffer.concat "            <li>\n"
+@output_buffer.concat "                ";  form_tag ({:controller=> "book", :action=> "search"}) do ; @output_buffer.concat "\n"
+@output_buffer.concat "                    <input type=\"hidden\" name=\"page\" value=\"1\" />\n"
+@output_buffer.concat "                    <span id=\"add_book_title\">Add Book</span>\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( text_field_tag "book_keyword" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( submit_tag "Search", :id=>'search_button' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "                ";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "            </li>\n"
+@output_buffer.concat "\t\t\t<br/><br/>\n"
+@output_buffer.concat "\t\t\t<li>\n"
+@output_buffer.concat "\t\t\t\t"; @output_buffer.concat "\n"
+@output_buffer.concat "                    <input type=\"hidden\" name=\"page\" value=\"1\" />\n"
+@output_buffer.concat "                    <span id=\"add_dvd_title\">Add DVD</span>\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( text_field_tag "dvd_keyword" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( submit_tag "Search", :id=>'search_button' ).to_s); @output_buffer.concat "\t\t\t\t\t\n"
+@output_buffer.concat "\t\t\t\t";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "\t\t\t</li>\n"
+@output_buffer.concat "        ";  else ; @output_buffer.concat "\n"
+@output_buffer.concat "            <ul id=\"home_menu\">\n"
+@output_buffer.concat "                <li>"; @output_buffer.concat(( link_to 'Join Now', :controller=>'user',
+                                            :action=>'signup' ).to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "                <li>"; @output_buffer.concat(( link_to 'View the Books', :controller=>'book',
+                                                  :action=>'list' ).to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "\t\t\t\t<li>"; @output_buffer.concat "</li>\n"
+@output_buffer.concat "            </ul>\n"
+@output_buffer.concat "        ";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "    </ul>\n"
+@output_buffer.concat "</div>"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_nav_menu.html.erb:40:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_sidebar.html.erb:2:in `_run_erb_app47views47shared47_sidebar46html46erb_locals_object_sidebar'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/layouts/application.html.erb:23:in `_run_erb_app47views47layouts47application46html46erb'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:352:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:945:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1326:in `default_render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:14:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_nav_menu.html.erb:40: syntax error, unexpected kENSURE, expecting $end) on line #40 of app/views/shared/_nav_menu.html.erb:
+37:                 <li><%= link_to 'View the Books', :controller=>'book',
+38:                                                   :action=>'list' %></li>
+39: 				<li><%#= link_to 'View the DVDs',  :controller=>'dvd', :action=>'list'%></li>
+40:             </ul>
+41:         <% end %>
+42:     </ul>
+43: </div>
+
+    app/views/shared/_nav_menu.html.erb:40:in `compile!'
+    app/views/shared/_sidebar.html.erb:2
+    app/views/layouts/application.html.erb:23
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (796.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 10:03:11) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+Rendered book/_list_books (16.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+ERROR: compiling _run_erb_app47views47shared47_nav_menu46html46erb_locals_nav_menu_object RAISED compile error
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_nav_menu.html.erb:39: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47shared47_nav_menu46html46erb_locals_nav_menu_object(local_assigns)
+            old_output_buffer = output_buffer;nav_menu = local_assigns[:nav_menu];object = local_assigns[:object];;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<div id=\"Menu\">\n"
+@output_buffer.concat "    <ul id=\"user_nav_menu\">\n"
+@output_buffer.concat "        ";  if logged_in ; @output_buffer.concat "\n"
+@output_buffer.concat "            <li>"; @output_buffer.concat(( link_to 'My Books', :controller=>'user',
+                                        :action=>'home',
+                                        :user_id=>session[:user],
+										:items=>'books').to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "\t\t\t<li>"; @output_buffer.concat "</li>\n"
+@output_buffer.concat "            <li>"; @output_buffer.concat(( link_to 'All Books', :controller=>'book',
+                                         :action=>'list' ).to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "\t\t\t<li>"; @output_buffer.concat "</li>\n"
+@output_buffer.concat "            <li>\n"
+@output_buffer.concat "                ";  form_tag ({:controller=> "book", :action=> "search"}) do ; @output_buffer.concat "\n"
+@output_buffer.concat "                    <input type=\"hidden\" name=\"page\" value=\"1\" />\n"
+@output_buffer.concat "                    <span id=\"add_book_title\">Add Book</span>\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( text_field_tag "book_keyword" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( submit_tag "Search", :id=>'search_button' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "                ";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "            </li>\n"
+@output_buffer.concat "\t\t\t<br/><br/>\n"
+@output_buffer.concat "\t\t\t<li>\n"
+@output_buffer.concat "\t\t\t\t"; @output_buffer.concat "\n"
+@output_buffer.concat "                    <input type=\"hidden\" name=\"page\" value=\"1\" />\n"
+@output_buffer.concat "                    <span id=\"add_dvd_title\">Add DVD</span>\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( text_field_tag "dvd_keyword" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( submit_tag "Search", :id=>'search_button' ).to_s); @output_buffer.concat "\t\t\t\t\t\n"
+@output_buffer.concat "\t\t\t\t";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "\t\t\t</li>\n"
+@output_buffer.concat "        ";  else ; @output_buffer.concat "\n"
+@output_buffer.concat "            <ul id=\"home_menu\">\n"
+@output_buffer.concat "                <li>"; @output_buffer.concat(( link_to 'Join Now', :controller=>'user',
+                                            :action=>'signup' ).to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "                <li>"; @output_buffer.concat(( link_to 'View the Books', :controller=>'book',
+                                                  :action=>'list' ).to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "            </ul>\n"
+@output_buffer.concat "        ";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "    </ul>\n"
+@output_buffer.concat "</div>"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_nav_menu.html.erb:39:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_sidebar.html.erb:2:in `_run_erb_app47views47shared47_sidebar46html46erb_locals_object_sidebar'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/layouts/application.html.erb:23:in `_run_erb_app47views47layouts47application46html46erb'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:352:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:945:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1326:in `default_render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:14:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_nav_menu.html.erb:39: syntax error, unexpected kENSURE, expecting $end) on line #39 of app/views/shared/_nav_menu.html.erb:
+36:                                             :action=>'signup' %></li>
+37:                 <li><%= link_to 'View the Books', :controller=>'book',
+38:                                                   :action=>'list' %></li>
+39:             </ul>
+40:         <% end %>
+41:     </ul>
+42: </div>
+
+    app/views/shared/_nav_menu.html.erb:39:in `compile!'
+    app/views/shared/_sidebar.html.erb:2
+    app/views/layouts/application.html.erb:23
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (250.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 10:03:56) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+ERROR: compiling _run_erb_app47views47shared47_nav_menu46html46erb_locals_nav_menu_object RAISED compile error
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_nav_menu.html.erb:39: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47shared47_nav_menu46html46erb_locals_nav_menu_object(local_assigns)
+            old_output_buffer = output_buffer;nav_menu = local_assigns[:nav_menu];object = local_assigns[:object];;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<div id=\"Menu\">\n"
+@output_buffer.concat "    <ul id=\"user_nav_menu\">\n"
+@output_buffer.concat "        ";  if logged_in ; @output_buffer.concat "\n"
+@output_buffer.concat "            <li>"; @output_buffer.concat(( link_to 'My Books', :controller=>'user',
+                                        :action=>'home',
+                                        :user_id=>session[:user],
+										:items=>'books').to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "\t\t\t<li>"; @output_buffer.concat "</li>\n"
+@output_buffer.concat "            <li>"; @output_buffer.concat(( link_to 'All Books', :controller=>'book',
+                                         :action=>'list' ).to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "\t\t\t<li>"; @output_buffer.concat "</li>\n"
+@output_buffer.concat "            <li>\n"
+@output_buffer.concat "                ";  form_tag ({:controller=> "book", :action=> "search"}) do ; @output_buffer.concat "\n"
+@output_buffer.concat "                    <input type=\"hidden\" name=\"page\" value=\"1\" />\n"
+@output_buffer.concat "                    <span id=\"add_book_title\">Add Book</span>\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( text_field_tag "book_keyword" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( submit_tag "Search", :id=>'search_button' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "                ";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "            </li>\n"
+@output_buffer.concat "\t\t\t<br/><br/>\n"
+@output_buffer.concat "\t\t\t<li>\n"
+@output_buffer.concat "\t\t\t\t"; @output_buffer.concat "\n"
+@output_buffer.concat "                    <input type=\"hidden\" name=\"page\" value=\"1\" />\n"
+@output_buffer.concat "                    <span id=\"add_dvd_title\">Add DVD</span>\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( text_field_tag "dvd_keyword" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( submit_tag "Search", :id=>'search_button' ).to_s); @output_buffer.concat "\t\t\t\t\t\n"
+@output_buffer.concat "\t\t\t\t";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "\t\t\t</li>\n"
+@output_buffer.concat "        ";  else ; @output_buffer.concat "\n"
+@output_buffer.concat "            <ul id=\"home_menu\">\n"
+@output_buffer.concat "                <li>"; @output_buffer.concat(( link_to 'Join Now', :controller=>'user',
+                                            :action=>'signup' ).to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "                <li>"; @output_buffer.concat(( link_to 'View the Books', :controller=>'book',
+                                                  :action=>'list' ).to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "            </ul>\n"
+@output_buffer.concat "        ";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "    </ul>\n"
+@output_buffer.concat "</div>"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_nav_menu.html.erb:39:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_sidebar.html.erb:2:in `_run_erb_app47views47shared47_sidebar46html46erb_locals_object_sidebar'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/layouts/application.html.erb:23:in `_run_erb_app47views47layouts47application46html46erb'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:352:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:945:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1326:in `default_render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:14:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_nav_menu.html.erb:39: syntax error, unexpected kENSURE, expecting $end) on line #39 of app/views/shared/_nav_menu.html.erb:
+36:                                             :action=>'signup' %></li>
+37:                 <li><%= link_to 'View the Books', :controller=>'book',
+38:                                                   :action=>'list' %></li>
+39:             </ul>
+40:         <% end %>
+41:     </ul>
+42: </div>
+
+    app/views/shared/_nav_menu.html.erb:39:in `compile!'
+    app/views/shared/_sidebar.html.erb:2
+    app/views/layouts/application.html.erb:23
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (235.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 10:04:06) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+ERROR: compiling _run_erb_app47views47shared47_nav_menu46html46erb_locals_nav_menu_object RAISED compile error
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_nav_menu.html.erb:39: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47shared47_nav_menu46html46erb_locals_nav_menu_object(local_assigns)
+            old_output_buffer = output_buffer;nav_menu = local_assigns[:nav_menu];object = local_assigns[:object];;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<div id=\"Menu\">\n"
+@output_buffer.concat "    <ul id=\"user_nav_menu\">\n"
+@output_buffer.concat "        ";  if logged_in ; @output_buffer.concat "\n"
+@output_buffer.concat "            <li>"; @output_buffer.concat(( link_to 'My Books', :controller=>'user',
+                                        :action=>'home',
+                                        :user_id=>session[:user],
+										:items=>'books').to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "\t\t\t<li>"; @output_buffer.concat "</li>\n"
+@output_buffer.concat "            <li>"; @output_buffer.concat(( link_to 'All Books', :controller=>'book',
+                                         :action=>'list' ).to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "\t\t\t<li>"; @output_buffer.concat "</li>\n"
+@output_buffer.concat "            <li>\n"
+@output_buffer.concat "                ";  form_tag ({:controller=> "book", :action=> "search"}) do ; @output_buffer.concat "\n"
+@output_buffer.concat "                    <input type=\"hidden\" name=\"page\" value=\"1\" />\n"
+@output_buffer.concat "                    <span id=\"add_book_title\">Add Book</span>\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( text_field_tag "book_keyword" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( submit_tag "Search", :id=>'search_button' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "                ";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "            </li>\n"
+@output_buffer.concat "\t\t\t<br/><br/>\n"
+@output_buffer.concat "\t\t\t<li>\n"
+@output_buffer.concat "\t\t\t\t"; @output_buffer.concat "\n"
+@output_buffer.concat "                    <input type=\"hidden\" name=\"page\" value=\"1\" />\n"
+@output_buffer.concat "                    <span id=\"add_dvd_title\">Add DVD</span>\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( text_field_tag "dvd_keyword" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "                    "; @output_buffer.concat(( submit_tag "Search", :id=>'search_button' ).to_s); @output_buffer.concat "\t\t\t\t\t\n"
+@output_buffer.concat "\t\t\t\t";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "\t\t\t</li>\n"
+@output_buffer.concat "        ";  else ; @output_buffer.concat "\n"
+@output_buffer.concat "            <ul id=\"home_menu\">\n"
+@output_buffer.concat "                <li>"; @output_buffer.concat(( link_to 'Join Now', :controller=>'user',
+                                            :action=>'signup' ).to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "                <li>"; @output_buffer.concat(( link_to 'View the Books', :controller=>'book',
+                                                  :action=>'list' ).to_s); @output_buffer.concat "</li>\n"
+@output_buffer.concat "            </ul>\n"
+@output_buffer.concat "        ";  end ; @output_buffer.concat "\n"
+@output_buffer.concat "    </ul>\n"
+@output_buffer.concat "</div>"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_nav_menu.html.erb:39:in `compile!'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_sidebar.html.erb:2:in `_run_erb_app47views47shared47_sidebar46html46erb_locals_object_sidebar'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:20:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:26:in `benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:19:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable_partial.rb:44:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/partials.rb:184:in `render_partial'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:267:in `render'
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/layouts/application.html.erb:23:in `_run_erb_app47views47layouts47application46html46erb'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:34:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:306:in `with_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:30:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:352:in `_render_with_layout'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:945:in `render_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1326:in `default_render'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+C:/Ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:50:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+C:/Ruby/lib/ruby/gems/1.8/gems/rack-1.0.1/lib/rack/handler/webrick.rb:14:in `run'
+C:/Ruby/lib/ruby/gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+C:/Ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+C:/cygwin/home/Pierrot/railsApps/book_shelf/app/views/shared/_nav_menu.html.erb:39: syntax error, unexpected kENSURE, expecting $end) on line #39 of app/views/shared/_nav_menu.html.erb:
+36:                                             :action=>'signup' %></li>
+37:                 <li><%= link_to 'View the Books', :controller=>'book',
+38:                                                   :action=>'list' %></li>
+39:             </ul>
+40:         <% end %>
+41:     </ul>
+42: </div>
+
+    app/views/shared/_nav_menu.html.erb:39:in `compile!'
+    app/views/shared/_sidebar.html.erb:2
+    app/views/layouts/application.html.erb:23
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (344.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 10:04:53) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+Rendered book/_list_books (32.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (16.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (32.0ms)
+Completed in 125ms (View: 94, DB: 0) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 10:05:29) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+Rendered book/_list_books (16.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (0.0ms)
+Completed in 234ms (View: 62, DB: 0) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing BookController#update_tags (for 127.0.0.1 at 2010-07-27 10:05:40) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "value"=>"tintin tibet", "editorId"=>"tag_list_24"}
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" WHERE ("books"."id" = 24) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+  [4;36;1mTagging Load (0.0ms)[0m   [0;1mSELECT * FROM "taggings" WHERE ("taggings".taggable_id = 24 AND "taggings".taggable_type = 'Book' AND (user_id = 1)) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."name" = 'tintin') LIMIT 1[0m
+  [4;36;1mTag Create (0.0ms)[0m   [0;1mINSERT INTO "tags" ("name", "taggings_count") VALUES('tintin', 0)[0m
+  [4;35;1mTagging Create (0.0ms)[0m   [0mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "user_id") VALUES(67, 'Book', 24, 1)[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."id" = 67) [0m
+  [4;35;1mTag Update (0.0ms)[0m   [0mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 67) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" WHERE ("tags"."name" = 'tibet') LIMIT 1[0m
+  [4;35;1mTag Create (0.0ms)[0m   [0mINSERT INTO "tags" ("name", "taggings_count") VALUES('tibet', 0)[0m
+  [4;36;1mTagging Create (0.0ms)[0m   [0;1mINSERT INTO "taggings" ("tag_id", "taggable_type", "taggable_id", "user_id") VALUES(68, 'Book', 24, 1)[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" WHERE ("tags"."id" = 68) [0m
+  [4;36;1mTag Update (0.0ms)[0m   [0;1mUPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE ("id" = 68) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Completed in 172ms (View: 0, DB: 0) | 200 OK [http://localhost/book/update_tags?authenticity_token=Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=]
+
+
+Processing BookController#tag_cloud_user (for 127.0.0.1 at 2010-07-27 10:05:45) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering book/tag_cloud_user
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".user_id = 1)) ORDER BY name asc[0m
+Completed in 32ms (View: 0, DB: 0) | 200 OK [http://localhost/book/tag_cloud_user]
+
+
+Processing BookController#tag_cloud_all (for 127.0.0.1 at 2010-07-27 10:05:46) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendering book/tag_cloud_all
+Completed in 15ms (View: 0, DB: 0) | 200 OK [http://localhost/book/tag_cloud_all]
+
+
+Processing BookController#tag_cloud_user (for 127.0.0.1 at 2010-07-27 10:05:47) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering book/tag_cloud_user
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".user_id = 1)) ORDER BY name asc[0m
+Completed in 141ms (View: 0, DB: 0) | 200 OK [http://localhost/book/tag_cloud_user]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 10:09:04) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (15.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (15.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 125ms (View: 63, DB: 15) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 10:09:21) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (16.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (15.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (16.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 219ms (View: 156, DB: 16) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-27 10:10:01) [GET]
+  [4;35;1mBook Load (16.0ms)[0m   [0mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;36;1mUser Load (16.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (31.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (0.0ms)
+Completed in 78ms (View: 46, DB: 32) | 200 OK [http://localhost/book/list]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 10:12:29) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+Rendered book/_list_books (16.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 218ms (View: 47, DB: 0) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-27 10:12:48) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "page"=>"1", "book_keyword"=>"tintin"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405229012') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405228946') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2203001038') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2203001119') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405228997') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405228989') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2203001321') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405229004') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405206349') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405206195') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (16.0ms)
+Rendered book/_book_detail (16.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (16.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (0.0ms)
+Completed in 3406ms (View: 125, DB: 0) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-27 10:15:30) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "page"=>"1", "book_keyword"=>"tintin"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405229012') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405228946') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2203001038') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2203001119') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405228997') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405228989') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2203001321') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405229004') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405206349') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405206195') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (16.0ms)
+Rendered book/_book_detail (16.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (15.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 2234ms (View: 78, DB: 0) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-27 10:16:23) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "page"=>"1", "book_keyword"=>"tintin"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405229012') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405228946') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2203001038') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2203001119') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405228997') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405228989') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2203001321') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405229004') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405206349') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405206195') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (15.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (16.0ms)
+Rendered book/_book_detail (16.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (0.0ms)
+Completed in 2625ms (View: 78, DB: 0) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-27 10:17:09) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "page"=>"1", "book_keyword"=>"tintin"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405229012') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405228946') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2203001038') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2203001119') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405228997') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405228989') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (16.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2203001321') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405229004') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405206349') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405206195') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (16.0ms)
+Rendered book/_book_detail (16.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (15.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 2563ms (View: 109, DB: 16) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-27 10:18:04) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "page"=>"1", "book_keyword"=>"tintin"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405229012') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405228946') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2203001038') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2203001119') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405228997') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405228989') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2203001321') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405229004') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405206349') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '1405206195') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (15.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (16.0ms)
+Rendered book/_book_detail (16.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (0.0ms)
+Completed in 2609ms (View: 78, DB: 0) | 200 OK [http://localhost/book/search]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 10:18:09) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (16.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (15.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 188ms (View: 47, DB: 16) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 10:22:32) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (15.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (16.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 125ms (View: 62, DB: 31) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 10:28:39) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (15.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 266ms (View: 204, DB: 15) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 10:35:16) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+Rendered book/_list_books (15.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 109ms (View: 62, DB: 0) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-27 10:36:54) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (15.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (0.0ms)
+Completed in 219ms (View: 63, DB: 0) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-27 10:36:58) [GET]
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (31.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (16.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 109ms (View: 78, DB: 16) | 200 OK [http://localhost/book/list]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-27 10:37:40) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "page"=>"1", "book_keyword"=>"tintin milou"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2894712308') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '0785910042') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (16.0ms)
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 578ms (View: 31, DB: 0) | 200 OK [http://localhost/book/search]

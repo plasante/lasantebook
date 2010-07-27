@@ -1,0 +1,13 @@
+<% if logged_in %>
+	<%= link_to_remote 'My Tags',
+	    {:url   =>  {:controller => 'book', :action => 'tag_cloud_user'}} ,
+	    :class => "tag_cloud_title_current",
+	    :id => "my_tags_link" %>
+
+	<%= link_to_remote 'All Tags',
+	    {:url    =>  {:controller => 'book', :action => 'tag_cloud_all'}} ,
+	    :class  => 'tag_cloud_title',
+	    :id => "all_tags_link" %>
+<% end %>
+
+<div id="cloud_view"><%= tag_cloud_revised %></div>

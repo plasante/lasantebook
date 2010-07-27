@@ -39,4 +39,15 @@ class DvdController < ApplicationController
     @dvd = Dvd.find(params[:id])
     @title = "DVD Detail"
   end
+  
+  def update_tags
+    @editor_id = params[:editorId]
+    dvd_id = @editor_id.split('_')[-1]
+    tags = params[:value]
+    @dvd = Dvd.find(dvd_id)
+    @dvd.user_id = session[:user]
+    @dvd.tag_list = tags
+    @dvd.save
+    render :text => @dvd.tag_list
+  end
 end

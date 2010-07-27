@@ -10,8 +10,9 @@ body {
 }
 
 #header {
-	height: 150px;
-	background: url(../images/header_bg.png) repeat-x;
+    background: url("../images/header_bg.png") repeat-x scroll 0 0 transparent;
+    height: 150px;
+    margin-bottom: 10px;
 }
 
 #logo_image {
@@ -239,11 +240,11 @@ body {
 }
 
 .asset_data_first {
- float:left;
- margin: 0 10px 0 20px;
- border: 1px solid #cccccc;
- padding: 15px;
- width: 80%;
+    border: 1px solid #CCCCCC;
+    float: left;
+    margin: 10px 10px 0 20px;
+    padding: 15px;
+    width: 80%;
 }
 
 .asset_data {
