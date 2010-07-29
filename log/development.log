@@ -44062,3 +44062,660 @@ Rendered shared/_nav_menu (0.0ms)
 Rendered shared/_tag_cloud (16.0ms)
 Rendered shared/_sidebar (32.0ms)
 Completed in 125ms (View: 110, DB: 0) | 200 OK [http://localhost/book/list]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-29 11:26:07) [GET]
+  [4;35;1mBook Load (16.0ms)[0m   [0mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (31.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (16.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (16.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 109ms (View: 93, DB: 16) | 200 OK [http://localhost/book/list]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-29 11:26:19) [GET]
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (31.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (16.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (16.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (15.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 125ms (View: 94, DB: 15) | 200 OK [http://localhost/book/list]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-29 11:29:40) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+Rendered book/_list_books (32.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (15.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (15.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 109ms (View: 63, DB: 0) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-29 11:29:41) [GET]
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (31.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (0.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 140ms (View: 125, DB: 0) | 200 OK [http://localhost/book/list]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-29 11:36:36) [GET]
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (32.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (15.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (15.0ms)
+Rendered shared/_nav_menu (16.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (47.0ms)
+Completed in 141ms (View: 125, DB: 0) | 200 OK [http://localhost/book/list]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-29 11:36:42) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (16.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (15.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (16.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (15.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 234ms (View: 63, DB: 31) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-29 11:36:45) [GET]
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (32.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (15.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (0.0ms)
+Rendered shared/_nav_menu (16.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 109ms (View: 94, DB: 0) | 200 OK [http://localhost/book/list]
+
+
+Processing BookController#tag_cloud_user (for 127.0.0.1 at 2010-07-29 11:36:53) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering book/tag_cloud_user
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".user_id = 1)) ORDER BY name asc[0m
+Completed in 47ms (View: 15, DB: 0) | 200 OK [http://localhost/book/tag_cloud_user]
+
+
+Processing BookController#tag_cloud_all (for 127.0.0.1 at 2010-07-29 11:36:55) [POST]
+  Parameters: {"authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendering book/tag_cloud_all
+Completed in 16ms (View: 16, DB: 0) | 200 OK [http://localhost/book/tag_cloud_all]
+
+
+Processing BookController#search (for 127.0.0.1 at 2010-07-29 11:37:02) [POST]
+  Parameters: {"commit"=>"Search", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8=", "page"=>"1", "book_keyword"=>"morane"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2930234504') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2874180394') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2874181331') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2874181145') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '287418070X') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2874180491') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2859207309') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '280361488X') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2874181080') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT "books".* FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books"."isbn" = '2874181617') AND ("books_users".user_id = 1 ) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering book/search
+Rendered book/_book_not_exists (15.0ms)
+Rendered book/_book_detail (15.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (15.0ms)
+Rendered book/_book_detail (15.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+Rendered book/_book_not_exists (0.0ms)
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (16.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 1375ms (View: 93, DB: 0) | 200 OK [http://localhost/book/search]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-29 11:40:14) [GET]
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;35;1mUser Load (16.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (63.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mUser Load (15.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (15.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (16.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (16.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 156ms (View: 109, DB: 31) | 200 OK [http://localhost/book/list]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-29 11:40:21) [GET]
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (31.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (16.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (0.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (15.0ms)
+Completed in 234ms (View: 203, DB: 16) | 200 OK [http://localhost/book/list]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-29 11:40:30) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+Rendered book/_list_books (32.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (15.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (15.0ms)
+Rendered shared/_nav_menu (16.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 110ms (View: 63, DB: 0) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-29 11:42:18) [GET]
+  [4;36;1mBook Load (16.0ms)[0m   [0;1mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (31.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (15.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (15.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 219ms (View: 203, DB: 16) | 200 OK [http://localhost/book/list]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-29 11:42:27) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (0.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (32.0ms)
+Completed in 125ms (View: 78, DB: 0) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-29 11:42:31) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (15.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (125.0ms)
+Rendered book/_list_books (125.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (16.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (16.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (15.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 234ms (View: 172, DB: 30) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-29 11:42:56) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (16.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (16.0ms)
+Rendered shared/_nav_menu (16.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (32.0ms)
+Completed in 141ms (View: 63, DB: 0) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-29 11:43:05) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+Rendered book/_list_books (16.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (16.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (16.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (32.0ms)
+Completed in 235ms (View: 78, DB: 0) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-29 11:43:10) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+Rendered book/_list_books (16.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (15.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (15.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 141ms (View: 78, DB: 0) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#logout (for 127.0.0.1 at 2010-07-29 11:43:16) [GET]
+Redirected to http://localhost:3000/
+Completed in 0ms (DB: 0) | 302 Found [http://localhost/user/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-07-29 11:43:16) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Rendered user/_signin (0.0ms)
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (16.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (16.0ms)
+Completed in 32ms (View: 32, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UserController#login (for 127.0.0.1 at 2010-07-29 11:43:29) [POST]
+  Parameters: {"user"=>{"password"=>"321erre1p", "login"=>"plasante"}, "commit"=>"Login", "authenticity_token"=>"Sj3C9JXV5qZwxcnKXo/huwiuRvK1xBudQ8FrKo43gd8="}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE (login = 'plasante') LIMIT 1[0m
+Redirected to http://localhost:3000/user/home
+Completed in 31ms (DB: 0) | 302 Found [http://localhost/user/login]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-29 11:43:29) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (15.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+Rendered dvd/_list_dvds (47.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (16.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 171ms (View: 109, DB: 0) | 200 OK [http://localhost/user/home]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-29 11:47:42) [GET]
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;36;1mDvd Load (0.0ms)[0m   [0;1mSELECT * FROM "dvds" INNER JOIN "dvds_users" ON "dvds".id = "dvds_users".dvd_id WHERE ("dvds_users".user_id = 1 ) [0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 5 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 5)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 6 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 6)) [0m
+Rendered dvd/_dvd_detail (15.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "dvds_users" ON "users".id = "dvds_users".user_id WHERE ("dvds_users".dvd_id = 7 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Dvd') AND ("taggings".taggable_id = 7)) [0m
+Rendered dvd/_dvd_detail (0.0ms)
+Rendered dvd/_list_dvds (31.0ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (16.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 140ms (View: 94, DB: 0) | 200 OK [http://localhost/user/home]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-29 11:47:51) [GET]
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (31.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;35;1mTag Load (16.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (109.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (15.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (15.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (0.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 219ms (View: 187, DB: 16) | 200 OK [http://localhost/book/list]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-29 11:47:55) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (0.0ms)
+Rendered book/_list_books (15.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (15.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (15.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (16.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 125ms (View: 62, DB: 16) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-29 11:47:59) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (15.0ms)
+Rendered shared/_dyn_nav_menu (15.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (16.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 234ms (View: 172, DB: 16) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-29 11:48:02) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;36;1mUser Load (16.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+Rendered book/_list_books (32.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (16.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (15.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (15.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 125ms (View: 47, DB: 31) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing UserController#home (for 127.0.0.1 at 2010-07-29 11:48:04) [GET]
+  Parameters: {"items"=>"books", "user_id"=>"1"}
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering user/home
+  [4;35;1mBook Load (0.0ms)[0m   [0mSELECT * FROM "books" INNER JOIN "books_users" ON "books".id = "books_users".book_id WHERE ("books_users".user_id = 1 ) [0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (15.0ms)
+Rendered book/_list_books (31.0ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (0.0ms)
+Rendered shared/_dyn_nav_menu (15.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (31.0ms)
+Completed in 250ms (View: 78, DB: 0) | 200 OK [http://localhost/user/home?items=books&user_id=1]
+
+
+Processing BookController#list (for 127.0.0.1 at 2010-07-29 11:48:08) [GET]
+  [4;36;1mBook Load (0.0ms)[0m   [0;1mSELECT * FROM "books" [0m
+Rendering template within layouts/application
+Rendering book/list
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 21 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 21)) [0m
+Rendered book/_book_detail (31.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 22 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 22)) [0m
+Rendered book/_book_detail (0.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" INNER JOIN "books_users" ON "users".id = "books_users".user_id WHERE ("books_users".book_id = 24 ) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT DISTINCT tags.* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (("taggings".taggable_type = 'Book') AND ("taggings".taggable_id = 24)) [0m
+Rendered book/_book_detail (16.0ms)
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered shared/_book_nav_menu (0.0ms)
+Rendered shared/_music_nav_menu (0.0ms)
+Rendered shared/_dvds_nav_menu (16.0ms)
+Rendered shared/_dyn_nav_menu (16.0ms)
+Rendered shared/_nav_menu (0.0ms)
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM "tags" ORDER BY taggings_count DESC LIMIT 100[0m
+Rendered shared/_tag_cloud (16.0ms)
+Rendered shared/_sidebar (32.0ms)
+Completed in 125ms (View: 110, DB: 0) | 200 OK [http://localhost/book/list]

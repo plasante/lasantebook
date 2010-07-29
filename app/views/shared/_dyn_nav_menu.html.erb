@@ -22,21 +22,3 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-	function show_menu(object) {
-		if (object == 'Books') {
-			$('books_menu').show(); $('books_btn').setStyle({ backgroundColor: '#EEEEEE'});
-			$('music_menu').hide(); $('music_btn').setStyle({ backgroundColor: '#FFFFFF'});
-			$('dvds_menu').hide();  $('dvds_btn').setStyle({ backgroundColor: '#FFFFFF'});
-		} else if (object == 'CDs') {
-			$('books_menu').hide(); $('books_btn').setStyle({ backgroundColor: '#FFFFFF'});
-			$('music_menu').show(); $('music_btn').setStyle({ backgroundColor: '#EEEEEE'});
-			$('dvds_menu').hide();  $('dvds_btn').setStyle({  backgroundColor: '#FFFFFF'});	
-		} else {
-			$('books_menu').hide(); $('books_btn').setStyle({ backgroundColor: '#FFFFFF'});
-			$('music_menu').hide(); $('music_btn').setStyle({ backgroundColor: '#FFFFFF'});
-			$('dvds_menu').show();	$('dvds_btn').setStyle({ backgroundColor: '#EEEEEE'});
-		}
-	}
-</script>
