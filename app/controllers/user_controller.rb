@@ -22,18 +22,16 @@ class UserController < ApplicationController
   def home
     current_user = User.find( session[:user] )
     @items = params[:items]
-    @books = current_user.books
-    @dvds = current_user.dvds
-    @title = "User Home"
-#    if params[:items] == 'books'
-#      books = current_user.books
-#      @title = "BookShelf - User Home"
-#      render :partial => 'book/list_books', :locals => { :books => books }
-#    else 
-#      @dvds = current_user.dvds
-#      @title = "DVD Shelf - User Home"
-#      render :partial => 'dvd/list_dvds', :locals => { :dvds => @dvds }
-#    end
+    if @items == 'books'
+      @books = current_user.books
+      @title = "Book Shelf"
+    elsif @items == 'dvds'
+      @dvds = current_user.dvds
+      @title = "DVD Shelf"
+    else
+      @cds = current_user.cds
+      @title = "CD Shelf"
+    end
   end
 
   def login

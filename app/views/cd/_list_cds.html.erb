@@ -1,0 +1,22 @@
+<% count = 0 %>
+<% cds.each do |cd| %>
+  <% if (count == 0) %>
+    <% count = 1 %>
+    <div class="asset_data_first">
+  <% else %>
+    <div class="asset_data">
+  <% end %>
+  <%= render :partial => 'cd/cd_detail', :locals => { :cd => cd, :search => false } %>
+  </div>
+<% end %>
+<div style="clear:both">&nbsp;</div>
+
+<% if logged_in %>
+    <script>
+        document.observe('dom:loaded', function() {
+           <% cds.each do |cd| %>
+			  new Ajax.InPlaceEditor('tag_list_<%= cd.id %>', '/cd/update_tags?authenticity_token=<%= form_authenticity_token() %>');
+           <% end %>
+        });
+    </script>
+<% end %>

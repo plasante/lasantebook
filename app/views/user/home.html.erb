@@ -1,5 +1,7 @@
 <% if @items == 'books' %>
 	<%= render :partial => 'book/list_books', :locals => {:books => @books} %>
-<% else %>
+<% elsif @items == 'dvds' %>
     <%= render :partial => 'dvd/list_dvds', :locals => {:dvds => @dvds} %>
+<% else %>
+    <%= render :partial => 'cd/list_cds', :locals => {:cds => @cds}%>
 <% end %>

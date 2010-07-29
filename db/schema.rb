@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 7) do
+ActiveRecord::Schema.define(:version => 8) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -27,6 +27,27 @@ ActiveRecord::Schema.define(:version => 7) do
 
   create_table "books_users", :id => false, :force => true do |t|
     t.integer  "book_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cds", :force => true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.date     "release_date"
+    t.text     "description"
+    t.string   "image_url_small"
+    t.string   "image_url_medium"
+    t.string   "image_url_large"
+    t.string   "amazon_url"
+    t.string   "isbn"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cds_users", :id => false, :force => true do |t|
+    t.integer  "cd_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -44,8 +44,8 @@ body {
 }
 
 #Content {
-	margin: 5px 0 50px 210px;
-	padding:5px;
+    margin: 5px 0 50px 255px;
+    padding: 5px;
 }
 
 #sidebar {
@@ -211,8 +211,9 @@ body {
 }
 
 #user_nav_menu input {
-	clear: both;
-	float: left;
+    clear: both;
+    float: left;
+    margin-top: 10px;
 }
 
 #user_nav_menu #search_button {

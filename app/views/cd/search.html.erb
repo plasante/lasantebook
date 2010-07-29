@@ -1,0 +1,28 @@
+<% if @prev_page > 0 %>
+  <%= link_to "Prev page", :controller => 'cd',
+                           :action => 'search',
+                           :music_keyword => @keyword,
+                           :page => @prev_page %>
+<% end %>
+<% if @dvds && @dvds.size == 10 %>
+  <%= link_to "Next page", :controller => 'cd',
+                           :action => 'search',
+                           :music_keyword => @keyword,
+                           :page => @next_page %>
+<% end %>
+<% if @cds && @cds.size > 0 %>
+	<% first = true %>
+	<% @cds.each do |cd| %>
+		<% if (first == true) %>
+			<% first = false %>
+			<div class="asset_data_first">
+		<% else %>
+			<div class="asset_data">
+		<% end %>
+			<%= render :partial => 'cd_detail', :locals => { :cd => cd, :search => true } %>
+		</div>
+	<% end %>
+<% else %>
+  <%= "No matching cds found." unless @prev_page > 0 %>
+  <%= "No additional matching cds found." unless @prev_page == 0 %>
+<% end %>

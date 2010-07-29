@@ -1,0 +1,12 @@
+<% count = 0 %>
+<% @cds.each do |cd| %>
+    <% if (count == 0) %>
+        <% count = 1 %>
+        <div class="asset_data_first">
+    <% else %>
+        <div class="asset_data">
+    <% end %>
+        <%= render :partial=>"cd_detail", :locals => { :cd => cd, :search => false } %>
+        </div>
+<% end %>
+<div style="clear:both;">&nbsp;</div>

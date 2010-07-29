@@ -13,7 +13,6 @@
     Release Date: <%= book.release_date %><br/>
     ISBN: <%= book.isbn %>
 </div>
-
 <% if search %>
     <div class="add_control" id="add_control_<%= book.isbn %>">
         <% if !book.exists %>

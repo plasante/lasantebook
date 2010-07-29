@@ -4,14 +4,14 @@
             <li><%= link_to 'My DVDs', :controller=>'user',
                                         :action=>'home',
                                         :user_id=>session[:user],
-										:items=>'dvds'%></li>
-            <li><%= link_to 'All DVDs', :controller=>'dvd',
+										:items=>'books'%></li>
+            <li><%= link_to 'All DVDs', :controller=>'book',
                                          :action=>'list' %></li>
             <li>
-                <% form_tag ({:controller=> "dvd", :action=> "search"}) do %>
+                <% form_tag ({:controller=> "book", :action=> "search"}) do %>
                     <input type="hidden" name="page" value="1" />
-                    <span id="add_book_title">Add DVD</span>
-                    <%= text_field_tag "dvd_keyword" %>
+                    <span id="add_book_title">Add Book</span>
+                    <%= text_field_tag "book_keyword" %>
                     <%= submit_tag "Search", :id=>'search_button' %>
                 <% end %>
             </li>

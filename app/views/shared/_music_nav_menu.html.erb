@@ -4,14 +4,14 @@
             <li><%= link_to 'My CDs', :controller=>'user',
                                         :action=>'home',
                                         :user_id=>session[:user],
-										:items=>'books'%></li>
-            <li><%= link_to 'All CDs', :controller=>'book',
+										:items=>'cds'%></li>
+            <li><%= link_to 'All CDs', :controller=>'cd',
                                          :action=>'list' %></li>
             <li>
-                <% form_tag ({:controller=> "book", :action=> "search"}) do %>
+                <% form_tag ({:controller=> "cd", :action=> "search"}) do %>
                     <input type="hidden" name="page" value="1" />
-                    <span id="add_book_title">Add Book</span>
-                    <%= text_field_tag "book_keyword" %>
+                    <span id="add_book_title">Add CD</span>
+                    <%= text_field_tag "music_keyword" %>
                     <%= submit_tag "Search", :id=>'search_button' %>
                 <% end %>
             </li>
@@ -19,7 +19,7 @@
             <ul id="home_menu">
                 <li><%= link_to 'Join Now', :controller=>'user',
                                             :action=>'signup' %></li>
-                <li><%= link_to 'View the CDs', :controller=>'book',
+                <li><%= link_to 'View the CDs', :controller=>'cd',
                                                   :action=>'list' %></li>
             </ul>
         <% end %>

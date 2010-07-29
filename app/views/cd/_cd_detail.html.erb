@@ -1,0 +1,51 @@
+<div class="asset_image"><img src="<%= cd.image_url_small %>" /></div>
+<div class="book_info">
+    <span class="book_name">
+        <% if cd.exists %>
+            <%= link_to cd.title, { :controller => "cd",
+                                      :action => "show",
+                                      :id => cd.id } %>
+        <% else %>
+            <%= cd.title %>
+        <% end %>
+    </span><br/>
+    Author(s): <%= cd.author %><br/>
+    Release Date: <%= cd.release_date %><br/>
+    ISBN: <%= cd.isbn %>
+</div>
+<% if search %>
+    <div class="add_control" id="add_control_<%= cd.isbn %>">
+        <% if !cd.exists %>
+            <%= render :partial=>'cd_not_exists',
+					   :locals => { :cd => cd } %>
+        <% else %>
+            <%= render :partial=>'cd_exists',
+                       :locals => { :cd => cd } %>
+        <% end %>
+    </div>
+<% else %>
+    <div class="add_control" id="add_control_<%= cd.isbn %>">
+        <% if session[:user] %>
+            <%= link_to_remote	"Delete from Shelf",
+			             		:url => { :controller => 'cd',
+                               	:action => 'delete',
+                               	:isbn => cd.isbn } %>
+        <% end %>
+        <div id="shelf_status_<%= cd.isbn %>">
+            <span class="users_count"><%= cd.users.size %> Users</span>
+        </div>
+    </div>
+    <div class="tags" style="clear: both;">
+		<div id="pierre_div"></div>
+        <span class="tags_title">Tags:</span>
+        <% if cd.tag_list.length > 0 %>
+            <span class="tag_list" id="tag_list_<%= cd.id %>">
+                <%= cd.tag_list %>
+            </span>
+        <% else %>
+            <span class="empty_tag_list" id="tag_list_<%= cd.id %>">
+                (Click to add tags)
+            </span>
+        <% end %>
+    </div>
+<% end %>
