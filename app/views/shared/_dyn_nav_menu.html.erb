@@ -1,0 +1,42 @@
+<div id="dynamic_menu">
+	<div id="left_col" >
+		<div id="books" >
+			<input id="books_btn" style="" class="button" type="button" value="Books" onclick="show_menu(this.value);">
+		</div>
+		<div id="music" >
+			<input id="music_btn" style="" class="button" type="button" value="CDs" onclick="show_menu(this.value);">
+		</div>
+		<div id="dvds" >
+			<input id="dvds_btn" style="" class="button" type="button" value="DVDs" onclick="show_menu(this.value);">
+		</div>
+	</div>
+	<div id="right_col" >
+		<div id="books_menu" style="">
+			<%= render :partial=>"shared/book_nav_menu" %>
+		</div>
+		<div id="music_menu" style="display: none;">
+			<%= render :partial=>"shared/music_nav_menu" %>
+		</div>
+		<div id="dvds_menu" style="display: none;">
+			<%= render :partial=>"shared/dvds_nav_menu" %>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	function show_menu(object) {
+		if (object == 'Books') {
+			$('books_menu').show(); $('books_btn').setStyle({ backgroundColor: '#EEEEEE'});
+			$('music_menu').hide(); $('music_btn').setStyle({ backgroundColor: '#FFFFFF'});
+			$('dvds_menu').hide();  $('dvds_btn').setStyle({ backgroundColor: '#FFFFFF'});
+		} else if (object == 'CDs') {
+			$('books_menu').hide(); $('books_btn').setStyle({ backgroundColor: '#FFFFFF'});
+			$('music_menu').show(); $('music_btn').setStyle({ backgroundColor: '#EEEEEE'});
+			$('dvds_menu').hide();  $('dvds_btn').setStyle({  backgroundColor: '#FFFFFF'});	
+		} else {
+			$('books_menu').hide(); $('books_btn').setStyle({ backgroundColor: '#FFFFFF'});
+			$('music_menu').hide(); $('music_btn').setStyle({ backgroundColor: '#FFFFFF'});
+			$('dvds_menu').show();	$('dvds_btn').setStyle({ backgroundColor: '#EEEEEE'});
+		}
+	}
+</script>

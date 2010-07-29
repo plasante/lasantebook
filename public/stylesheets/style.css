@@ -27,7 +27,7 @@ body {
 #notice {
 	color: red;
 	font-weight: bold;
-	margin-left: 30px;
+	margin-left: 50px;
 	margin-bottom: 10px;
 }
 
@@ -56,14 +56,14 @@ body {
 }
 
 #Menu {
-	display:block;
-	float:left;
-	padding:10px;
-	background-color:#eee;
-	border:1px solid;
-	line-height:17px;
-	width:170px;
-	margin-bottom: 20px;
+    background-color: #EEEEEE;
+    border: 0 solid;
+    display: block;
+    float: left;
+    line-height: 17px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 145px;
 }
 
 #home_menu {
@@ -82,7 +82,7 @@ body {
 .home_quote {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	float: left;
-	margin-left: 20px;
+	margin-left: 50px;
 	font-size: 12pt;
  	color: #777777;
  	border: 3px solid #0066cc;
@@ -235,25 +235,25 @@ body {
 }
 
 .info_title {
-	margin: 10px 10px 10px 20px;
+	margin: 10px 10px 10px 50px;
 	clear: both;
 }
 
 .asset_data_first {
     border: 1px solid #CCCCCC;
     float: left;
-    margin: 10px 10px 0 20px;
+    margin: 10px 10px 0 50px;
     padding: 15px;
     width: 80%;
 }
 
 .asset_data {
- float:left;
- clear:both;
- margin: 10px 10px 0px 20px;
- border: 1px solid #cccccc;
- padding: 15px;
- width: 80%;
+    border: 1px solid #CCCCCC;
+    clear: both;
+    float: left;
+    margin: 10px 10px 0 50px;
+    padding: 15px;
+    width: 80%;
 }
 
 .asset_image {
@@ -268,7 +268,7 @@ body {
 }
 
 #book_view {
-	margin-left: 25px;
+	margin-left: 50px;
 }
 
 .book_info {
@@ -333,18 +333,18 @@ body {
 	margin-bottom: 5px;
 }
 
-
 .tag_cloud_title, .tag_cloud_title_current {
-	float: left;
-	display: block;
-	background-color: #f98919;
-	color: white;
-	line-height: 2em;
-	margin-bottom: 15px;
-	padding-left: 5px;
-	width: 40%;
-	border-right: thin solid black;
-	border-left: thin solid black;
+    background-color: #F98919;
+    border-left: thin solid black;
+    border-right: thin solid black;
+    color: white;
+    display: block;
+    float: left;
+    line-height: 2em;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    padding-left: 5px;
+    width: 40%;
 }
 
 .tag_cloud_title:hover {
@@ -488,3 +488,123 @@ font-size: .75em;
 text-align: center;
 width: 100%;
 }
+
+#dynamic_menu {
+	width: 192px; 
+	height: 200px; 
+	background-color: white; 
+	margin-bottom: 10px;
+}
+
+#dynamic_menu #left_col {
+	width: 39%; 
+	height: 100%; 
+	background-color: white; 
+	float: left;
+}
+
+#dynamic_menu #left_col #books {
+	width: 100%; 
+	background-color: white; 
+	margin: 0; 
+	padding: 0;
+}
+
+#dynamic_menu #left_col #music {
+	width: 100%; 
+	background-color: white; 
+	margin: 0; 
+	padding: 0;
+}
+
+#dynamic_menu #left_col #dvds {
+	width: 100%; 
+	background-color: white; 
+	margin: 0; 
+	padding: 0;
+}
+
+#dynamic_menu #left_col #books input {
+    height: 100%;
+    margin: 1px;
+    padding: 1px;
+    width: 105%;
+	background-color: #EEEEEE;
+}
+
+#dynamic_menu #left_col #music input {
+	width: 105%; 
+	height: 100%; 
+	margin: 1px; 
+	padding: 1px;
+	background-color: #FFFFFF;
+}
+
+#dynamic_menu #left_col #dvds input {
+	width: 105%; 
+	height: 100%; 
+	margin: 1px; 
+	padding: 1px;
+	background-color: #FFFFFF;
+}
+
+#dynamic_menu #right_col {
+	width: 60%; 
+	height: 100%; 
+	background-color: white; 
+	float: right;
+}
+
+/*Button Style*/ 
+.button { 
+	float:left; 
+	height:auto; 
+	font:76%/150% "Lucida Grande", Geneva, Verdana, Arial, Helvetica, sans-serif; 
+	width:10em; 
+	text-align:center; 
+	white-space:nowrap; 
+} 
+
+/*Button Arrow Styles*/ 
+	.arrows { font-size:90%; margin:0.2em; 
+} 
+
+/*Button link styles*/ 
+.button a:link, .button a:visited { 
+	color: #eee; 
+	background-color:#1e5184; 
+	font-size:1em; 
+	font-weight:bolder; 
+	text-decoration: none; 
+	border-bottom:0.1em 
+	solid #555; 
+	border-right:0.1em 
+	solid #555; 
+	border-top:0.1em 
+	solid #ccc; 
+	border-left:0.1em 
+	solid #ccc; 
+	margin: 0.2em; 
+	padding:0.2em; 
+	display:block; 
+} 
+
+.button a:hover { 
+	background-color:#003366; 
+	color:#999; 
+	border-top:0.1em 
+	solid #777; 
+	border-left:0.1em 
+	solid #777; 
+	border-bottom:0.1em 
+	solid #aaa; 
+	border-right:0.1em 
+	solid #aaa; 
+	padding:0.2em; 
+	margin: 0.2em; 
+}
+
+input[type="button"]:hover{
+	color: red;
+	font-weight: bold;
+} 

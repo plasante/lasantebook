@@ -1,6 +1,4 @@
 <div id="sidebar">
-	<%= render :partial=>"shared/dyn_nav_menu" %>
-	<div style="clear:both;">&nbsp;</div>
     <%= render :partial=>"shared/nav_menu" %>
     <%= render :partial=>"shared/tag_cloud" %>
     <div style="clear:both;">&nbsp;</div>

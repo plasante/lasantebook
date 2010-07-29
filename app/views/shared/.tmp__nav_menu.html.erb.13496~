@@ -1,4 +1,4 @@
-<div id="Menu" style="display: none;">
+<div id="Menu">
     <ul id="user_nav_menu">
         <% if logged_in %>
             <li><%= link_to 'My Books', :controller=>'user',

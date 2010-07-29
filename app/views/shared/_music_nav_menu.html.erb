@@ -1,11 +1,11 @@
-<div id="Menu" style="display: none;">
+<div id="Menu">
     <ul id="user_nav_menu">
         <% if logged_in %>
-            <li><%= link_to 'My Books', :controller=>'user',
+            <li><%= link_to 'My CDs', :controller=>'user',
                                         :action=>'home',
                                         :user_id=>session[:user],
 										:items=>'books'%></li>
-            <li><%= link_to 'All Books', :controller=>'book',
+            <li><%= link_to 'All CDs', :controller=>'book',
                                          :action=>'list' %></li>
             <li>
                 <% form_tag ({:controller=> "book", :action=> "search"}) do %>
@@ -19,7 +19,7 @@
             <ul id="home_menu">
                 <li><%= link_to 'Join Now', :controller=>'user',
                                             :action=>'signup' %></li>
-                <li><%= link_to 'View the Books', :controller=>'book',
+                <li><%= link_to 'View the CDs', :controller=>'book',
                                                   :action=>'list' %></li>
             </ul>
         <% end %>
