@@ -19,7 +19,7 @@
       <%= link_to_function "Cancel Review", "show_add_review_form()" %>  
     </div>
     <div id="add_review_form" style="display:none;">
-      <%= render :partial=>"review/add_review_form", :locals => { :book => dvd } %>  
+      <%= render :partial=>"review/add_dvd_review_form", :locals => { :dvd => dvd } %>  
     </div>
   <% end %>
 	<div id="reviews">

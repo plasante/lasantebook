@@ -4,6 +4,7 @@ class CreateReviews < ActiveRecord::Migration
       t.references :user
       t.references :book
       t.references :dvd
+      t.references :cd
       t.text :body
       t.string :title
       t.timestamps

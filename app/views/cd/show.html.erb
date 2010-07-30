@@ -1,0 +1,22 @@
+<div id="book_view">
+    <div id="book_view_upper">
+        <div id="asset_image">
+            <%= image_tag @cd.image_url_medium %>  
+        </div>
+        <div id="book_summary">
+            <span class="book_title"><%= @cd.title %></span>
+            Author: <%= @cd.author %><br/>
+            <div id="book_details">
+                Release Date: <%= @cd.release_date %><br/>
+                ISBN: <%= @cd.isbn %><br/><br/>
+            </div>
+            Users: <%= @cd.users.size %><br/>
+            Added to DvdShelf on: <%= @cd.created_at %><br/><br/>
+            <%= link_to "Buy from Amazon", @cd.amazon_url, :class => "action_button" %><br/><br/>
+        </div>
+    </div>
+    <div id="reviews_content">
+      <%= render :partial => 'cd_reviews', :locals => { :cd => @cd } %>  
+    </div>
+    <div style="clear:both;">&nbsp;</div>
+</div>

@@ -1,0 +1,3 @@
+<span class="info_title">Books with tag
+<span class="tag"><%= @tag %></span></span><br/><br/>
+<%= render :partial=>'list_books', :locals=>{:books=>@books} %>

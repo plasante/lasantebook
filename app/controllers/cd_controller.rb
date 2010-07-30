@@ -34,4 +34,25 @@ class CdController < ApplicationController
     @cds = Cd.find(:all)
     @title = "CD Shelf"
   end
+  
+  def update_tags
+    @editor_id = params[:editorId]
+    cd_id = @editor_id.split('_')[-1]
+    tags = params[:value]
+    @cd = Cd.find(cd_id)
+    @cd.user_id = session[:user]
+    @cd.tag_list = tags
+    @cd.save
+    render :text => @cd.tag_list
+  end
+  
+  def show
+    @cd = Cd.find(params[:id])
+    @title = "CD Detail"
+  end
+  
+  def show_for_tag
+    @tag = params[:id]
+    @cds = Cd.find_tagged_with(@tag)
+  end
 end

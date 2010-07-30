@@ -50,4 +50,9 @@ class DvdController < ApplicationController
     @dvd.save
     render :text => @dvd.tag_list
   end
+  
+  def show_for_tag
+    @tag = params[:id]
+    @dvds = Dvd.find_tagged_with(@tag)
+  end
 end

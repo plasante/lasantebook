@@ -1,8 +1,10 @@
 class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :book
+  belongs_to :cd
+  belongs_to :dvd
 
-  validates_presence_of :body, :title, :user_id, :book_id
+  validates_presence_of :body, :title, :user_id
   
   protected
   

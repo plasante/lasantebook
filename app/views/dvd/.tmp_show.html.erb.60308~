@@ -1,0 +1,22 @@
+<div id="book_view">
+    <div id="book_view_upper">
+        <div id="asset_image">
+            <%= image_tag @dvd.image_url_medium %>  
+        </div>
+        <div id="book_summary">
+            <span class="book_title"><%= @dvd.title %></span>
+            Author: <%= @dvd.author %><br/>
+            <div id="book_details">
+                Release Date: <%= @dvd.release_date %><br/>
+                ISBN: <%= @dvd.isbn %><br/><br/>
+            </div>
+            Users: <%= @dvd.users.size %><br/>
+            Added to DvdShelf on: <%= @dvd.created_at %><br/><br/>
+            <%= link_to "Buy from Amazon", @dvd.amazon_url, :class => "action_button" %><br/><br/>
+        </div>
+    </div>
+    <div id="reviews_content">
+      <%= render :partial => 'dvd_reviews', :locals => { :dvd => @dvd } %>  
+    </div>
+    <div style="clear:both;">&nbsp;</div>
+</div>

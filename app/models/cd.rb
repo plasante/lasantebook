@@ -1,6 +1,7 @@
 class Cd < ActiveRecord::Base
   has_and_belongs_to_many :users
   has_many :reviews
+  
   acts_as_taggable
   acts_as_rateable
   

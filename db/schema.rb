@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(:version => 8) do
     t.integer  "user_id"
     t.integer  "book_id"
     t.integer  "dvd_id"
+    t.integer  "cd_id"
     t.text     "body"
     t.string   "title"
     t.datetime "created_at"
