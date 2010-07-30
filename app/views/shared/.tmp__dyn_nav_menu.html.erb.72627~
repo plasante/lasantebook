@@ -1,0 +1,24 @@
+<div id="dynamic_menu">
+	<div id="left_col" >
+		<div id="books" >
+			<input id="books_btn" style="" class="button" type="button" value="Books" onclick="show_menu(this.value);">
+		</div>
+		<div id="music" >
+			<input id="music_btn" style="" class="button" type="button" value="CDs" onclick="show_menu(this.value);">
+		</div>
+		<div id="dvds" >
+			<input id="dvds_btn" style="" class="button" type="button" value="DVDs" onclick="show_menu(this.value);">
+		</div>
+	</div>
+	<div id="right_col" >
+		<div id="books_menu" style="">
+			<%= render :partial=>"shared/book_nav_menu" %>
+		</div>
+		<div id="music_menu" style="display: none;">
+			<%= render :partial=>"shared/music_nav_menu" %>
+		</div>
+		<div id="dvds_menu" style="display: none;">
+			<%= render :partial=>"shared/dvds_nav_menu" %>
+		</div>
+	</div>
+</div>

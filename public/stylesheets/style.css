@@ -525,6 +525,14 @@ width: 100%;
 	padding: 0;
 }
 
+#dynamic_menu #left_col #home input {
+    height: 100%;
+    margin: 1px;
+    padding: 1px;
+    width: 105%;
+	background-color: #EEEEEE;
+}
+
 #dynamic_menu #left_col #books input {
     height: 100%;
     margin: 1px;

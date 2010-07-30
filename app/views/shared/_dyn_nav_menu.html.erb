@@ -1,5 +1,8 @@
 <div id="dynamic_menu">
 	<div id="left_col" >
+		<div id="home">
+			<input id="home_btn" style="" class="button" type="button" value="Home" onclick="show_menu(this.value);">
+		</div>
 		<div id="books" >
 			<input id="books_btn" style="" class="button" type="button" value="Books" onclick="show_menu(this.value);">
 		</div>
@@ -11,6 +14,9 @@
 		</div>
 	</div>
 	<div id="right_col" >
+		<div id="home_menu" style="">
+
+		</div>
 		<div id="books_menu" style="">
 			<%= render :partial=>"shared/book_nav_menu" %>
 		</div>
